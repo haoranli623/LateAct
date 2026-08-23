@@ -1,0 +1,12 @@
+phase: gate0
+scenes: [0, 1, 2, 3, 4, 5, 6, 7]
+prefix_blocks: 1
+future_blocks: 1
+frames_per_block: 3
+directions:
+  - [mouse_left, mouse_right]
+  - [mouse_right, mouse_left]
+switch_positions: [0, 1, 2, 3]
+same_action_control: null
+save_all_videos: true
+

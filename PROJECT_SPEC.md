@@ -1,0 +1,61 @@
+# Frozen project specification
+
+## Research question
+
+Can a new external action that arrives after denoising of the current block has
+started still be incorporated into that block, without resetting the latent?
+
+For a three-evaluation sampler, define switch position `s` as old action for the
+first `s` denoiser evaluations and new action thereafter. Thus `s=0` is the NEW
+oracle and `s=3` is the OLD oracle. Initial block noise and the two scheduler
+re-noising tensors are explicitly materialized once and reused bit-for-bit.
+
+The primary intervention is universal-mode mouse yaw, in both directions:
+`mouse_left -> mouse_right` and `mouse_right -> mouse_left`. Keyboard action is
+zero and unchanged.
+
+## Frozen execution order
+
+1. Phase -1 static audit.
+2. Engineering smoke: official scenes 0000 and 0001, all switch positions,
+   both directions, and same-action negative control.
+3. Only after the smoke passes, Gate 0: official scenes 0000 through 0007,
+   both directions and all switch positions.
+4. Stop. No training, repair, rollback, or foundation-model changes.
+
+## Primary metric
+
+Signed horizontal camera motion is the sum of robust median horizontal
+Lucas-Kanade feature-track displacement from the final prefix frame through the
+generated block, measured at 320x176. Dense Farneback median horizontal flow is
+a predeclared evaluator-stability check.
+
+For a direction with old score `y_old`, new score `y_new`, and switch score
+`y_s`, the new-action fraction is:
+
+`p_s = (y_s - y_old) / (y_new - y_old)`.
+
+The endpoints must be exact (`p_0=1`, `p_3=0` by construction). Values are not
+clipped, so overshoot and evaluator failures remain visible.
+
+## Frozen Gate 0 verdict rule
+
+A direction is evaluator-valid only if its two oracle videos differ, its oracle
+motion gap exceeds ten times the same-action control range (with a `1e-6`
+floor), at least 20 valid feature tracks contribute per transition in median,
+and the feature-track and dense-flow oracle gaps have the same sign.
+
+- **A. FREE-LATE-BINDING:** at least 12/16 valid direction-scene pairs have
+  `p_2 >= 0.8`, and at least 12/16 are monotone within tolerance 0.10.
+- **B. COMMITMENT-CURVE STRONG GO:** A is false; at least 12/16 are valid and
+  monotone, the median `p_1 - p_2 >= 0.15`, and at least 12/16 have both
+  `p_1` and `p_2` within `[-0.10, 1.10]`.
+- **C. HARD-COMMITMENT CONDITIONAL GO:** A and B are false; at least 12/16 are
+  valid, but at least 12/16 have `p_1 <= 0.2` (the current block is effectively
+  committed after its first evaluation).
+- **D. NO-GO:** endpoint coupling, negative controls, cache isolation, metric
+  stability, or the criteria above fail.
+
+The smoke is engineering-only and cannot change these thresholds or select the
+eight Gate 0 scenes.
+

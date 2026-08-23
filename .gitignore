@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+# Large outputs live outside this repository.
+artifacts/
+checkpoints/
+models/
+*.mp4
+*.pt
+*.safetensors
+
