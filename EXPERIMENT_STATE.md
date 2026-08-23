@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-23
-- Current phase: engineering smoke passed; frozen Gate 0 approved by protocol
+- Current phase: Gate 0 complete; stopped before Gate 1/training/repair
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -33,3 +33,15 @@
 - Peak allocated VRAM: 10,065,501,184 bytes
 - Cache bytes at fork: visual 973,210,080; mouse 648,806,880; keyboard 737,760; cross 47,370,240; total 1,670,124,960
 - Smoke `p1-p2`: mean 0.7153, median 0.7404 (engineering observation only; thresholds remained frozen)
+
+## Gate 0 result
+
+- Artifact directory: `/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate0-20260823`
+- Scope complete: 8/8 frozen scenes, 16/16 direction-scene curves
+- Evaluator-valid: 16/16
+- Monotone: 16/16
+- `p1` median: 0.9971
+- `p2` median: 0.2182
+- paired `p1-p2` median: 0.7740; one-sided Wilcoxon p=1.5259e-5
+- Frozen verdict: **B. COMMITMENT-CURVE STRONG GO**
+- Stop condition honored: no Gate 1, training, rollback, or repair started
