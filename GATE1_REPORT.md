@@ -245,3 +245,9 @@ Machine-readable results and all 80 condition videos/latents:
 - `gate1_shard_1.json`
 - `gate1_qualitative_montage.png`
 
+## Git record
+
+- frozen Gate 1 protocol/implementation commit: `ee7c1d3`
+- substantive Gate 1 result/report commit: `6ab6a4c0911e26c12e0b4af83ff5994a92ff063e`
+
+The final clean documentation-only HEAD is reported in the handoff response.
