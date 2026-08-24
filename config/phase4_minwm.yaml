@@ -1,0 +1,84 @@
+phase: phase4_minwm
+status: protocol_frozen_before_broad_replication
+
+upstream:
+  repository: https://github.com/shengshu-ai/minWM
+  commit: df522a26cd4409d3e3e8f269cc98eac069b5df47
+  backbone: Wan-AI/Wan2.1-T2V-1.3B
+  checkpoint_repo: MIN-Lab/minWM
+  checkpoint_path: Wan21/Action2V/dmd/model.pt
+
+storage:
+  artifacts: /mnt/NAS/data/hl5757/generated_artifacts/lateact/phase4_minwm
+  models: /mnt/NAS/data/hl5757/models/minwm
+  environment: /mnt/NAS/data/hl5757/conda_envs/minwm-wan21
+
+sampler:
+  nfe: 4
+  configured_steps: [1000, 750, 500, 250]
+  timestep_shift: 5.0
+  num_frames: 20
+  num_frames_per_block: 4
+  resolution: [480, 832]
+  dtype: bfloat16
+  stochastic_coupling: initial_noise_and_three_renoise_tensors
+
+control:
+  axis: native_lateral_camera_translation
+  negative: a
+  positive: d
+  trajectory_steps: 19
+  old_new_directions: [a_to_d, d_to_a]
+  intrinsics: [0.5, 0.5, 0.5, 0.5]
+
+replication:
+  scenes: 8
+  scene_source: first_eight_official_demo_prompts
+  seeds: [41000, 41001, 41002, 41003, 41004, 41005, 41006, 41007]
+  switch_positions: [0, 1, 2, 3, 4]
+  same_action_control_scenes: [0, 1]
+  same_action_control: a_to_a
+
+evaluator:
+  primary: accumulated_robust_affine_horizontal_translation
+  description: >-
+    Sum the x translation at image center from robust partial-affine fits between
+    consecutive decoded frames, using forward/backward-consistent Lucas-Kanade
+    tracks at 416x240. Positive means rightward image motion.
+  independent_check: forward_backward_lk_median_horizontal_translation
+  min_tracks_per_transition: 20
+  response: (switch_minus_old)/(new_minus_old)
+  clipping: false
+
+validity:
+  oracle_videos_must_differ: true
+  min_oracle_gap_pixels: 8.0
+  evaluator_sign_agreement: true
+  same_action_floor_multiplier: 10.0
+  visual_check: finite_nonconstant_decoded_video_and_manual_contact_sheet_review
+
+phase4b_pass:
+  min_valid_direction_scene_pairs: 12
+  min_monotone_pairs: 12
+  monotonic_tolerance: 0.10
+  min_bounded_pairs: 12
+  bounded_range: [-0.10, 1.10]
+  min_median_adjacent_drop: 0.15
+  min_directions_each_orientation: 6
+
+rollback:
+  enabled_only_if_phase4b_passes: true
+  arrival_rule: >-
+    Select the latest switch boundary whose cross-pair median response is at
+    least 0.80 and whose immediately later switch has median response at most
+    0.65, with an adjacent median drop of at least 0.15. If several qualify,
+    choose the latest. If none qualify, Phase 4B does not authorize rollback.
+  checkpoint: exact_entering_latent_plus_visual_and_prope_cache_state_and_indices
+  direct: continue_from_post_commitment_state_under_new_action
+  minimal: restore_latest_pre_commitment_boundary_then_recompute_new_suffix
+  restart: restore_initial_block_state_then_run_all_four_new_action_nfes
+  success:
+    improved_pairs_fraction: 0.75
+    median_gain_over_direct: 0.20
+    median_distance_to_restart: 0.15
+    strictly_fewer_recomputed_nfes_than_restart: true

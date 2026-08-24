@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-24
-- Current phase: Phase 3 complete; project stopped for review
+- Current phase: Phase 4 independent-model replication complete; project stopped
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -182,3 +182,42 @@
   reproduces
 - Paper recommendation: retain mouse-only main claim
 - Training, second-model replication, and new methods: not started
+
+## Phase 4 minWM frozen design
+
+- Independent substrate: official minWM Wan2.1 Action2V four-step DMD
+- Upstream commit: `df522a26cd4409d3e3e8f269cc98eac069b5df47`
+- Backbone revision: `37ec512624d61f7aa208f7ea8140a131f93afc9a`
+- DMD checkpoint revision: `21bd74da43b5a061c0b8ff277515088ccd2c798b`
+- Native action pair: lateral camera `a` / `d`
+- Eight frozen official prompts, seeds 41000-41007
+- Shared 16-latent identity-camera prefix; final four-latent block branched
+- Switch positions: old action for 0/1/2/3/4 of four NFEs
+- Exactly materialized initial noise and three re-noising tensors per block
+- Primary metric: frozen 416x240 robust partial-affine center displacement
+- Rollback authorized only after a positive Phase 4B curve gate
+
+## Phase 4 minWM frozen result
+
+- Static intervention substrate: PASS
+- Official feasibility inference: PASS on one RTX 3090
+- Effective NFE timesteps: `1000.0 / 937.5 / 833.3333 / 625.0`
+- Exact noise/action/state audits: PASS on 8/8 scenes
+- Same-action latent repeatability: bit-exact on both control scenes
+- Visual validity: 16/16 directional curves
+- Oracle sign agreement: 16/16
+- Frozen >=8-pixel oracle-separation validity: 6/16 pairs
+- Valid-pair median response for switch positions 0/1/2/3/4:
+  `1.0000 / 0.0434 / 0.0028 / 0.0007 / 0.0000`
+- All-pair descriptive median response:
+  `1.0000 / 0.0434 / 0.0043 / 0.0007 / 0.0000`
+- Raw monotonic curves: 16/16; paired median first-step drop: 0.9566
+- Frozen Phase 4B requirement: FAIL (needs at least 12/16 valid)
+- Phase 4C rollback: not authorized and not run
+- Peak PyTorch GPU allocation: 19,340,754,432 bytes (18.01 GiB)
+- Mean four-NFE branch generation: 6.160 s; mean decode: 7.417 s
+- Frozen verdict: **C. NO COMMITMENT REPLICATION**
+- Interpretation: highly suggestive hard first-NFE raw curve, but insufficient
+  frozen oracle-valid coverage for a cross-model claim
+- Training, rollback, weight edits, Hunyuan, ForgeWM, and additional substrates:
+  not started
