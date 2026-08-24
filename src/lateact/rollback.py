@@ -35,6 +35,21 @@ class BoundaryCheckpoint:
     step_entering: int
 
 
+@dataclass
+class LogicalBoundaryCheckpoint:
+    """Minimum practical exact state: latent plus defensive cache indices."""
+
+    entering_latent: torch.Tensor
+    visual_indices: list[tuple[int, int]]
+    mouse_indices: list[tuple[int, int]]
+    keyboard_indices: list[tuple[int, int]]
+    cross_hash: str
+    scheduler_hash: str
+    cpu_rng_hash: str
+    cuda_rng_hash: str
+    step_entering: int
+
+
 def rng_hashes(device: torch.device) -> dict[str, str]:
     return {
         "cpu": tensor_sha256(torch.get_rng_state()),
@@ -211,6 +226,95 @@ def checkpoint_hashes(checkpoint: BoundaryCheckpoint) -> dict[str, Any]:
         "visual_current_slices": slice_hashes(checkpoint.visual),
         "mouse_current_slices": slice_hashes(checkpoint.mouse),
         "keyboard_current_slices": slice_hashes(checkpoint.keyboard),
+        "cross": checkpoint.cross_hash,
+        "scheduler": checkpoint.scheduler_hash,
+        "cpu_rng": checkpoint.cpu_rng_hash,
+        "cuda_rng": checkpoint.cuda_rng_hash,
+    }
+
+
+def capture_logical_boundary(
+    pipeline,
+    *,
+    entering_latent: torch.Tensor,
+    history_guard: dict[str, Any],
+    step_entering: int,
+) -> LogicalBoundaryCheckpoint:
+    """Capture no K/V payload: the next NFE overwrites every current slice."""
+    assert_history_guard(pipeline, history_guard)
+    device = entering_latent.device
+    hashes = rng_hashes(device)
+
+    def indices(caches: list[dict]) -> list[tuple[int, int]]:
+        return [
+            (int(cache["global_end_index"].item()), int(cache["local_end_index"].item()))
+            for cache in caches
+        ]
+
+    return LogicalBoundaryCheckpoint(
+        entering_latent=entering_latent.clone(),
+        visual_indices=indices(pipeline.kv_cache1),
+        mouse_indices=indices(pipeline.kv_cache_mouse),
+        keyboard_indices=indices(pipeline.kv_cache_keyboard),
+        cross_hash=tree_sha256(pipeline.crossattn_cache),
+        scheduler_hash=scheduler_hash(pipeline),
+        cpu_rng_hash=hashes["cpu"],
+        cuda_rng_hash=hashes["cuda"],
+        step_entering=step_entering,
+    )
+
+
+def restore_logical_boundary(
+    pipeline,
+    checkpoint: LogicalBoundaryCheckpoint,
+    history_guard: dict[str, Any],
+    *,
+    verify: bool = True,
+) -> torch.Tensor:
+    if verify:
+        assert_history_guard(pipeline, history_guard)
+        if tree_sha256(pipeline.crossattn_cache) != checkpoint.cross_hash:
+            raise RuntimeError("cross-attention state changed before logical rollback")
+        if scheduler_hash(pipeline) != checkpoint.scheduler_hash:
+            raise RuntimeError("scheduler state changed before logical rollback")
+
+    for caches, values in (
+        (pipeline.kv_cache1, checkpoint.visual_indices),
+        (pipeline.kv_cache_mouse, checkpoint.mouse_indices),
+        (pipeline.kv_cache_keyboard, checkpoint.keyboard_indices),
+    ):
+        for cache, (global_end, local_end) in zip(caches, values):
+            cache["global_end_index"].fill_(global_end)
+            cache["local_end_index"].fill_(local_end)
+    if verify:
+        assert_history_guard(pipeline, history_guard)
+    return checkpoint.entering_latent.clone()
+
+
+def logical_checkpoint_nbytes(checkpoint: LogicalBoundaryCheckpoint) -> dict[str, int]:
+    latent = checkpoint.entering_latent.numel() * checkpoint.entering_latent.element_size()
+    index_metadata = sum(
+        len(values) * 2 * 8
+        for values in (
+            checkpoint.visual_indices,
+            checkpoint.mouse_indices,
+            checkpoint.keyboard_indices,
+        )
+    )
+    return {
+        "entering_latent": latent,
+        "index_metadata": index_metadata,
+        "total": latent + index_metadata,
+        "mathematical_minimum_latent_plus_step": latent + 8,
+    }
+
+
+def logical_checkpoint_hashes(checkpoint: LogicalBoundaryCheckpoint) -> dict[str, Any]:
+    return {
+        "entering_latent": tensor_sha256(checkpoint.entering_latent),
+        "visual_indices": hashlib.sha256(repr(checkpoint.visual_indices).encode()).hexdigest(),
+        "mouse_indices": hashlib.sha256(repr(checkpoint.mouse_indices).encode()).hexdigest(),
+        "keyboard_indices": hashlib.sha256(repr(checkpoint.keyboard_indices).encode()).hexdigest(),
         "cross": checkpoint.cross_hash,
         "scheduler": checkpoint.scheduler_hash,
         "cpu_rng": checkpoint.cpu_rng_hash,

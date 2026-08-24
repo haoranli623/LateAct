@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-23
-- Current phase: Gate 1 complete; stopped before Gate 2/training
+- Current phase: Gate 2 protocol frozen; primary runtime evaluation pending
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -76,3 +76,16 @@
 - Frozen verdict: **A. MINIMAL-ROLLBACK STRONG GO**
 - Gate 2 proposal written but not executed
 - No training or foundation-model edits performed
+
+## Gate 2 frozen design
+
+- Primary: 32 fresh contexts from images 0008-0015 × four prefix variants
+- Primary directions: mouse-left/right and reverse
+- Arrivals: 16 stratified-uniform wall times per direction over three OLD NFEs
+- Policies: NEXT-BLOCK, DIRECT-LATE-BIND, FULL-RESTART, LATEACT
+- Boundary: direct after NFE1; rollback to after-NFE1 state after NFE2/NFE3
+- Action-to-pixel latency includes context write and VAE decode
+- Gate 1 checkpoint reference: 649,330,080 bytes
+- Gate 2 exact checkpoint candidate: entering latent plus defensive indices
+- Secondary, only after positive primary: 8 contexts, keyboard left/right
+- No training, weight changes, lossy state compression, or boundary refitting

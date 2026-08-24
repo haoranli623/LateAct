@@ -1,0 +1,45 @@
+phase: gate2
+project_claim: Commitment-Aware Asynchronous Control for Interactive Video World Models
+primary:
+  action_family: mouse_yaw
+  source_images: [8, 9, 10, 11, 12, 13, 14, 15]
+  prefix_variants_per_image: 4
+  scene_count: 32
+  directions:
+    - [mouse_left, mouse_right]
+    - [mouse_right, mouse_left]
+secondary:
+  run_only_if_primary_positive: true
+  action_family: keyboard_strafe
+  source_images: [8, 9, 10, 11, 12, 13, 14, 15]
+  prefix_variants_per_image: 1
+  scene_count: 8
+  directions:
+    - [keyboard_left, keyboard_right]
+    - [keyboard_right, keyboard_left]
+arrival:
+  distribution: stratified_uniform_over_three_nfe_wall_interval
+  samples_per_direction_primary: 16
+  samples_per_direction_secondary: 8
+  seed: 20260824
+  intervention_boundary: next_completed_nfe
+  context_write_and_decode_excluded_from_arrival_support: true
+  context_write_and_decode_included_in_action_to_pixel_latency: true
+commitment_boundary:
+  early_after_completed_nfe: 1
+  late_after_completed_nfe: [2, 3]
+quality:
+  lateact_median_future_ssim_vs_new_minimum: 0.90
+  maximum_temporal_consistency_deficit: 0.05
+  minimum_temporal_pass_fraction: 0.90
+success:
+  overall_median_response_minimum: 0.90
+  late_within_0_10_restart_fraction_minimum: 0.90
+  materially_lower_late_latency_absolute_seconds: 0.20
+  materially_lower_late_latency_fraction: 0.10
+  minimum_valid_direction_fraction: 0.90
+checkpoint:
+  gate1_current_bytes: 649330080
+  gate2_exact_representation: entering_latent_plus_cache_indices
+  lossy_compression: false
+

@@ -112,6 +112,10 @@ def make_condition(
         mouse[:, branch_start_raw:, 1] = -0.1
     elif action == "mouse_right":
         mouse[:, branch_start_raw:, 1] = 0.1
+    elif action == "keyboard_left":
+        keyboard[:, branch_start_raw:, 2] = 1
+    elif action == "keyboard_right":
+        keyboard[:, branch_start_raw:, 3] = 1
     elif action != "neutral":
         raise ValueError(action)
     return {
@@ -120,6 +124,36 @@ def make_condition(
         "keyboard_cond": keyboard,
         "mouse_cond": mouse,
     }
+
+
+def make_transition_condition(
+    fixed: dict,
+    *,
+    raw_frames: int,
+    first_start_raw: int,
+    second_start_raw: int,
+    first_action: str,
+    second_action: str,
+    device,
+) -> dict:
+    """Condition with one action for the current block and another for the next."""
+    result = make_condition(
+        fixed,
+        raw_frames=raw_frames,
+        branch_start_raw=first_start_raw,
+        action=first_action,
+        device=device,
+    )
+    replacement = make_condition(
+        fixed,
+        raw_frames=raw_frames,
+        branch_start_raw=second_start_raw,
+        action=second_action,
+        device=device,
+    )
+    result["mouse_cond"][:, second_start_raw:] = replacement["mouse_cond"][:, second_start_raw:]
+    result["keyboard_cond"][:, second_start_raw:] = replacement["keyboard_cond"][:, second_start_raw:]
+    return result
 
 
 def condition_hashes(condition: dict) -> dict[str, str]:
@@ -195,4 +229,3 @@ def signed_camera_motion(frames: np.ndarray, prefix_frames: int) -> dict:
         "track_counts": track_counts,
         "median_track_count": float(np.median(track_counts)) if track_counts else 0.0,
     }
-

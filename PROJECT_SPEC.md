@@ -84,3 +84,35 @@ generated full-restart/NEW trajectory.
 If strong GO passes, work stops after proposing—not running—a Gate 2 serving
 policy.
 
+## Frozen Gate 2 protocol
+
+The project claim is now **Commitment-Aware Asynchronous Control for Interactive
+Video World Models**. Gate 2 compares NEXT-BLOCK, DIRECT-LATE-BIND,
+FULL-RESTART, and LATEACT without training.
+
+Primary evaluation uses 32 fresh rollout contexts: official universal source
+images 0008-0015, each with four fixed prefix-noise variants. Both mouse-yaw
+directions are retained. These contexts are fixed before execution; invalid
+ones are reported rather than replaced. Secondary keyboard strafe transfer uses
+one variant of the same eight fresh source images only if primary Gate 2 is
+positive.
+
+Each direction receives 16 deterministic stratified-uniform arrival times over
+the measured three-NFE OLD block interval (8 for secondary transfer). An arrival
+is actionable at the next completed NFE boundary. Context write and VAE decode
+are excluded from arrival support but included in action-to-pixel latency.
+Arrivals during NFE1 bind at NFE2; arrivals during NFE2 bind at NFE3; arrivals
+during NFE3 have no remaining current-block evaluation for DIRECT.
+
+LATEACT binds directly after NFE1 and restores the after-NFE1 boundary for
+arrivals after NFE2 or NFE3. The Gate 0/1 boundary is not refit. Success and
+quality thresholds are frozen in `config/gate2.yaml`.
+
+Gate 2 also validates an exact checkpoint optimization. Gate 1 stored the
+entering-NFE2 latent and all current-block K/V slices. Static tracing shows that
+NFE2 overwrites every current-block visual and action K/V slice before reading
+it, while the immutable prefix and cross state are shared. Gate 2 therefore
+stores the entering latent plus defensive cache indices, with no lossy
+compression. Every optimized rollback must exactly match an independently
+generated OLD-NFE1/NEW-NFE2-NFE3 trajectory.
+
