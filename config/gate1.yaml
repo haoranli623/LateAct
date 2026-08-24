@@ -1,0 +1,20 @@
+phase: gate1
+scenes: [0, 1, 2, 3, 4, 5, 6, 7]
+directions:
+  - [mouse_left, mouse_right]
+  - [mouse_right, mouse_left]
+arrival_after_nfe: 2
+rollback_boundary_after_nfe: 1
+same_action_control_scenes: [0, 1]
+same_action_control: mouse_left
+primary_metric: frozen_gate0_lk_signed_sum
+quality:
+  median_future_ssim_vs_new_minimum: 0.90
+  maximum_temporal_consistency_deficit: 0.05
+  minimum_pairs_without_temporal_deficit: 14
+strong_go:
+  median_response_minimum: 0.90
+  minimum_improved_pairs: 14
+  maximum_full_restart_response_gap: 0.10
+  minimum_near_restart_pairs: 14
+

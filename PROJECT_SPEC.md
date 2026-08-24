@@ -59,3 +59,28 @@ and the feature-track and dense-flow oracle gaps have the same sign.
 The smoke is engineering-only and cannot change these thresholds or select the
 eight Gate 0 scenes.
 
+## Frozen Gate 1 protocol
+
+Gate 0 is immutable at **B. COMMITMENT-CURVE STRONG GO**. Gate 1 tests arrival
+after two OLD NFEs. Minimal rollback restores the exact boundary state entering
+NFE2 (the re-noised latent plus current-block cache slices after OLD NFE1), then
+executes NFE2 and NFE3 under NEW. Direct continuation executes only NFE3 under
+NEW. Full restart resets to the original initial noisy latent and prefix-cache
+indices and executes all three NFEs under NEW.
+
+All eight Gate 0 scenes, both yaw directions, seeds, evaluator, and actions are
+unchanged. The frozen strong-GO thresholds are those in `config/gate1.yaml` and
+the user-approved Gate 1 specification. “No systematic visual/temporal
+corruption” is operationalized before execution as: median future-frame SSIM
+against NEW oracle at least 0.90, and temporal-consistency SSIM no more than
+0.05 below NEW on at least 14/16 pairs. These are secondary safeguards and do
+not replace the frozen signed-yaw response metric.
+
+The early-arrival control requires no extra condition: Gate 1 minimal rollback
+from the after-NFE1 checkpoint is exactly the zero-rollback direct trajectory
+for an action arriving after NFE1. Its benefit is compared with the already
+generated full-restart/NEW trajectory.
+
+If strong GO passes, work stops after proposing—not running—a Gate 2 serving
+policy.
+

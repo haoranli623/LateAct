@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-23
-- Current phase: Gate 0 complete; stopped before Gate 1/training/repair
+- Current phase: Gate 1 protocol frozen; implementation pending
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -45,3 +45,15 @@
 - paired `p1-p2` median: 0.7740; one-sided Wilcoxon p=1.5259e-5
 - Frozen verdict: **B. COMMITMENT-CURVE STRONG GO**
 - Stop condition honored: no Gate 1, training, rollback, or repair started
+
+## Gate 1 frozen design
+
+- Primary arrival: after two OLD NFEs
+- Minimal checkpoint: state entering NFE2 after OLD NFE1
+- Minimal suffix: NEW NFE2 + NEW NFE3; NFE1 is not recomputed
+- Direct suffix: NEW NFE3 only
+- Full restart: NEW NFE1 + NEW NFE2 + NEW NFE3
+- Same scenes/actions/seeds/evaluator as Gate 0
+- Same-action controls: scenes 0000 and 0001, mouse-left
+- Quality safeguards frozen in `config/gate1.yaml`
+- No training or foundation-model edits authorized
