@@ -260,4 +260,7 @@ validation or universal minimal rollback from Phase 4.
 - Videos/latents/montage:
   `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase4_minwm/`
 
-Final LateAct git commit is recorded after this report is committed.
+Phase 4 scientific result commit: `d4b3e8e` (`freeze Phase 4 minWM
+replication`).  The final documentation handoff is repository `HEAD`; its exact
+hash is included in the completion message because a commit cannot contain its
+own hash.
