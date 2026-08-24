@@ -127,9 +127,10 @@ audits passed. The exact optimized checkpoint is 339,360 bytes versus the Gate
 
 The predeclared keyboard secondary did not transfer: median response was
 0.7635, only 30.6% of late cases were within 0.10 of restart, and quality failed.
-The project result is therefore strong for mouse-yaw but demonstrates that the
-commitment boundary is action-dependent. No training or new method follows
-automatically from this result.
+At the Gate 2 stage this motivated the action-dependent-boundary hypothesis.
+Phase 3 subsequently rejects that interpretation while preserving these frozen
+measurements: the response failure was evaluator mismatch and the quality
+failure reproduced. No training or new method follows automatically.
 
 ## Frozen Phase 3 protocol
 
@@ -171,3 +172,17 @@ quality checks, and thresholds are frozen in `config/phase3b.yaml`. A positive
 confirmation supports a shared boundary for these two action families and
 diagnoses the Gate 2 keyboard negative as evaluator mismatch; it does not
 support the proposed action-dependent-boundary claim.
+
+## Frozen Phase 3 final outcome
+
+Phase 3B confirmed keyboard response recovery but failed its frozen quality
+safeguard. On 24 disjoint contexts and 48 valid directions, both equal-boundary
+LateAct policies were bit-exact, had median response 1.0188, brought all 512
+late arrivals within 0.10 of restart, and saved median 0.3105 s. Median future
+SSIM to NEW was only 0.6726 against the frozen 0.90 threshold, although temporal
+quality passed 48/48 and videos remained coherent.
+
+The action-dependent-boundary hypothesis is rejected for these data: mouse yaw
+and keyboard A/D share the after-NFE1 boundary. The correct keyboard metric
+repairs the Gate 2 response diagnosis but not its quality failure. The main
+claim remains mouse-only, and the project stops without training or new method.

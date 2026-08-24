@@ -1,8 +1,8 @@
 # Experiment state
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
-- Date: 2026-08-23
-- Current phase: Phase 3B protocol frozen; confirmation pending
+- Date: 2026-08-24
+- Current phase: Phase 3 complete; project stopped for review
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -162,3 +162,23 @@
 - Strong action-dependent-boundary support is impossible under frozen Phase 3A
   B; Phase 3B tests same-boundary reproduction and the Gate 2 evaluator diagnosis
 - No training or new method authorized
+
+## Phase 3B frozen result and final Phase 3 decision
+
+- Artifact directory:
+  `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/confirmation`
+- Scope: 24/24 fresh stochastic contexts, 48/48 valid directions, 768 arrivals
+- Mouse-boundary and action-specific LateAct: bit-exact 768/768; response
+  difference exactly 0 because both frozen boundaries are after NFE1
+- LateAct response: mean 1.0207, median 1.0188
+- Late within 0.10 of restart: 512/512; fewer redone NFEs: 512/512
+- Late latency saved: median 0.3105 s; mean fraction 12.00%
+- Early zero rollback: 256/256
+- Temporal quality: PASS 48/48
+- Pixel-fidelity quality: FAIL (median future SSIM 0.6726 < 0.90)
+- Phase 3B verdict: **CONFIRMATION FAILED**
+- Action-dependent commitment supported: NO; keyboard and mouse boundaries same
+- Gate 2 keyboard response failure: evaluator mismatch; Gate 2 quality failure
+  reproduces
+- Paper recommendation: retain mouse-only main claim
+- Training, second-model replication, and new methods: not started

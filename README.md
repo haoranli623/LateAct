@@ -19,7 +19,13 @@ The project uses the existing Matrix-Game 2.0 installation read-only:
 See `STATIC_AUDIT.md`, `GATE0_REPORT.md`, `GATE1_REPORT.md`, and
 `GATE2_REPORT.md` for the frozen gates. Gate 2 is a **STRONG PROJECT RESULT**
 for mouse-yaw asynchronous control: exact commitment-aware rollback reaches
-restart-level response with lower latency and recomputation. The small keyboard
-secondary does not transfer cleanly, so the measured commitment boundary is
-action-dependent. The project is stopped after Gate 2; no training or repair
-has begun.
+restart-level response with lower latency and recomputation. Its small keyboard
+secondary did not transfer cleanly under the then-used evaluator; Phase 3 below
+resolves that mechanism without changing the frozen Gate 2 measurements.
+
+Phase 3 is reported in `PHASE3_REPORT.md`. Keyboard A/D has the **same** clean
+after-NFE1 commitment boundary as mouse yaw, so the proposed action-dependent
+boundary hypothesis is not supported. A fresh confirmation recovers keyboard
+response and serving efficiency with the correct lateral-motion evaluator, but
+fails the frozen pixel-fidelity safeguard. The main claim therefore remains
+mouse-only, and work stops without training or second-model replication.
