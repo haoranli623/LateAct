@@ -242,4 +242,4 @@ rollback. Scope the claim explicitly to measured action families and treat
 commitment calibration as action-dependent. Do not begin repair, training, or
 a learned allocation/commitment policy without separate review.
 
-Result commit: pending.
+Result commit: `c1e6f53` (`Record Gate 2 asynchronous serving result`).
