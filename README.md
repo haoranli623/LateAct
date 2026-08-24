@@ -16,6 +16,6 @@ The project uses the existing Matrix-Game 2.0 installation read-only:
 - environment: `/mnt/NAS/data/hl5757/conda_envs/branch-safe-kv`
 - generated artifacts: `/mnt/NAS/data/hl5757/generated_artifacts/lateact`
 
-See `STATIC_AUDIT.md` for the Phase -1 gate and `GATE0_REPORT.md` for executed
-results and the final A/B/C/D verdict.
-
+See `STATIC_AUDIT.md`, `GATE0_REPORT.md`, and `GATE1_REPORT.md` for the frozen
+gates. Gate 1 concludes **A. MINIMAL-ROLLBACK STRONG GO** and stops before the
+proposed asynchronous serving-policy Gate 2.

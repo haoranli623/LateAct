@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-23
-- Current phase: Gate 1 protocol frozen; implementation pending
+- Current phase: Gate 1 complete; stopped before Gate 2/training
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -57,3 +57,22 @@
 - Same-action controls: scenes 0000 and 0001, mouse-left
 - Quality safeguards frozen in `config/gate1.yaml`
 - No training or foundation-model edits authorized
+
+## Gate 1 result
+
+- Artifact directory: `/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate1`
+- Scope: 8/8 scenes, both directions, 16/16 paired conditions
+- State/leakage/Gate 0 reproduction audits: PASS 16/16
+- Same-action rollback controls: exact on scenes 0000 and 0001
+- Direct response median: 0.2182
+- Minimal-rollback response median: 0.9971
+- Full-restart response median: 1.0000
+- Improved vs direct: 16/16
+- Within 0.10 of full restart: 16/16
+- Quality safeguard: PASS (median SSIM 0.9026; temporal 16/16)
+- Mean post-arrival latency: direct 0.5856 s; minimal 0.8821 s; full 1.1835 s
+- Checkpoint: 649,330,080 bytes; restore mean 2.57 ms
+- Peak allocated VRAM: 10,733,220,864 bytes
+- Frozen verdict: **A. MINIMAL-ROLLBACK STRONG GO**
+- Gate 2 proposal written but not executed
+- No training or foundation-model edits performed
