@@ -116,3 +116,17 @@ stores the entering latent plus defensive cache indices, with no lossy
 compression. Every optimized rollback must exactly match an independently
 generated OLD-NFE1/NEW-NFE2-NFE3 trajectory.
 
+## Frozen Gate 2 outcome
+
+The 32-context mouse-yaw primary passed every frozen success condition. LATEACT
+had median response 0.9999; all 676 late arrivals were within 0.10 of restart,
+used fewer redone NFEs, and saved median 0.3069 s. All 348 early arrivals used
+bit-exact direct binding with zero rollback. The visual/temporal and exact-state
+audits passed. The exact optimized checkpoint is 339,360 bytes versus the Gate
+1 implementation's 649,330,080 bytes.
+
+The predeclared keyboard secondary did not transfer: median response was
+0.7635, only 30.6% of late cases were within 0.10 of restart, and quality failed.
+The project result is therefore strong for mouse-yaw but demonstrates that the
+commitment boundary is action-dependent. No training or new method follows
+automatically from this result.

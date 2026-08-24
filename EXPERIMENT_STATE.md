@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-23
-- Current phase: Gate 2 protocol frozen; primary runtime evaluation pending
+- Current phase: Gate 2 complete; project stopped for review
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -74,7 +74,7 @@
 - Checkpoint: 649,330,080 bytes; restore mean 2.57 ms
 - Peak allocated VRAM: 10,733,220,864 bytes
 - Frozen verdict: **A. MINIMAL-ROLLBACK STRONG GO**
-- Gate 2 proposal written but not executed
+- Gate 2 proposal was subsequently approved and executed as recorded below
 - No training or foundation-model edits performed
 
 ## Gate 2 frozen design
@@ -89,3 +89,23 @@
 - Gate 2 exact checkpoint candidate: entering latent plus defensive indices
 - Secondary, only after positive primary: 8 contexts, keyboard left/right
 - No training, weight changes, lossy state compression, or boundary refitting
+
+## Gate 2 result
+
+- Artifact directory: `/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate2`
+- Primary scope: 32/32 fresh contexts, 64/64 valid mouse-yaw directions,
+  1,024 paired arrivals
+- Primary LATEACT response: mean 0.9995, median 0.9999
+- Late within 0.10 of FULL-RESTART: 676/676
+- Late latency saved: median 0.3069 s; mean fraction 11.93%
+- Late fewer redone NFEs: 676/676
+- Early direct-bind/zero-rollback exact: 348/348
+- Primary quality safeguard: PASS (median future SSIM 0.9223; temporal 64/64)
+- Exact optimized checkpoint: 339,360 bytes; logical minimum 337,928 bytes
+- Gate 1 checkpoint reference: 649,330,080 bytes
+- Peak allocated VRAM: 9,565,199,360 bytes; host checkpoint: 0 bytes
+- Primary verdict: **STRONG PROJECT RESULT**
+- Secondary keyboard transfer: negative/action-dependent (median response
+  0.7635; late within 0.10 of restart 30.6%; quality FAIL)
+- Final scope: strong mouse-yaw result; no action-agnostic transfer claim
+- Training, weight edits, repair, and additional methods: not started
