@@ -154,3 +154,20 @@ least 0.80, and at least 80% individual response at least 0.80; the following
 switch must have median at most 0.75, median drop at least 0.15, and at least
 75% of individual curves must bracket the boundary. Phase 3B is forbidden
 unless Phase 3A returns A or B.
+
+## Frozen Phase 3A outcome and Phase 3B confirmation
+
+Phase 3A returned **B. SAME BOUNDARY**. Across 20/20 valid keyboard directions,
+median response retention for switch positions 0/1/2/3 was
+`1.0000/0.9957/0.1240/0.0000`. The latest safe switch is after NFE1, identical
+to mouse; the following median collapses by 0.8717 and all 20 individual curves
+bracket the frozen boundary. Quality and exact-state audits passed.
+
+Phase 3B therefore cannot establish a different keyboard boundary. Its purpose
+is to confirm on 24 disjoint stochastic contexts that the mouse-boundary and
+action-specific policies are bit-exact, and to test keyboard serving with the
+proper lateral-translation evaluator. The five policies, arrival distribution,
+quality checks, and thresholds are frozen in `config/phase3b.yaml`. A positive
+confirmation supports a shared boundary for these two action families and
+diagnoses the Gate 2 keyboard negative as evaluator mismatch; it does not
+support the proposed action-dependent-boundary claim.

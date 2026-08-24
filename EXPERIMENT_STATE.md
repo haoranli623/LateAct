@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-23
-- Current phase: Phase 3A protocol frozen; calibration pending
+- Current phase: Phase 3B protocol frozen; confirmation pending
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -129,3 +129,36 @@
 - Phase 3B permitted only for Phase 3A verdict A or B
 - No training, weight edit, learned boundary, adaptive per-scene rule, or action
   expansion authorized
+
+## Phase 3A frozen result
+
+- Artifact directory:
+  `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/calibration`
+- Scope: 10/10 fresh stochastic contexts, 20/20 evaluator-valid directions
+- State/noise/condition audits: PASS 10/10 contexts and 60/60 runs
+- Median keyboard response after 0/1/2/3 OLD NFEs:
+  `1.0000 / 0.9957 / 0.1240 / 0.0000`
+- Bootstrap median 95% CI after one OLD NFE: `[0.9827, 1.0203]`
+- Bootstrap median 95% CI after two OLD NFEs: `[0.0401, 0.1711]`
+- Monotone fraction: 19/20; bounded fraction: 19/20; quality: 40/40
+  switch-direction cases
+- Frozen boundary audit: latest safe switch after NFE1; next median 0.1240;
+  median drop 0.8717; individual bracketing 20/20
+- Mouse latest safe switch: after NFE1
+- Phase 3A verdict: **B. SAME BOUNDARY**
+
+## Phase 3B frozen design
+
+- Confirmation: 24 fresh stochastic contexts from official image `0016`,
+  variants 10-33, disjoint from calibration
+- Prefix/current/next seed bases: 140000 / 150000 / 160000
+- Both keyboard A/D directions; 16 frozen continuous arrivals per direction
+- Policies: NEXT-BLOCK, DIRECT-LATE-BIND, FULL-RESTART,
+  MOUSE-BOUNDARY LATEACT, ACTION-SPECIFIC LATEACT
+- Mouse and keyboard boundaries are both after NFE1, so the last two policies
+  are required to be bit-exact
+- Primary evaluator: frozen robust affine lateral translation
+- Exact criteria: `config/phase3b.yaml`
+- Strong action-dependent-boundary support is impossible under frozen Phase 3A
+  B; Phase 3B tests same-boundary reproduction and the Gate 2 evaluator diagnosis
+- No training or new method authorized

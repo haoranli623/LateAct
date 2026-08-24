@@ -1,0 +1,49 @@
+phase: phase3b_same_boundary_confirmation
+prerequisite:
+  phase3a_verdict: B
+  keyboard_latest_safe_switch_after_nfe: 1
+  mouse_latest_safe_switch_after_nfe: 1
+confirmation:
+  official_mode: universal
+  image_index: 16
+  limitation: one_official_source_image_with_disjoint_stochastic_contexts
+  prefix_variants: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+  context_count: 24
+  prefix_seed_base: 140000
+  current_seed_base: 150000
+  next_seed_base: 160000
+  directions:
+    - [keyboard_left, keyboard_right]
+    - [keyboard_right, keyboard_left]
+arrival:
+  count_per_direction: 16
+  distribution: stratified_uniform_over_measured_three_nfe_wall_interval
+  seed: 20260825
+  intervention: next_completed_nfe_boundary
+policies:
+  - next_block
+  - direct_late_bind
+  - full_restart
+  - mouse_boundary_lateact
+  - action_specific_lateact
+evaluator:
+  inherit: config/phase3a.yaml
+  oracle_gap_minimum_pixels: 2.0
+  median_inlier_count_minimum: 20
+success:
+  valid_direction_fraction_minimum: 0.90
+  action_specific_median_response_minimum: 0.90
+  late_within_0_10_restart_fraction_minimum: 0.90
+  late_latency_saved_absolute_seconds_minimum: 0.20
+  late_latency_saved_fraction_minimum: 0.10
+  quality_future_ssim_median_minimum: 0.90
+  quality_temporal_deficit_maximum: 0.05
+  quality_temporal_pass_fraction_minimum: 0.90
+action_dependent_support:
+  require_different_boundary: true
+  median_response_improvement_over_mouse_boundary_minimum: 0.15
+  fraction_improving_by_at_least_0_10_minimum: 0.75
+same_boundary_confirmation:
+  require_policy_bit_exact: true
+  require_action_specific_success: true
+training: false

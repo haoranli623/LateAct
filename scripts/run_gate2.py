@@ -213,6 +213,11 @@ def run_direction(
     globals_: dict,
     arrivals: list[float],
     device,
+    motion_fn=signed_camera_motion,
+    motion_value_key: str = "lk_signed_sum",
+    stability_value_key: str = "dense_signed_sum",
+    support_key: str = "median_track_count",
+    minimum_oracle_gap: float = 1e-6,
 ) -> tuple[dict, dict[str, torch.Tensor], dict[str, np.ndarray]]:
     initial = current_noise.initial.to(device=device, dtype=torch.bfloat16)
     scheduler_before = scheduler_hash(pipeline)
@@ -340,25 +345,25 @@ def run_direction(
     prefix_frames, next_prefix_frames = 9, 21
     current_metrics = {
         name: {
-            "motion": signed_camera_motion(frames[name], prefix_frames),
+            "motion": motion_fn(frames[name], prefix_frames),
             "temporal_consistency_ssim": temporal_consistency(frames[name], prefix_frames),
             "boundary_jump": boundary_jump(frames[name], prefix_frames),
         }
         for name in ("old", "new_oracle", "direct_late", "lateact")
     }
     next_metrics = {
-        name: signed_camera_motion(frames[name], next_prefix_frames)
+        name: motion_fn(frames[name], next_prefix_frames)
         for name in ("next_old", "next_new")
     }
-    old_score = current_metrics["old"]["motion"]["lk_signed_sum"]
-    new_score = current_metrics["new_oracle"]["motion"]["lk_signed_sum"]
+    old_score = current_metrics["old"]["motion"][motion_value_key]
+    new_score = current_metrics["new_oracle"]["motion"][motion_value_key]
     denominator = new_score - old_score
     response = {
-        name: (current_metrics[name]["motion"]["lk_signed_sum"] - old_score) / denominator
+        name: (current_metrics[name]["motion"][motion_value_key] - old_score) / denominator
         if denominator != 0 else None
         for name in ("old", "new_oracle", "direct_late", "lateact")
     }
-    next_denominator = next_metrics["next_new"]["lk_signed_sum"] - next_metrics["next_old"]["lk_signed_sum"]
+    next_denominator = next_metrics["next_new"][motion_value_key] - next_metrics["next_old"][motion_value_key]
     next_response = 1.0 if next_denominator != 0 else None
 
     old_nfes = old_timing["nfes"]
@@ -453,16 +458,16 @@ def run_direction(
         )
 
     dense_gap = (
-        current_metrics["new_oracle"]["motion"]["dense_signed_sum"]
-        - current_metrics["old"]["motion"]["dense_signed_sum"]
+        current_metrics["new_oracle"]["motion"][stability_value_key]
+        - current_metrics["old"]["motion"][stability_value_key]
     )
     track_support = min(
-        current_metrics["old"]["motion"]["median_track_count"],
-        current_metrics["new_oracle"]["motion"]["median_track_count"],
+        current_metrics["old"]["motion"][support_key],
+        current_metrics["new_oracle"]["motion"][support_key],
     )
     evaluator_valid = bool(
         tensor_sha256(old) != tensor_sha256(new_oracle)
-        and abs(denominator) > 1e-6
+        and abs(denominator) > minimum_oracle_gap
         and denominator * dense_gap > 0
         and track_support >= 20
     )
