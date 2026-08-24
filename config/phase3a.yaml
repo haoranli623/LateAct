@@ -1,0 +1,59 @@
+phase: phase3a_keyboard_commitment_calibration
+training: false
+source:
+  official_mode: universal
+  image_index: 16
+  limitation: only_unused_official_universal_image
+calibration:
+  context_count: 10
+  prefix_variants: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  prefix_seed_base: 120000
+  future_seed_base: 130000
+  directions:
+    - [keyboard_left, keyboard_right]
+    - [keyboard_right, keyboard_left]
+  switch_after_nfe: [0, 1, 2, 3]
+evaluator:
+  name: robust_affine_center_lateral_translation
+  resolution: [320, 176]
+  max_corners: 800
+  forward_backward_error_max_pixels: 1.5
+  ransac_reprojection_max_pixels: 2.0
+  primary_value: affine_center_signed_sum
+  stability_value: median_lk_signed_sum
+  oracle_gap_minimum_pixels: 2.0
+  median_inlier_count_minimum: 20
+  require_primary_stability_sign_agreement: true
+  require_official_direction_sign: true
+quality:
+  maximum_temporal_deficit_vs_worse_oracle: 0.05
+  maximum_boundary_jump_excess_vs_worse_oracle: 10.0
+  minimum_pass_fraction: 0.90
+curve:
+  monotonic_tolerance: 0.10
+  bounded_interval: [-0.10, 1.10]
+  minimum_valid_fraction: 0.80
+  minimum_monotone_fraction: 0.80
+  minimum_bounded_fraction: 0.80
+boundary:
+  mouse_latest_safe_switch_after_nfe: 1
+  near_oracle_median_minimum: 0.90
+  near_oracle_bootstrap_lower_minimum: 0.80
+  individual_near_oracle_minimum: 0.80
+  minimum_near_oracle_fraction: 0.80
+  collapse_next_median_maximum: 0.75
+  minimum_median_drop: 0.15
+  minimum_individual_bracketing_fraction: 0.75
+  bootstrap_samples: 10000
+  seed: 20260824
+decision:
+  A: structured_stable_boundary_different_from_mouse
+  B: structured_stable_boundary_same_as_mouse
+  C: valid_progress_dependent_but_no_stable_boundary
+  D: evaluator_quality_or_structure_no_go
+phase3b:
+  allowed_only_after: [A, B]
+  confirmation_context_count: 24
+  prefix_seed_base: 140000
+  future_seed_base: 150000
+  arrival_seed: 20260825

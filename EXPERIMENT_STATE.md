@@ -2,7 +2,7 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-23
-- Current phase: Gate 2 complete; project stopped for review
+- Current phase: Phase 3A protocol frozen; calibration pending
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
@@ -109,3 +109,23 @@
   0.7635; late within 0.10 of restart 30.6%; quality FAIL)
 - Final scope: strong mouse-yaw result; no action-agnostic transfer claim
 - Training, weight edits, repair, and additional methods: not started
+
+## Phase 3A frozen design
+
+- Question: does native keyboard A/D have a stable action-specific denoising
+  commitment boundary?
+- Calibration: 10 fresh rollout contexts from the sole unused official
+  universal image `0016`, prefix variants 0-9
+- Calibration prefix/future seeds: `120000+variant` / `130000+variant`
+- Actions: keyboard-left/right in both switch directions; neutral mouse fixed
+- Switch positions: OLD for 0, 1, 2, or 3 of the three NFEs
+- Primary evaluator: robust partial-affine RANSAC displacement of image center,
+  accumulated from prefix boundary through the generated block
+- Independent evaluator check: forward/backward-filtered median LK translation
+- Pre-calibration engineering check on existing Gate 2 keyboard oracles: 16/16
+  gaps above 8 pixels, sign agreement 16/16, minimum median inlier support 255.5
+- Frozen evaluator/quality/curve/boundary criteria: `config/phase3a.yaml`
+- Frozen mouse latest safe switch: after NFE1
+- Phase 3B permitted only for Phase 3A verdict A or B
+- No training, weight edit, learned boundary, adaptive per-scene rule, or action
+  expansion authorized

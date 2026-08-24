@@ -130,3 +130,27 @@ The predeclared keyboard secondary did not transfer: median response was
 The project result is therefore strong for mouse-yaw but demonstrates that the
 commitment boundary is action-dependent. No training or new method follows
 automatically from this result.
+
+## Frozen Phase 3 protocol
+
+Phase 3 tests the mechanistic interpretation that denoising-time action
+commitment can depend on the action family. Gate 0-2 results and the mouse
+boundary remain immutable. Phase 3A reproduces every three-NFE switch position
+for native universal-mode keyboard A/D on a new calibration split.
+
+The keyboard primary response is not the mouse yaw score. It is the accumulated
+horizontal displacement of the image center under a robust partial-affine fit
+to forward/backward-consistent Lucas-Kanade tracks. Median track translation is
+an independent oracle-sign check. The evaluator was engineered on already
+existing Gate 2 oracle videos and frozen before Phase 3 calibration. Exact
+validity, curve, quality, boundary, and A/B/C/D rules are in
+`config/phase3a.yaml`.
+
+Only official image `0016` remains unused, so ten independently seeded rollouts
+from that image form calibration. This is fresh runtime context but limited
+visual-source diversity and must be reported as such. A stable boundary must be
+the latest switch with median response at least 0.90, bootstrap lower bound at
+least 0.80, and at least 80% individual response at least 0.80; the following
+switch must have median at most 0.75, median drop at least 0.15, and at least
+75% of individual curves must bracket the boundary. Phase 3B is forbidden
+unless Phase 3A returns A or B.

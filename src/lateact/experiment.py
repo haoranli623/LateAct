@@ -229,3 +229,100 @@ def signed_camera_motion(frames: np.ndarray, prefix_frames: int) -> dict:
         "track_counts": track_counts,
         "median_track_count": float(np.median(track_counts)) if track_counts else 0.0,
     }
+
+
+def signed_lateral_translation(frames: np.ndarray, prefix_frames: int) -> dict:
+    """Robust signed global scene translation for keyboard A/D locomotion.
+
+    A forward/backward Lucas-Kanade check rejects unstable tracks. A partial
+    affine RANSAC fit then measures the horizontal displacement of the image
+    center, avoiding coordinate-origin artifacts from small fitted rotations.
+    The independent median-track sum is retained only as a sign-stability audit.
+    """
+    gray = [
+        cv2.resize(cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY), (320, 176))
+        for frame in frames[prefix_frames - 1 :]
+    ]
+    affine_dx: list[float] = []
+    median_dx: list[float] = []
+    tracked_counts: list[int] = []
+    inlier_counts: list[int] = []
+    center = np.array([160.0, 88.0, 1.0], dtype=np.float64)
+    for previous, current in zip(gray, gray[1:]):
+        points = cv2.goodFeaturesToTrack(
+            previous, maxCorners=800, qualityLevel=0.01, minDistance=5, blockSize=7
+        )
+        if points is None:
+            affine_dx.append(float("nan"))
+            median_dx.append(float("nan"))
+            tracked_counts.append(0)
+            inlier_counts.append(0)
+            continue
+        moved, status, _ = cv2.calcOpticalFlowPyrLK(
+            previous,
+            current,
+            points,
+            None,
+            winSize=(21, 21),
+            maxLevel=3,
+            criteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01),
+        )
+        if moved is None or status is None:
+            affine_dx.append(float("nan"))
+            median_dx.append(float("nan"))
+            tracked_counts.append(0)
+            inlier_counts.append(0)
+            continue
+        backward, backward_status, _ = cv2.calcOpticalFlowPyrLK(
+            current,
+            previous,
+            moved,
+            None,
+            winSize=(21, 21),
+            maxLevel=3,
+            criteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01),
+        )
+        if backward is None or backward_status is None:
+            affine_dx.append(float("nan"))
+            median_dx.append(float("nan"))
+            tracked_counts.append(0)
+            inlier_counts.append(0)
+            continue
+        forward_ok = status.reshape(-1).astype(bool)
+        backward_ok = backward_status.reshape(-1).astype(bool)
+        round_trip = np.linalg.norm((backward - points).reshape(-1, 2), axis=1)
+        valid = forward_ok & backward_ok & np.isfinite(round_trip) & (round_trip < 1.5)
+        first = points.reshape(-1, 2)[valid]
+        second = moved.reshape(-1, 2)[valid]
+        tracked_counts.append(int(len(first)))
+        median_dx.append(
+            float(np.median(second[:, 0] - first[:, 0]))
+            if len(first)
+            else float("nan")
+        )
+        matrix, inliers = (None, None)
+        if len(first) >= 3:
+            matrix, inliers = cv2.estimateAffinePartial2D(
+                first,
+                second,
+                method=cv2.RANSAC,
+                ransacReprojThreshold=2.0,
+                maxIters=2000,
+                confidence=0.99,
+                refineIters=10,
+            )
+        if matrix is None or inliers is None:
+            affine_dx.append(float("nan"))
+            inlier_counts.append(0)
+        else:
+            affine_dx.append(float((matrix @ center)[0] - center[0]))
+            inlier_counts.append(int(inliers.sum()))
+    return {
+        "affine_center_signed_sum": float(np.nansum(affine_dx)),
+        "median_lk_signed_sum": float(np.nansum(median_dx)),
+        "affine_per_transition": affine_dx,
+        "median_lk_per_transition": median_dx,
+        "tracked_counts": tracked_counts,
+        "inlier_counts": inlier_counts,
+        "median_inlier_count": float(np.median(inlier_counts)) if inlier_counts else 0.0,
+    }
