@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>LateAct — Commitment-Aware Asynchronous Control</title>
+  <meta name="description" content="LateAct restores the latest pre-commitment state when an action arrives during denoising, recovering control without an unnecessary full restart.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LateAct — Commitment-Aware Asynchronous Control">
+  <meta property="og:description" content="Commitment-aware rollback for asynchronous control in interactive video world models.">
+  <meta property="og:image" content="https://haoranli623.github.io/LateAct/showcase/og_cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LateAct project cover comparing direct late binding, LateAct, and the new-action oracle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="showcase/og_cover.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Interactive video world models</p>
+      <h1>LateAct</h1>
+      <p class="subtitle">Commitment-Aware Asynchronous Control for Interactive Video World Models</p>
+      <p class="hook">LateAct identifies when a new action becomes committed during denoising and restores only the latest pre-commitment state, avoiding unnecessary full restart.</p>
+      <p class="author">Haoran Li</p>
+      <nav class="hero-links" aria-label="Project resources">
+        <span class="button button-primary" aria-disabled="true" title="Complete technical report not yet published">Technical Report</span>
+        <span class="button" aria-disabled="true" title="Code release planned after review">Code</span>
+        <a class="button" href="https://haoranli623.github.io/LateAct/#demo">Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+      <div class="container wide">
+        <div class="section-heading centered">
+          <p class="section-kicker">Representative validated case</p>
+          <h2 id="demo-title">Recovering control after commitment</h2>
+        </div>
+        <figure class="media-figure demo-frame">
+          <video autoplay muted loop playsinline preload="metadata" poster="showcase/demo_thumbnail.png" aria-label="Synchronized LateAct comparison video">
+            <source src="showcase/lateact_demo.mp4" type="video/mp4">
+            Your browser does not support embedded MP4 video. <a href="showcase/lateact_demo.mp4">Download the demo</a>.
+          </video>
+          <figcaption>
+            Direct late binding retains stale yaw after commitment, while LateAct tracks the NEW-action oracle using minimal rollback. This is one validated Gate 1 example: Direct <strong>0.191</strong>, LateAct <strong>0.997</strong>, Full Restart <strong>1.000</strong>. These are case-specific values; the aggregate result appears below.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Headline results">
+      <div class="container metric-grid">
+        <article class="metric">
+          <p class="metric-value">0.218 → 0.997</p>
+          <p>Median NEW-action response after late arrival</p>
+        </article>
+        <article class="metric">
+          <p class="metric-value">11.93%</p>
+          <p>Lower mean latency vs full restart</p>
+        </article>
+        <article class="metric">
+          <p class="metric-value">339 KB</p>
+          <p>Exact rollback state</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="problem" aria-labelledby="problem-title">
+      <div class="container text-width">
+        <div class="section-heading">
+          <p class="section-kicker">Problem</p>
+          <h2 id="problem-title">Actions arrive while generation is already underway</h2>
+          <p>A video block is produced through iterative denoising, but a user's latest action may arrive between model evaluations. The serving policy must decide what computation remains reusable without leaving the rollout bound to stale control.</p>
+        </div>
+      </div>
+      <div class="container policy-grid">
+        <article class="policy policy-neutral">
+          <h3>NEXT-BLOCK</h3>
+          <p>Wait for the current block to finish. No recomputation, but the new action cannot affect the active block.</p>
+        </article>
+        <article class="policy policy-direct">
+          <h3>DIRECT-LATE-BIND</h3>
+          <p>Swap the action into the remaining evaluations. Fast, but ineffective once the trajectory has committed.</p>
+        </article>
+        <article class="policy policy-restart">
+          <h3>FULL-RESTART</h3>
+          <p>Regenerate the whole block under the new action. Recovers control while discarding reusable work.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="observation" aria-labelledby="observation-title">
+      <div class="container">
+        <div class="section-heading text-width">
+          <p class="section-kicker">Key observation</p>
+          <h2 id="observation-title">Action responsiveness commits during denoising</h2>
+          <p>For validated Matrix-Game 2.0 mouse-yaw controls, one OLD-action NFE remains nearly fully plastic: the median normalized NEW-action response is <strong>0.997</strong>. After two OLD-action NFEs, it falls to <strong>0.218</strong>. This sharp operational transition defines the commitment boundary used by LateAct.</p>
+        </div>
+        <figure class="scientific-figure">
+          <img src="showcase/commitment_curve.svg" alt="Commitment curve with 16 validated mouse-yaw pairs. The median new-action response falls from 0.997 after one old-action NFE to 0.218 after two.">
+          <figcaption>Thin lines are the 16 validated scene-direction pairs; the bold blue line is the median trend. The observation is specific to the evaluated Matrix-Game 2.0 mouse-yaw setting.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="method" aria-labelledby="method-title">
+      <div class="container">
+        <div class="section-heading text-width">
+          <p class="section-kicker">Method</p>
+          <h2 id="method-title">Commitment-aware minimal rollback</h2>
+          <p>Before commitment, LateAct binds the new action directly. After commitment, it restores the latest mutable pre-commitment state and recomputes only the affected suffix under the NEW action. The reusable prefix remains intact, avoiding a full block restart.</p>
+        </div>
+        <figure class="scientific-figure mechanism-figure">
+          <img src="showcase/lateact_mechanism.svg" alt="LateAct mechanism diagram comparing direct late binding, restoration of the latest pre-commitment state, and full restart across three denoising evaluations.">
+          <figcaption>When the new action arrives after NFE2, LateAct returns to the input of NFE2—the latest safe state—and recomputes the committed suffix.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="system" aria-labelledby="system-title">
+      <div class="container system-layout">
+        <div class="section-heading">
+          <p class="section-kicker">System result</p>
+          <h2 id="system-title">An exact, lightweight mutable checkpoint</h2>
+          <p>The initial exact implementation retained approximately 649 MB of runtime state. The final checkpoint stores <strong>339,360 bytes</strong>, only 1,432 bytes above the measured logical minimum of <strong>337,928 bytes</strong>.</p>
+          <p>This is exact state preservation—not lossy compression. LateAct keeps only the mutable state necessary to resume at the commitment boundary instead of duplicating the full runtime state.</p>
+        </div>
+        <figure class="system-figure">
+          <img src="showcase/rollback_state.png" alt="Logarithmic comparison of the 649 megabyte initial exact checkpoint, 339,360-byte final exact checkpoint, and 337,928-byte logical minimum.">
+          <figcaption>Exact checkpoint bytes from frozen Gate 1 and Gate 2 results.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-heading text-width">
+          <p class="section-kicker">Results</p>
+          <h2 id="results-title">Frozen validation across three gates</h2>
+          <p>The primary evidence progresses from measuring commitment, to testing minimal rollback, to fresh asynchronous serving contexts.</p>
+        </div>
+        <div class="result-grid">
+          <article class="result-block">
+            <p class="result-gate">Gate 0</p>
+            <h3>Commitment boundary</h3>
+            <p><strong>16/16</strong> validated mouse-yaw scene-direction curves; median response drops from <strong>0.997</strong> after one OLD NFE to <strong>0.218</strong> after two.</p>
+          </article>
+          <article class="result-block">
+            <p class="result-gate">Gate 1</p>
+            <h3>Minimal rollback</h3>
+            <p>Median late-action response recovers to <strong>0.997</strong>; all <strong>16/16</strong> pairs improve and remain within 0.10 of full restart.</p>
+          </article>
+          <article class="result-block">
+            <p class="result-gate">Gate 2</p>
+            <h3>Fresh asynchronous serving</h3>
+            <p><strong>32</strong> fresh contexts; <strong>676/676</strong> late arrivals within 0.10 of restart, <strong>348/348</strong> early arrivals with zero rollback, and <strong>11.93%</strong> lower mean latency.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section scope-section" id="limitations" aria-labelledby="limitations-title">
+      <div class="container scope-layout">
+        <div>
+          <p class="section-kicker">Scope and limitations</p>
+          <h2 id="limitations-title">A strong primary result with explicit boundaries</h2>
+        </div>
+        <ul>
+          <li>The strongest efficacy evidence is Matrix-Game 2.0 mouse-yaw control.</li>
+          <li>Keyboard shows the same measured commitment boundary, but fails the frozen future-SSIM trajectory-fidelity requirement.</li>
+          <li>minWM shows commitment-like exploratory curves, but the formal cross-model replication gate fails.</li>
+          <li>LateAct is not established as universally action-general or cross-model general.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section resources" id="resources" aria-labelledby="resources-title">
+      <div class="container text-width centered">
+        <h2 id="resources-title">Resources</h2>
+        <nav class="hero-links resource-links" aria-label="Footer project resources">
+          <span class="button button-primary" aria-disabled="true" title="Complete technical report not yet published">Technical Report</span>
+          <span class="button" aria-disabled="true" title="Code release planned after review">Code</span>
+          <a class="button" href="https://haoranli623.github.io/LateAct/#demo">Demo</a>
+        </nav>
+        <div class="citation-section">
+          <h3>Citation</h3>
+          <div class="citation" aria-label="Suggested citation">
+            <pre><code>Haoran Li. “LateAct: Commitment-Aware Asynchronous Control for
+Interactive Video World Models.” Technical report.</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>LateAct · Haoran Li · Primary evidence: Matrix-Game 2.0 mouse-yaw</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><style>
+text{font-family:DejaVu Sans,Arial,sans-serif;fill:#14202B}.h{font-weight:700}.small{font-size:23px}.label{font-size:27px;font-weight:700}
+</style>
+<marker id="arrow-neutral" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5B6874"/></marker>
+<marker id="arrow-lateact" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#238C72"/></marker>
+<marker id="arrow-restart" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7A62B3"/></marker></defs>
+<rect width="1600" height="900" fill="#F5F7FA"/>
+<text x="80" y="78" class="h" font-size="45">LateAct rolls back to the latest pre-commitment state</text>
+<text x="80" y="118" font-size="23" fill="#5B6874">A new action arrives after NFE2; the latest safe state is the input to NFE2.</text>
+<line x1="390" y1="198" x2="1370" y2="198" stroke="#DCE3E8" stroke-width="8" stroke-linecap="round"/>
+<line x1="390" y1="198" x2="710" y2="198" stroke="#238C72" stroke-width="8" stroke-linecap="round"/>
+<line x1="720" y1="142" x2="720" y2="818" stroke="#EAA42A" stroke-width="4" stroke-dasharray="12 10"/>
+<text x="720" y="172" text-anchor="middle" font-size="20" font-weight="700" fill="#EAA42A">COMMITMENT BOUNDARY</text>
+<g font-size="25" font-weight="700"><text x="390" y="237" text-anchor="middle">PREFIX</text><text x="585" y="237" text-anchor="middle">NFE1</text><text x="890" y="237" text-anchor="middle">NFE2</text><text x="1195" y="237" text-anchor="middle">NFE3</text></g>
+<rect x="950" y="128" width="350" height="55" rx="27" fill="#E26D5A"/><text x="1125" y="164" text-anchor="middle" font-size="22" font-weight="700" fill="white">NEW ACTION ARRIVES</text>
+
+<text x="80" y="354" class="label" fill="#E26D5A">DIRECT LATE BIND</text>
+<rect x="390" y="305" width="195" height="85" rx="18" fill="#F4D5D0"/><text x="488" y="358" text-anchor="middle" class="small h">NFE1 · OLD</text>
+<path d="M585 347 H792" stroke="#5B6874" stroke-width="4" marker-end="url(#arrow-neutral)"/>
+<rect x="805" y="305" width="195" height="85" rx="18" fill="#F4D5D0"/><text x="902" y="358" text-anchor="middle" class="small h">NFE2 · OLD</text>
+<path d="M1000 347 H1115" stroke="#5B6874" stroke-width="4" marker-end="url(#arrow-neutral)"/>
+<rect x="1128" y="305" width="250" height="85" rx="18" fill="#F4D5D0"/><text x="1253" y="344" text-anchor="middle" class="small h">NFE3 · NEW</text><text x="1253" y="372" text-anchor="middle" font-size="18" fill="#E26D5A">too late; path is committed</text>
+
+<text x="80" y="543" class="label" fill="#238C72">LATEACT</text>
+<rect x="390" y="494" width="195" height="85" rx="18" fill="#DDE7F7"/><text x="488" y="547" text-anchor="middle" class="small h">NFE1 · OLD</text>
+<path d="M585 536 H684" stroke="#238C72" stroke-width="4" marker-end="url(#arrow-lateact)"/>
+<circle cx="720" cy="536" r="26" fill="#238C72"/><path d="M710 536 l8 8 15 -18" fill="none" stroke="white" stroke-width="5"/>
+<text x="720" y="588" text-anchor="middle" font-size="18" font-weight="700" fill="#238C72">RESTORE</text>
+<path d="M748 536 H792" stroke="#238C72" stroke-width="4" marker-end="url(#arrow-lateact)"/>
+<rect x="805" y="494" width="195" height="85" rx="18" fill="#D9EEE8"/><text x="902" y="547" text-anchor="middle" class="small h">NFE2 · NEW</text>
+<path d="M1000 536 H1115" stroke="#238C72" stroke-width="4" marker-end="url(#arrow-lateact)"/>
+<rect x="1128" y="494" width="250" height="85" rx="18" fill="#D9EEE8"/><text x="1253" y="547" text-anchor="middle" class="small h">NFE3 · NEW</text>
+<text x="1405" y="544" font-size="20" font-weight="700" fill="#238C72">recompute suffix</text>
+
+<text x="80" y="731" class="label" fill="#7A62B3">FULL RESTART</text>
+<circle cx="342" cy="724" r="27" fill="#7A62B3"/><text x="342" y="734" text-anchor="middle" font-size="31" font-weight="700" fill="white">↺</text>
+<text x="342" y="774" text-anchor="middle" font-size="16" font-weight="700" fill="#7A62B3">BLOCK START</text>
+<path d="M369 724 H377" stroke="#7A62B3" stroke-width="4" marker-end="url(#arrow-restart)"/>
+<rect x="390" y="682" width="195" height="85" rx="18" fill="#E9E2F4"/><text x="488" y="735" text-anchor="middle" class="small h">NFE1 · NEW</text>
+<path d="M585 724 H792" stroke="#7A62B3" stroke-width="4" marker-end="url(#arrow-restart)"/>
+<rect x="805" y="682" width="195" height="85" rx="18" fill="#E9E2F4"/><text x="902" y="735" text-anchor="middle" class="small h">NFE2 · NEW</text>
+<path d="M1000 724 H1115" stroke="#7A62B3" stroke-width="4" marker-end="url(#arrow-restart)"/>
+<rect x="1128" y="682" width="250" height="85" rx="18" fill="#E9E2F4"/><text x="1253" y="735" text-anchor="middle" class="small h">NFE3 · NEW</text>
+<text x="80" y="843" font-size="30" font-weight="700">Keep reusable compute; roll back only across the commitment boundary.</text>
+</svg>
