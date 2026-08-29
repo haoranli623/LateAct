@@ -4,7 +4,7 @@
 This uses the official four-step DMD generator and changes only the PRoPE
 camera extrinsics supplied to a denoiser evaluation.  The first 16 latent
 frames are a shared identity-camera prefix; the final four-frame latent block
-is branched under native lateral ``a``/``d`` trajectories.
+is branched under the native opposite actions frozen in a protocol config.
 """
 
 from __future__ import annotations
@@ -23,18 +23,28 @@ import torch
 from omegaconf import OmegaConf
 from torchvision.io import write_video
 
+from phase4_minwm_protocol import (
+    PROJECT,
+    actions,
+    control_prompt_indices,
+    default_output,
+    load_and_validate_prompts,
+    load_protocol,
+    seed_by_prompt,
+    selected_prompt_indices,
+    switch_positions,
+    trajectory_steps_per_branch,
+    unique_run_specs,
+    validate_confirmatory_output,
+)
 
-PROJECT = Path(__file__).resolve().parents[1]
-UPSTREAM = Path("/mnt/NAS/data/hl5757/third_party/minWM")
-MODEL_ROOT = Path("/mnt/NAS/data/hl5757/models/minwm")
-DEFAULT_OUTPUT = Path("/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase4_minwm")
+
+UPSTREAM = Path(os.environ.get("LATEACT_MINWM_UPSTREAM", PROJECT / "third_party" / "minWM"))
+MODEL_ROOT = Path(os.environ.get("LATEACT_MINWM_MODEL_ROOT", PROJECT / "models" / "minwm"))
+DEFAULT_CONFIG = PROJECT / "config" / "phase4_minwm.yaml"
 
 sys.path.insert(0, str(UPSTREAM / "Wan21"))
 sys.path.insert(0, str(UPSTREAM / "shared"))
-
-from demo_utils.memory import DynamicSwapInstaller  # noqa: E402
-from pipeline import CausalInferencePipeline  # noqa: E402
-from wan_utils.camera_trajectory import make_camera_tensors  # noqa: E402
 
 
 LATENT_SHAPE = (1, 20, 16, 60, 104)
@@ -46,11 +56,17 @@ PREFIX_PIXEL_FRAMES = (PREFIX_LATENTS - 1) * 4 + 1
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument("--output", type=Path)
     parser.add_argument("--device", default="cuda:0")
-    parser.add_argument("--scene-start", type=int, default=0)
-    parser.add_argument("--scene-end", type=int, default=8)
+    parser.add_argument("--scene-start", type=int)
+    parser.add_argument("--scene-end", type=int)
     parser.add_argument("--controls", action="store_true")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="validate the frozen protocol and print the run plan without touching CUDA or output",
+    )
     return parser.parse_args()
 
 
@@ -65,22 +81,17 @@ def tensor_sha256(value: torch.Tensor) -> str:
     return hashlib.sha256(memoryview(array)).hexdigest()
 
 
-def load_prompts() -> list[str]:
-    path = UPSTREAM / "Wan21/prompts/demos.txt"
-    prompts = [line.strip() for line in path.read_text().splitlines() if line.strip()]
-    if len(prompts) < 8:
-        raise RuntimeError(f"expected at least eight official prompts, found {len(prompts)}")
-    return prompts[:8]
+def load_pipeline(device: torch.device, protocol: dict) -> CausalInferencePipeline:
+    from demo_utils.memory import DynamicSwapInstaller
+    from pipeline import CausalInferencePipeline
 
-
-def load_pipeline(device: torch.device) -> CausalInferencePipeline:
     config = OmegaConf.merge(
         OmegaConf.load(UPSTREAM / "Wan21/configs/default_config.yaml"),
         OmegaConf.load(UPSTREAM / "Wan21/configs/causal_forcing_dmd_camera.yaml"),
     )
     pipeline = CausalInferencePipeline(config, device=device)
     checkpoint = torch.load(
-        MODEL_ROOT / "checkpoints/Wan21/Action2V/dmd/model.pt",
+        MODEL_ROOT / "checkpoints" / protocol["upstream"]["checkpoint_path"],
         map_location="cpu",
         weights_only=False,
     )
@@ -170,12 +181,18 @@ def sampled_state_signature(pipeline: CausalInferencePipeline, prefix_tokens: in
     return result
 
 
-def camera_chunks(device: torch.device) -> tuple[dict[str, torch.Tensor], torch.Tensor]:
+def camera_chunks(
+    device: torch.device,
+    action_pair: tuple[str, str],
+    trajectory_steps: int,
+) -> tuple[dict[str, torch.Tensor], torch.Tensor]:
+    from wan_utils.camera_trajectory import make_camera_tensors
+
     chunks = {}
     intrinsics = None
-    for action in ("a", "d"):
+    for action in action_pair:
         viewmats, Ks = make_camera_tensors(
-            f"{action}*3", fx=0.5, fy=0.5, cx=0.5, cy=0.5,
+            f"{action}*{trajectory_steps}", fx=0.5, fy=0.5, cx=0.5, cy=0.5,
             device=device, dtype=torch.bfloat16,
         )
         chunks[action] = viewmats
@@ -300,20 +317,51 @@ def decode_and_save(
     return frame_count, seconds
 
 
-def unique_run_specs() -> list[tuple[str, str, str, int]]:
-    specs = [("oracle_a", "a", "a", 0), ("oracle_d", "d", "d", 0)]
-    for old, new in (("a", "d"), ("d", "a")):
-        for switch in (1, 2, 3):
-            specs.append((f"{old}_to_{new}_s{switch}", old, new, switch))
-    return specs
-
-
 def main() -> None:
     args = parse_args()
-    if not 0 <= args.scene_start < args.scene_end <= 8:
-        raise ValueError("scene range must lie within frozen official prompts 0..7")
-    args.output.mkdir(parents=True, exist_ok=True)
-    report_path = args.output / f"curve_scenes_{args.scene_start:02d}_{args.scene_end:02d}.json"
+    protocol = load_protocol(args.config)
+    action_pair = actions(protocol)
+    prompts = load_and_validate_prompts(UPSTREAM, protocol)
+    selected_indices = selected_prompt_indices(
+        protocol, args.scene_start, args.scene_end
+    )
+    control_indices = control_prompt_indices(protocol)
+    controls_enabled = bool(control_indices) or args.controls
+    if protocol.get("phase") == "phase4_minwm_yaw_confirmatory" and not controls_enabled:
+        raise ValueError("confirmatory protocol requires same-action controls")
+    output = args.output if args.output is not None else default_output(protocol)
+    validate_confirmatory_output(output, protocol, require_empty=not args.dry_run)
+    report_path = output / f"curve_scenes_{selected_indices[0]:02d}_{selected_indices[-1] + 1:02d}.json"
+    specs = unique_run_specs(protocol)
+    seed_map = seed_by_prompt(protocol)
+    checkpoint_path = MODEL_ROOT / "checkpoints" / protocol["upstream"]["checkpoint_path"]
+    if protocol.get("phase") == "phase4_minwm_yaw_confirmatory" and not checkpoint_path.is_file():
+        raise FileNotFoundError(f"frozen checkpoint is missing: {checkpoint_path}")
+
+    if args.dry_run:
+        run_count = sum(
+            len(specs) + (len(switch_positions(protocol)) if index in control_indices else 0)
+            for index in selected_indices
+        )
+        print(json.dumps({
+            "status": "dry_run_only_no_model_or_cuda",
+            "config": protocol["_config_path"],
+            "config_sha256": protocol["_config_sha256"],
+            "output": str(output.resolve()),
+            "report_path": str(report_path.resolve()),
+            "checkpoint_path": str(checkpoint_path.resolve()),
+            "actions": list(action_pair),
+            "trajectory_steps_per_branch": trajectory_steps_per_branch(protocol),
+            "prompt_indices": selected_indices,
+            "seeds": [seed_map[index] for index in selected_indices],
+            "control_prompt_indices": control_indices,
+            "switch_positions": switch_positions(protocol),
+            "unique_video_count": run_count,
+            "cuda_initialized": torch.cuda.is_initialized(),
+        }, indent=2, sort_keys=True))
+        return
+
+    output.mkdir(parents=True, exist_ok=False)
     # The official Wan wrapper intentionally resolves base-model assets from
     # repository-relative paths such as Wan21/wan_models/....
     os.chdir(UPSTREAM)
@@ -325,20 +373,30 @@ def main() -> None:
     torch.cuda.manual_seed_all(0)
     started_all = time.time()
     torch.cuda.reset_peak_memory_stats(device)
-    pipeline = load_pipeline(device)
+    pipeline = load_pipeline(device, protocol)
     timesteps = [float(value) for value in pipeline.denoising_step_list]
     if len(timesteps) != 4:
         raise RuntimeError(f"frozen Phase 4 requires four NFEs, found {timesteps}")
-    prompts = load_prompts()
-    views, intrinsics = camera_chunks(device)
+    views, intrinsics = camera_chunks(
+        device, action_pair, trajectory_steps_per_branch(protocol)
+    )
 
     report = {
         "status": "running",
-        "phase": "phase4_minwm_commitment_curve",
-        "upstream_commit": "df522a26cd4409d3e3e8f269cc98eac069b5df47",
-        "base_revision": "37ec512624d61f7aa208f7ea8140a131f93afc9a",
-        "checkpoint_revision": "21bd74da43b5a061c0b8ff277515088ccd2c798b",
-        "checkpoint_etag": "bdb947d45fb04513305492c2ee393d51d0621ec0e99fd312224f5d61a330aa77",
+        "phase": protocol["phase"],
+        "protocol_config": protocol["_config_path"],
+        "protocol_config_sha256": protocol["_config_sha256"],
+        "upstream_commit": protocol["upstream"]["commit"],
+        "base_revision": protocol["upstream"].get(
+            "backbone_revision", "37ec512624d61f7aa208f7ea8140a131f93afc9a"
+        ),
+        "checkpoint_revision": protocol["upstream"].get(
+            "checkpoint_revision", "21bd74da43b5a061c0b8ff277515088ccd2c798b"
+        ),
+        "checkpoint_etag": protocol["upstream"].get(
+            "checkpoint_etag", "bdb947d45fb04513305492c2ee393d51d0621ec0e99fd312224f5d61a330aa77"
+        ),
+        "checkpoint_path": str(checkpoint_path.resolve()),
         "device": torch.cuda.get_device_name(device),
         "torch": torch.__version__,
         "cuda_runtime": torch.version.cuda,
@@ -346,17 +404,24 @@ def main() -> None:
         "prefix_latents": PREFIX_LATENTS,
         "branch_latents": BLOCK_FRAMES,
         "prefix_pixel_frames": PREFIX_PIXEL_FRAMES,
+        "negative_action": action_pair[0],
+        "positive_action": action_pair[1],
+        "trajectory_steps_per_branch": trajectory_steps_per_branch(protocol),
+        "prompt_indices": selected_indices,
+        "seeds": [seed_map[index] for index in selected_indices],
+        "switch_positions": switch_positions(protocol),
+        "same_action_control_prompt_indices": control_indices,
         "camera_viewmat_hashes": {name: tensor_sha256(value) for name, value in views.items()},
         "intrinsics_sha256": tensor_sha256(intrinsics),
         "scenes": {},
     }
     atomic_json(report_path, report)
 
-    for scene_index in range(args.scene_start, args.scene_end):
+    for scene_index in selected_indices:
         scene_name = f"scene_{scene_index:02d}"
         scene_dir = args.output / scene_name
         scene_dir.mkdir(exist_ok=True)
-        seed = 41000 + scene_index
+        seed = seed_map[scene_index]
         initial_cpu, renoise_cpu = cpu_noise(seed)
         noise_hashes = {
             "initial": tensor_sha256(initial_cpu),
@@ -391,10 +456,14 @@ def main() -> None:
         report["scenes"][scene_name] = scene_report
         atomic_json(report_path, report)
 
-        specs = unique_run_specs()
-        if args.controls and scene_index in (0, 1):
-            specs.extend((f"a_to_a_s{switch}", "a", "a", switch) for switch in range(5))
-        for run_name, old_action, new_action, switch_after in specs:
+        scene_specs = list(specs)
+        if controls_enabled and scene_index in control_indices:
+            negative = action_pair[0]
+            scene_specs.extend(
+                (f"{negative}_to_{negative}_s{switch}", negative, negative, switch)
+                for switch in switch_positions(protocol)
+            )
+        for run_name, old_action, new_action, switch_after in scene_specs:
             restore_indices(pipeline, prefix_indices)
             torch.cuda.reset_peak_memory_stats(device)
             run_started = time.perf_counter()
@@ -443,8 +512,11 @@ def main() -> None:
                 for run in scene_report["runs"].values()
             ),
             "same_action_latents_exact": (
-                len({scene_report["runs"][f"a_to_a_s{s}"]["latent_sha256"] for s in range(5)}) == 1
-                if args.controls and scene_index in (0, 1) else None
+                len({
+                    scene_report["runs"][f"{action_pair[0]}_to_{action_pair[0]}_s{s}"]["latent_sha256"]
+                    for s in switch_positions(protocol)
+                }) == 1
+                if controls_enabled and scene_index in control_indices else None
             ),
         }
         atomic_json(report_path, report)

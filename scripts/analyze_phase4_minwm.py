@@ -5,23 +5,42 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 import cv2
 import numpy as np
 from skimage.metrics import structural_similarity
 
+from phase4_minwm_protocol import (
+    PROJECT,
+    actions,
+    control_prompt_indices,
+    direction_mappings,
+    load_and_validate_prompts,
+    load_protocol,
+    prompt_indices,
+    seed_by_prompt,
+    switch_positions,
+    unique_run_specs,
+    validate_confirmatory_output,
+)
+
 
 PREFIX_PIXEL_FRAMES = 61
-DIRECTIONS = {
-    "a_to_d": {0: "oracle_d", 1: "a_to_d_s1", 2: "a_to_d_s2", 3: "a_to_d_s3", 4: "oracle_a"},
-    "d_to_a": {0: "oracle_a", 1: "d_to_a_s1", 2: "d_to_a_s2", 3: "d_to_a_s3", 4: "oracle_d"},
-}
+DEFAULT_CONFIG = PROJECT / "config" / "phase4_minwm.yaml"
+UPSTREAM = Path(os.environ.get("LATEACT_MINWM_UPSTREAM", PROJECT / "third_party" / "minWM"))
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=Path, required=True)
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="validate config, prompt identity, expected runs, and input isolation only",
+    )
     return parser.parse_args()
 
 
@@ -132,9 +151,27 @@ def stats(values: list[float]) -> dict:
     }
 
 
-def make_montage(root: Path, scene: str) -> None:
-    names = ["oracle_d", "a_to_d_s1", "a_to_d_s2", "a_to_d_s3", "oracle_a"]
-    labels = ["NEW d", "a->d s1", "a->d s2", "a->d s3", "OLD a"]
+def make_montage(
+    root: Path,
+    scene: str,
+    protocol: dict,
+    filename: str,
+) -> None:
+    negative, positive = actions(protocol)
+    names = [
+        f"oracle_{positive}",
+        f"{negative}_to_{positive}_s1",
+        f"{negative}_to_{positive}_s2",
+        f"{negative}_to_{positive}_s3",
+        f"oracle_{negative}",
+    ]
+    labels = [
+        f"NEW {positive}",
+        f"{negative}->{positive} s1",
+        f"{negative}->{positive} s2",
+        f"{negative}->{positive} s3",
+        f"OLD {negative}",
+    ]
     cells = []
     for name, label in zip(names, labels):
         frames = load_frames(root / scene / f"{name}.mp4")
@@ -143,11 +180,99 @@ def make_montage(root: Path, scene: str) -> None:
         cv2.rectangle(frame, (0, 0), (150, 28), (0, 0, 0), -1)
         cv2.putText(frame, label, (7, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1, cv2.LINE_AA)
         cells.append(frame)
-    cv2.imwrite(str(root / "phase4_minwm_curve_montage.png"), np.hstack(cells))
+    cv2.imwrite(str(root / filename), np.hstack(cells))
+
+
+def validate_reports(
+    reports: list[dict],
+    scenes: dict,
+    protocol: dict,
+    prompts: list[str],
+) -> None:
+    expected_indices = prompt_indices(protocol)
+    expected_scenes = {f"scene_{index:02d}" for index in expected_indices}
+    if set(scenes) != expected_scenes:
+        raise RuntimeError(
+            f"expected frozen scenes {sorted(expected_scenes)}, found {sorted(scenes)}"
+        )
+    negative, positive = actions(protocol)
+    seed_map = seed_by_prompt(protocol)
+    control_indices = set(control_prompt_indices(protocol))
+    base_specs = unique_run_specs(protocol)
+    base_runs = {name for name, _, _, _ in base_specs}
+    expected_metadata = {name: (old, new, switch) for name, old, new, switch in base_specs}
+    for report in reports:
+        if protocol.get("phase") == "phase4_minwm_yaw_confirmatory":
+            expected_top = {
+                "phase": protocol["phase"],
+                "protocol_config_sha256": protocol["_config_sha256"],
+                "negative_action": negative,
+                "positive_action": positive,
+                "trajectory_steps_per_branch": int(protocol["control"]["trajectory_steps_per_branch"]),
+                "switch_positions": switch_positions(protocol),
+                "same_action_control_prompt_indices": sorted(control_indices),
+            }
+            for key, expected in expected_top.items():
+                if report.get(key) != expected:
+                    raise RuntimeError(
+                        f"report/config mismatch for {key}: expected {expected!r}, got {report.get(key)!r}"
+                    )
+            if set(report.get("camera_viewmat_hashes", {})) != {negative, positive}:
+                raise RuntimeError("report camera tensors do not match the frozen action pair")
+    for index in expected_indices:
+        scene_name = f"scene_{index:02d}"
+        scene = scenes[scene_name]
+        if scene.get("prompt") != prompts[index] or int(scene.get("seed")) != seed_map[index]:
+            raise RuntimeError(f"prompt or seed substitution detected in {scene_name}")
+        expected_runs = set(base_runs)
+        if index in control_indices:
+            for switch in switch_positions(protocol):
+                name = f"{negative}_to_{negative}_s{switch}"
+                expected_runs.add(name)
+                expected_metadata[name] = (negative, negative, switch)
+        if set(scene["runs"]) != expected_runs:
+            raise RuntimeError(
+                f"action/run mismatch in {scene_name}: expected {sorted(expected_runs)}, "
+                f"found {sorted(scene['runs'])}"
+            )
+        for run_name, run in scene["runs"].items():
+            expected = expected_metadata[run_name]
+            actual = (run.get("old_action"), run.get("new_action"), int(run.get("switch_after")))
+            if actual != expected:
+                raise RuntimeError(
+                    f"action metadata mismatch for {scene_name}/{run_name}: {actual} != {expected}"
+                )
 
 
 def main() -> None:
     args = parse_args()
+    protocol = load_protocol(args.config)
+    prompts = load_and_validate_prompts(UPSTREAM, protocol)
+    validate_confirmatory_output(args.input, protocol, require_empty=False)
+    directions = direction_mappings(protocol)
+    expected_scene_names = [f"scene_{index:02d}" for index in prompt_indices(protocol)]
+    if args.dry_run:
+        print(json.dumps({
+            "status": "dry_run_only_no_artifact_analysis",
+            "config": protocol["_config_path"],
+            "config_sha256": protocol["_config_sha256"],
+            "input": str(args.input.resolve()),
+            "actions": list(actions(protocol)),
+            "expected_scenes": expected_scene_names,
+            "expected_directions": list(directions),
+            "control_prompt_indices": control_prompt_indices(protocol),
+            "thresholds": {
+                "min_oracle_gap_pixels": protocol["validity"]["min_oracle_gap_pixels"],
+                "same_action_floor_multiplier": protocol["validity"]["same_action_floor_multiplier"],
+                "min_tracks_per_transition": protocol["evaluator"]["min_tracks_per_transition"],
+                "min_valid_direction_scene_pairs": protocol["phase4b_pass"]["min_valid_direction_scene_pairs"],
+                "min_monotone_pairs": protocol["phase4b_pass"]["min_monotone_pairs"],
+                "min_bounded_pairs": protocol["phase4b_pass"]["min_bounded_pairs"],
+                "min_median_adjacent_drop": protocol["phase4b_pass"]["min_median_adjacent_drop"],
+                "min_directions_each_orientation": protocol["phase4b_pass"]["min_directions_each_orientation"],
+            },
+        }, indent=2, sort_keys=True))
+        return
     reports = [json.loads(path.read_text()) for path in sorted(args.input.glob("curve_scenes_*.json"))]
     reports = [report for report in reports if report.get("status") == "complete"]
     scenes = {}
@@ -156,8 +281,7 @@ def main() -> None:
         if overlap:
             raise RuntimeError(f"duplicate completed scenes: {sorted(overlap)}")
         scenes.update(report["scenes"])
-    if len(scenes) != 8:
-        raise RuntimeError(f"frozen replication requires eight complete scenes, found {len(scenes)}")
+    validate_reports(reports, scenes, protocol, prompts)
 
     metrics = {}
     for scene, value in sorted(scenes.items()):
@@ -170,9 +294,17 @@ def main() -> None:
             }
 
     controls = []
-    for scene in ("scene_00", "scene_01"):
-        hashes = [scenes[scene]["runs"][f"a_to_a_s{s}"]["latent_sha256"] for s in range(5)]
-        scores = [metrics[scene][f"a_to_a_s{s}"]["motion"]["affine_center_signed_sum"] for s in range(5)]
+    negative, _ = actions(protocol)
+    controls_scenes = [f"scene_{index:02d}" for index in control_prompt_indices(protocol)]
+    for scene in controls_scenes:
+        hashes = [
+            scenes[scene]["runs"][f"{negative}_to_{negative}_s{s}"]["latent_sha256"]
+            for s in switch_positions(protocol)
+        ]
+        scores = [
+            metrics[scene][f"{negative}_to_{negative}_s{s}"]["motion"]["affine_center_signed_sum"]
+            for s in switch_positions(protocol)
+        ]
         controls.append({
             "scene": scene,
             "latent_hashes_exact": len(set(hashes)) == 1,
@@ -185,7 +317,7 @@ def main() -> None:
     for scene, value in sorted(scenes.items()):
         audit = value["engineering_checks"]
         audit_pass = all(item is True for item in audit.values() if item is not None)
-        for direction, mapping in DIRECTIONS.items():
+        for direction, mapping in directions.items():
             primary = {
                 position: metrics[scene][run]["motion"]["affine_center_signed_sum"]
                 for position, run in mapping.items()
@@ -205,13 +337,17 @@ def main() -> None:
             )
             sign_agreement = np.sign(denominator) == np.sign(stability[0] - stability[4])
             valid = bool(
-                audit_pass and abs(denominator) >= 8.0
-                and abs(denominator) >= 10.0 * max(repeatability_floor, 1e-6)
-                and support >= 20 and sign_agreement
+                audit_pass
+                and abs(denominator) >= float(protocol["validity"]["min_oracle_gap_pixels"])
+                and abs(denominator) >= float(protocol["validity"]["same_action_floor_multiplier"]) * max(repeatability_floor, 1e-6)
+                and support >= int(protocol["evaluator"]["min_tracks_per_transition"])
+                and sign_agreement
             )
             values = [response[position] for position in range(5)]
-            monotone = bool(valid and all(values[index + 1] <= values[index] + 0.10 for index in range(4)))
-            bounded = bool(valid and all(-0.10 <= response[position] <= 1.10 for position in (1, 2, 3)))
+            tolerance = float(protocol["phase4b_pass"]["monotonic_tolerance"])
+            bounded_min, bounded_max = [float(value) for value in protocol["phase4b_pass"]["bounded_range"]]
+            monotone = bool(valid and all(values[index + 1] <= values[index] + tolerance for index in range(4)))
+            bounded = bool(valid and all(bounded_min <= response[position] <= bounded_max for position in (1, 2, 3)))
             quality = all(metrics[scene][mapping[position]]["quality"]["decode_valid"] for position in range(5))
             rows.append({
                 "scene": scene, "direction": direction, "valid": valid,
@@ -233,16 +369,27 @@ def main() -> None:
     } if valid_rows else {}
     direction_valid = {
         direction: sum(row["valid"] for row in rows if row["direction"] == direction)
-        for direction in DIRECTIONS
+        for direction in directions
     }
+    gate = protocol["phase4b_pass"]
+    all_audits_pass = all(
+        all(item is True for item in scene["engineering_checks"].values() if item is not None)
+        for scene in scenes.values()
+    )
     phase4b_pass = bool(
-        len(valid_rows) >= 12
-        and sum(row["monotone"] for row in rows) >= 12
-        and sum(row["bounded"] for row in rows) >= 12
-        and max(adjacent_drops.values(), default=-np.inf) >= 0.15
-        and all(count >= 6 for count in direction_valid.values())
+        len(valid_rows) >= int(gate["min_valid_direction_scene_pairs"])
+        and sum(row["monotone"] for row in rows) >= int(gate["min_monotone_pairs"])
+        and sum(row["bounded"] for row in rows) >= int(gate["min_bounded_pairs"])
+        and max(adjacent_drops.values(), default=-np.inf) >= float(gate["min_median_adjacent_drop"])
+        and all(count >= int(gate["min_directions_each_orientation"]) for count in direction_valid.values())
+        and sum(row["visual_valid"] for row in rows) >= int(gate.get("required_visual_valid_pairs", len(rows)))
         and all(row["visual_valid"] for row in rows)
         and all(control["latent_hashes_exact"] for control in controls)
+        and (
+            all_audits_pass
+            if bool(gate.get("require_stochastic_noise_cache_audits", True))
+            else True
+        )
     )
 
     rollback_boundary = None
@@ -251,14 +398,21 @@ def main() -> None:
         for position in range(3):
             current = by_position[str(position)]["median"]
             following = by_position[str(position + 1)]["median"]
-            if current >= 0.80 and following <= 0.65 and current - following >= 0.15:
+            rollback = protocol.get("rollback", {})
+            if (
+                current >= float(rollback.get("boundary_min_current_response", 0.80))
+                and following <= float(rollback.get("boundary_max_following_response", 0.65))
+                and current - following >= float(rollback.get("boundary_min_adjacent_drop", 0.15))
+            ):
                 candidates.append(position)
         rollback_boundary = max(candidates) if candidates else None
         if rollback_boundary is None:
             phase4b_pass = False
 
     summary = {
-        "phase": "phase4_minwm_commitment_curve",
+        "phase": protocol["phase"],
+        "protocol_config": protocol["_config_path"],
+        "protocol_config_sha256": protocol["_config_sha256"],
         "scene_count": len(scenes), "direction_count": len(rows),
         "valid_direction_count": len(valid_rows), "direction_valid_counts": direction_valid,
         "repeatability_floor": repeatability_floor, "same_action_controls": controls,
@@ -266,6 +420,7 @@ def main() -> None:
         "monotone_count": sum(row["monotone"] for row in rows),
         "bounded_count": sum(row["bounded"] for row in rows),
         "visual_valid_count": sum(row["visual_valid"] for row in rows),
+        "all_engineering_audits_pass": all_audits_pass,
         "phase4b_pass": phase4b_pass, "rollback_boundary_after_nfe": rollback_boundary,
         "per_direction": rows, "per_run_metrics": metrics,
         "peak_allocated_bytes": max(
@@ -279,10 +434,16 @@ def main() -> None:
             run["decode_seconds"] for scene in scenes.values() for run in scene["runs"].values()
         ])),
     }
-    (args.input / "phase4_minwm_curve_summary.json").write_text(
+    summary_filename = protocol.get("analysis", {}).get(
+        "summary_filename", "phase4_minwm_curve_summary.json"
+    )
+    montage_filename = protocol.get("analysis", {}).get(
+        "montage_filename", "phase4_minwm_curve_montage.png"
+    )
+    (args.input / summary_filename).write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n"
     )
-    make_montage(args.input, "scene_00")
+    make_montage(args.input, controls_scenes[0], protocol, montage_filename)
     compact = {key: value for key, value in summary.items() if key not in ("per_direction", "per_run_metrics")}
     print(json.dumps(compact, indent=2, sort_keys=True))
 
