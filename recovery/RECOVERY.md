@@ -76,15 +76,38 @@ byte-for-byte with the experiment checkout.
 
 Do not retrieve weights from an untrusted mirror and do not commit them here.
 
-Matrix-Game documents:
+The Matrix-Game model bundle was downloaded from Hub revision
+`f1729d99a80e0f07993a77d7dad4a3190e23c2c8`. The original execution transcript
+records direct `resolve/main` downloads on 2026-08-23, and Hub history proves
+that revision was `main` throughout the download window. Local SHA256 values
+match the revision's LFS digests or Git blob IDs. Reconstruct the exact loader
+layout with pinned URLs:
 
 ```bash
-huggingface-cli download Skywork/Matrix-Game-2.0 --local-dir models/matrix-game-2
+mkdir -p models/matrix-game-2/xlm-roberta-large
+revision=f1729d99a80e0f07993a77d7dad4a3190e23c2c8
+base=https://huggingface.co/Skywork/Matrix-Game-2.0/resolve/${revision}
+curl -fL -o models/matrix-game-2/base_distill.safetensors \
+  "${base}/base_distilled_model/base_distill.safetensors"
+curl -fL -o models/matrix-game-2/Wan2.1_VAE.pth \
+  "${base}/Wan2.1_VAE.pth"
+curl -fL -o models/matrix-game-2/models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth \
+  "${base}/models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth"
+for name in sentencepiece.bpe.model tokenizer.json tokenizer_config.json special_tokens_map.json; do
+  curl -fL -o "models/matrix-game-2/xlm-roberta-large/${name}" \
+    "${base}/xlm-roberta-large/${name}"
+done
 ```
 
-The historical Matrix-Game Hub revision and local model-file hashes were not
-recorded; exact weight identity therefore remains the principal recovery
-uncertainty.
+Verify every size and SHA256 against `UPSTREAMS.yaml`. The LateAct Matrix-Game
+loader directly consumes `base_distill.safetensors`; its VAE wrapper directly
+loads the VAE and CLIP checkpoints and initializes `AutoTokenizer` from the
+local `xlm-roberta-large` directory. Under the frozen Transformers 5.9.0
+runtime, an offline Python audit hook confirmed accesses to `tokenizer.json`,
+`tokenizer_config.json`, and `special_tokens_map.json`. The downloaded
+`sentencepiece.bpe.model` was not opened and is retained only as an official
+fallback asset. The loader does not use the repository's T5, base-model, GTA,
+Temple Run, or other checkpoints.
 
 For minWM, use the exact revisions in `UPSTREAMS.yaml`:
 

@@ -1,16 +1,68 @@
-schema_version: 1
+schema_version: 2
 
 matrix_game:
   source_repository: https://github.com/SkyworkAI/Matrix-Game.git
   source_commit: 71c3cd7f741311f8100f6cf9cde942b6c1378d11
   model_repository: Skywork/Matrix-Game-2.0
-  model_hub_revision: unknown
-  local_model_file_sha256: unknown
+  model_hub_revision: f1729d99a80e0f07993a77d7dad4a3190e23c2c8
+  model_hub_revision_status: VERIFIED_REVISION
+  revision_evidence:
+    download_window_utc: ["2026-08-23T17:40:58Z", "2026-08-23T17:49:48Z"]
+    download_method: direct_resolve_main_urls_recorded_in_original_execution_transcript
+    revision_at_download: f1729d99a80e0f07993a77d7dad4a3190e23c2c8
+    revision_valid_from_utc: 2026-04-13T07:27:23Z
+    verification: >-
+      Official Hub history shows this was main at every recorded download time;
+      all local LFS SHA256 values or Git blob IDs match this revision.
   required_model_files:
-    - base_distill.safetensors
-    - models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
-    - Wan2.1_VAE.pth
-    - xlm-roberta-large/
+    - component: universal_action_conditioned_dit
+      upstream_path: base_distilled_model/base_distill.safetensors
+      local_relative_path: base_distill.safetensors
+      bytes: 6477092432
+      sha256: 55133515cf15a1ddc3d49e1f1102d79d536a1fca5459fdb2498b82a9d1b7a7e7
+      upstream_lfs_sha256_match: true
+    - component: wan21_vae
+      upstream_path: Wan2.1_VAE.pth
+      local_relative_path: Wan2.1_VAE.pth
+      bytes: 507609880
+      sha256: 38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981
+      upstream_lfs_sha256_match: true
+    - component: clip_image_encoder
+      upstream_path: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+      local_relative_path: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+      bytes: 4772359047
+      sha256: 628c9998b613391f193eb67ff68da9667d75f492911e4eb3decf23460a158c38
+      upstream_lfs_sha256_match: true
+    - component: xlm_roberta_fast_tokenizer
+      upstream_path: xlm-roberta-large/tokenizer.json
+      local_relative_path: xlm-roberta-large/tokenizer.json
+      bytes: 17082660
+      sha256: 62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626
+      upstream_lfs_sha256_match: true
+    - component: xlm_roberta_tokenizer_config
+      upstream_path: xlm-roberta-large/tokenizer_config.json
+      local_relative_path: xlm-roberta-large/tokenizer_config.json
+      bytes: 418
+      sha256: efb5c0d09722e5fe59a462cd2a9976ee216d55b037597d997cd3fe833216da15
+      upstream_git_blob_id: 6de1940d16d38be9877bf7cc228c9377841b311f
+      upstream_git_blob_match: true
+    - component: xlm_roberta_special_tokens
+      upstream_path: xlm-roberta-large/special_tokens_map.json
+      local_relative_path: xlm-roberta-large/special_tokens_map.json
+      bytes: 280
+      sha256: 06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f
+      upstream_git_blob_id: d5698132694f4f1bcff08fa7d937b1701812598e
+      upstream_git_blob_match: true
+  downloaded_supporting_files:
+    - component: xlm_roberta_sentencepiece_fallback
+      upstream_path: xlm-roberta-large/sentencepiece.bpe.model
+      local_relative_path: xlm-roberta-large/sentencepiece.bpe.model
+      bytes: 5069051
+      sha256: cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865
+      upstream_lfs_sha256_match: true
+      runtime_access_status: >-
+        Not opened by AutoTokenizer in the frozen Transformers 5.9.0 runtime;
+        retained as an official tokenizer fallback asset.
   input_assets:
     source: Matrix-Game-2/demo_images/universal
     indices: 0000-0016
@@ -23,7 +75,11 @@ matrix_game:
   vendored_cache_ops_sha256: af30ac8f5d58c1b310cfce74e1a4d381dcfdfe7a0acfbf08db9920ec929f5e12
   notes:
     - The exact source commit is known.
-    - The exact Hugging Face model revision and Matrix-Game model-file hashes were not recorded historically and remain unknown.
+    - The original download transcript proves that all seven assets were fetched from resolve/main on 2026-08-23.
+    - Hub history and content identifiers establish f1729d99a80e0f07993a77d7dad4a3190e23c2c8 as the exact download revision.
+    - The frozen loader opens the three model checkpoints and three tokenizer JSON files listed under required_model_files.
+    - An offline Python audit hook under Transformers 5.9.0 confirmed the tokenizer file accesses; sentencepiece.bpe.model was downloaded but not opened.
+    - T5 assets and other repository checkpoints were not loaded.
     - Apply the local patch only to the pinned source commit.
 
 minwm:
