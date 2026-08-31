@@ -1,0 +1,30 @@
+{
+  "experiment": "Gate 1",
+  "scene": "0005",
+  "direction": "right_to_left",
+  "family": "Matrix-Game 2.0 mouse-yaw",
+  "arrival": "after two OLD-action NFEs",
+  "validated": true,
+  "selection_policy": "Among valid cases, prefer a direct response near the cohort median, a rollback response near the cohort median, future SSIM above 0.90, and a clean visible OLD/NEW separation without distracting artifacts.",
+  "selection_evidence": {
+    "direct_late_bind_response": 0.19148850302949214,
+    "minimal_rollback_response": 0.996577090493037,
+    "full_restart_response": 1.0,
+    "new_oracle_response": 1.0,
+    "old_response": 0.0,
+    "minimal_vs_new_future_ssim": 0.9209651572282391,
+    "direct_vs_new_future_ssim": 0.45616474243387345,
+    "minimal_saved_vs_full_seconds": 0.3180127330124378,
+    "state_audit_pass": true,
+    "decodes_valid": true
+  },
+  "source_artifact": "frozen_sources/gate1_summary.json",
+  "source_field": "per_pair[scene=0005,direction=right_to_left]",
+  "source_clips": {
+    "old": "source_clips/canonical_old.mp4",
+    "new_oracle": "source_clips/canonical_new.mp4",
+    "direct_late_bind": "source_clips/canonical_direct.mp4",
+    "lateact_minimal_rollback": "source_clips/canonical_lateact.mp4",
+    "full_restart": "source_clips/canonical_restart.mp4"
+  }
+}

@@ -1,0 +1,5709 @@
+{
+  "action_maps": {
+    "left_to_right": {
+      "0": "oracle_mouse_right",
+      "1": "lr_s1",
+      "2": "lr_s2",
+      "3": "oracle_mouse_left"
+    },
+    "right_to_left": {
+      "0": "oracle_mouse_left",
+      "1": "rl_s1",
+      "2": "rl_s2",
+      "3": "oracle_mouse_right"
+    }
+  },
+  "context_cache_writes_per_block": 1,
+  "cuda_runtime": "12.1",
+  "denoising_timesteps": [
+    1000.0,
+    908.8427124023438,
+    713.9794311523438
+  ],
+  "device": "cuda:0",
+  "future_blocks": 1,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "latent_frames_per_block": 3,
+  "nfe_per_block": 3,
+  "phase": "smoke",
+  "prefix_blocks": 1,
+  "scenes": {
+    "0000": {
+      "condition_changed_keys": [
+        "mouse_cond"
+      ],
+      "condition_hashes": {
+        "mouse_left": {
+          "cond_concat": "52140ca7bda4da185aab2243c488a39147f7df6295af77e6f96d4c71984f434d",
+          "keyboard_cond": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "mouse_cond": "8fbcda7a83d55e8a04d8a1164502b994742ecd54630adc74b5d720508b395264",
+          "visual_context": "903711aacc23fc05ac1efaf2994193500b87e347f3d50f6328fcc60ee7e57beb"
+        },
+        "mouse_right": {
+          "cond_concat": "52140ca7bda4da185aab2243c488a39147f7df6295af77e6f96d4c71984f434d",
+          "keyboard_cond": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "mouse_cond": "fb6857e0f277315106ea2de7c4460764fb7cd6eac11a4261d9e2f82218cf77cf",
+          "visual_context": "903711aacc23fc05ac1efaf2994193500b87e347f3d50f6328fcc60ee7e57beb"
+        }
+      },
+      "engineering_checks": {
+        "all_historical_cache_checks_passed": true,
+        "all_noise_hashes_match": true,
+        "only_mouse_condition_differs": true,
+        "oracle_latents_distinct": true,
+        "same_action_controls_exact": true,
+        "same_action_motion_range": 0.0
+      },
+      "fixed_condition_hashes": {
+        "cond_concat": "52140ca7bda4da185aab2243c488a39147f7df6295af77e6f96d4c71984f434d",
+        "visual_context": "903711aacc23fc05ac1efaf2994193500b87e347f3d50f6328fcc60ee7e57beb"
+      },
+      "future_noise_hashes": {
+        "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+        "renoise": [
+          "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+          "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+        ]
+      },
+      "image": "/mnt/NAS/data/hl5757/third_party/Matrix-Game/Matrix-Game-2/demo_images/universal/0000.png",
+      "prefix_noise_hashes": {
+        "initial": "4571ec0a3d84376943abcee82435dcca77dbbcdffd497ad8b86f9f13fa5e46fc",
+        "renoise": [
+          "aadccf8625a88a75145c93aebe59995ed2955edc8ddd8cbfef87b77f0f56d849",
+          "16b5fa9df900d16f94d5d04e090aa198c707c877f5165270f9f9d2234eab00a9"
+        ]
+      },
+      "prefix_peak_allocated_bytes": 8405515776,
+      "prefix_seconds": 1.255110657773912,
+      "prefix_snapshot_hashes": {
+        "cross": "1de18aa395e16db9c49b738380327be92955038fda525134befa2ea142bf22d4",
+        "keyboard": "fb7496b0c1f1a20d3392151cc3e24efffea649dbe6f910750158db00163a358c",
+        "mouse": "4a311ceff82b1034a2accc25889574ff049aa1f21925614bc543ff9fcf3273c4",
+        "visual": "7c1212683b501a02562cb88599df721732a83479aabf4ff28cd2b95990d023ed"
+      },
+      "runs": {
+        "control_left_s0": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.146997001953423,
+          "decoded_frame_equivalent_per_second": 9.941052242183487,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.207115676254034,
+          "latent_frames_per_second": 2.4852630605458716,
+          "latent_sha256": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "motion": {
+            "dense_per_transition": [
+              0.14045128226280212,
+              5.619784355163574,
+              5.200850486755371,
+              5.135202407836914,
+              5.582423210144043,
+              5.3447160720825195,
+              5.279426574707031,
+              5.151523113250732,
+              5.353641510009766,
+              5.399896621704102,
+              5.21521520614624,
+              5.286964416503906
+            ],
+            "dense_signed_sum": 58.710095256567,
+            "lk_per_transition": [
+              0.14737701416015625,
+              5.838459014892578,
+              5.324676513671875,
+              5.253959655761719,
+              5.594444274902344,
+              5.4777984619140625,
+              5.37481689453125,
+              5.358283996582031,
+              5.354499816894531,
+              5.554771423339844,
+              5.2834930419921875,
+              5.319782257080078
+            ],
+            "lk_signed_sum": 59.882362365722656,
+            "median_track_count": 587.0,
+            "track_counts": [
+              600,
+              596,
+              581,
+              593,
+              581,
+              587,
+              595,
+              586,
+              568,
+              597,
+              587,
+              580
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.4852630605458716,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10031032320,
+          "peak_reserved_bytes": 11767119872,
+          "switch_after": 0,
+          "trace": {
+            "actions_by_nfe": [
+              "new",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 0
+          }
+        },
+        "control_left_s1": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.153679160401225,
+          "decoded_frame_equivalent_per_second": 9.943935447415443,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.206765677779913,
+          "latent_frames_per_second": 2.4859838618538608,
+          "latent_sha256": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "motion": {
+            "dense_per_transition": [
+              0.14045128226280212,
+              5.619784355163574,
+              5.200850486755371,
+              5.135202407836914,
+              5.582423210144043,
+              5.3447160720825195,
+              5.279426574707031,
+              5.151523113250732,
+              5.353641510009766,
+              5.399896621704102,
+              5.21521520614624,
+              5.286964416503906
+            ],
+            "dense_signed_sum": 58.710095256567,
+            "lk_per_transition": [
+              0.14737701416015625,
+              5.838459014892578,
+              5.324676513671875,
+              5.253959655761719,
+              5.594444274902344,
+              5.4777984619140625,
+              5.37481689453125,
+              5.358283996582031,
+              5.354499816894531,
+              5.554771423339844,
+              5.2834930419921875,
+              5.319782257080078
+            ],
+            "lk_signed_sum": 59.882362365722656,
+            "median_track_count": 587.0,
+            "track_counts": [
+              600,
+              596,
+              581,
+              593,
+              581,
+              587,
+              595,
+              586,
+              568,
+              597,
+              587,
+              580
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.4859838618538608,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10034109440,
+          "peak_reserved_bytes": 11723079680,
+          "switch_after": 1,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 1
+          }
+        },
+        "control_left_s2": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1534136980772018,
+          "decoded_frame_equivalent_per_second": 9.930378161205628,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.2084131948649883,
+          "latent_frames_per_second": 2.482594540301407,
+          "latent_sha256": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "motion": {
+            "dense_per_transition": [
+              0.14045128226280212,
+              5.619784355163574,
+              5.200850486755371,
+              5.135202407836914,
+              5.582423210144043,
+              5.3447160720825195,
+              5.279426574707031,
+              5.151523113250732,
+              5.353641510009766,
+              5.399896621704102,
+              5.21521520614624,
+              5.286964416503906
+            ],
+            "dense_signed_sum": 58.710095256567,
+            "lk_per_transition": [
+              0.14737701416015625,
+              5.838459014892578,
+              5.324676513671875,
+              5.253959655761719,
+              5.594444274902344,
+              5.4777984619140625,
+              5.37481689453125,
+              5.358283996582031,
+              5.354499816894531,
+              5.554771423339844,
+              5.2834930419921875,
+              5.319782257080078
+            ],
+            "lk_signed_sum": 59.882362365722656,
+            "median_track_count": 587.0,
+            "track_counts": [
+              600,
+              596,
+              581,
+              593,
+              581,
+              587,
+              595,
+              586,
+              568,
+              597,
+              587,
+              580
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.482594540301407,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10050329600,
+          "peak_reserved_bytes": 12144607232,
+          "switch_after": 2,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 2
+          }
+        },
+        "control_left_s3": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1601951057091355,
+          "decoded_frame_equivalent_per_second": 9.87484515831747,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.2152089281007648,
+          "latent_frames_per_second": 2.4687112895793675,
+          "latent_sha256": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "motion": {
+            "dense_per_transition": [
+              0.14045128226280212,
+              5.619784355163574,
+              5.200850486755371,
+              5.135202407836914,
+              5.582423210144043,
+              5.3447160720825195,
+              5.279426574707031,
+              5.151523113250732,
+              5.353641510009766,
+              5.399896621704102,
+              5.21521520614624,
+              5.286964416503906
+            ],
+            "dense_signed_sum": 58.710095256567,
+            "lk_per_transition": [
+              0.14737701416015625,
+              5.838459014892578,
+              5.324676513671875,
+              5.253959655761719,
+              5.594444274902344,
+              5.4777984619140625,
+              5.37481689453125,
+              5.358283996582031,
+              5.354499816894531,
+              5.554771423339844,
+              5.2834930419921875,
+              5.319782257080078
+            ],
+            "lk_signed_sum": 59.882362365722656,
+            "median_track_count": 587.0,
+            "track_counts": [
+              600,
+              596,
+              581,
+              593,
+              581,
+              587,
+              595,
+              586,
+              568,
+              597,
+              587,
+              580
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.4687112895793675,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10037156864,
+          "peak_reserved_bytes": 11708399616,
+          "switch_after": 3,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "old"
+            ],
+            "context_action": "old",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 3
+          }
+        },
+        "lr_s1": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.167637095786631,
+          "decoded_frame_equivalent_per_second": 9.981360763363737,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.2022408852353692,
+          "latent_frames_per_second": 2.4953401908409343,
+          "latent_sha256": "6e00ae68a83de2898a441a58bfd24db56a79be5be52d0e56bd37763f754dd934",
+          "motion": {
+            "dense_per_transition": [
+              -0.25604167580604553,
+              -4.22395133972168,
+              -4.3336992263793945,
+              -4.28831672668457,
+              -4.465478897094727,
+              -4.439844131469727,
+              -4.4055891036987305,
+              -4.494512557983398,
+              -4.034176826477051,
+              -4.430528163909912,
+              -4.323740005493164,
+              -4.426460266113281
+            ],
+            "dense_signed_sum": -48.12233892083168,
+            "lk_per_transition": [
+              -0.314483642578125,
+              -4.404396057128906,
+              -4.4188079833984375,
+              -4.470062255859375,
+              -4.558734893798828,
+              -4.5004730224609375,
+              -4.502262115478516,
+              -4.656671524047852,
+              -4.006008148193359,
+              -4.3859405517578125,
+              -4.342411041259766,
+              -4.5277557373046875
+            ],
+            "lk_signed_sum": -49.0880069732666,
+            "median_track_count": 593.0,
+            "track_counts": [
+              592,
+              598,
+              597,
+              597,
+              580,
+              596,
+              600,
+              594,
+              584,
+              585,
+              580,
+              585
+            ]
+          },
+          "new_action": "mouse_right",
+          "nfe_per_second": 2.4953401908409343,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10047809536,
+          "peak_reserved_bytes": 12503220224,
+          "switch_after": 1,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 1
+          }
+        },
+        "lr_s2": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1601443411782384,
+          "decoded_frame_equivalent_per_second": 9.966075805928288,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.2040847605094314,
+          "latent_frames_per_second": 2.491518951482072,
+          "latent_sha256": "4a7467904cb577aaff2895a49d846694b4ffcd6816f7f01a0a89b45972fe95e6",
+          "motion": {
+            "dense_per_transition": [
+              0.023728515952825546,
+              3.279435873031616,
+              2.620466709136963,
+              3.2295732498168945,
+              1.0324838161468506,
+              10.08989143371582,
+              1.665984869003296,
+              2.917396068572998,
+              1.7112984657287598,
+              4.231579780578613,
+              0.3013369143009186,
+              1.4751427173614502
+            ],
+            "dense_signed_sum": 32.578318413347006,
+            "lk_per_transition": [
+              0.06543636322021484,
+              3.641632080078125,
+              3.2167892456054688,
+              3.7093963623046875,
+              1.373779296875,
+              11.200889587402344,
+              2.2955322265625,
+              3.2918701171875,
+              1.994873046875,
+              5.11871337890625,
+              1.158203125,
+              2.634857177734375
+            ],
+            "lk_signed_sum": 39.701972007751465,
+            "median_track_count": 558.5,
+            "track_counts": [
+              600,
+              591,
+              546,
+              574,
+              595,
+              522,
+              535,
+              544,
+              598,
+              571,
+              502,
+              543
+            ]
+          },
+          "new_action": "mouse_right",
+          "nfe_per_second": 2.491518951482072,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10052197376,
+          "peak_reserved_bytes": 12801015808,
+          "switch_after": 2,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 2
+          }
+        },
+        "oracle_mouse_left": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.2188896127045155,
+          "decoded_frame_equivalent_per_second": 9.898207395179668,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.2123407321050763,
+          "latent_frames_per_second": 2.474551848794917,
+          "latent_sha256": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "motion": {
+            "dense_per_transition": [
+              0.14045128226280212,
+              5.619784355163574,
+              5.200850486755371,
+              5.135202407836914,
+              5.582423210144043,
+              5.3447160720825195,
+              5.279426574707031,
+              5.151523113250732,
+              5.353641510009766,
+              5.399896621704102,
+              5.21521520614624,
+              5.286964416503906
+            ],
+            "dense_signed_sum": 58.710095256567,
+            "lk_per_transition": [
+              0.14737701416015625,
+              5.838459014892578,
+              5.324676513671875,
+              5.253959655761719,
+              5.594444274902344,
+              5.4777984619140625,
+              5.37481689453125,
+              5.358283996582031,
+              5.354499816894531,
+              5.554771423339844,
+              5.2834930419921875,
+              5.319782257080078
+            ],
+            "lk_signed_sum": 59.882362365722656,
+            "median_track_count": 587.0,
+            "track_counts": [
+              600,
+              596,
+              581,
+              593,
+              581,
+              587,
+              595,
+              586,
+              568,
+              597,
+              587,
+              580
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.474551848794917,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10062502912,
+          "peak_reserved_bytes": 12352225280,
+          "switch_after": 0,
+          "trace": {
+            "actions_by_nfe": [
+              "new",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 0
+          }
+        },
+        "oracle_mouse_right": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1699802298098803,
+          "decoded_frame_equivalent_per_second": 10.013893248385214,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.1983351232483983,
+          "latent_frames_per_second": 2.5034733120963035,
+          "latent_sha256": "4fceea645daec27f278c8f9a004b394bb0336058cc786c3c958adc889ceaa5ce",
+          "motion": {
+            "dense_per_transition": [
+              -0.38627108931541443,
+              -4.6826629638671875,
+              -4.65638542175293,
+              -4.634953498840332,
+              -4.794572353363037,
+              -4.771807670593262,
+              -4.710531234741211,
+              -4.755871295928955,
+              -4.320166110992432,
+              -4.6487274169921875,
+              -4.549351692199707,
+              -4.630406856536865
+            ],
+            "dense_signed_sum": -51.54170760512352,
+            "lk_per_transition": [
+              -0.4111480712890625,
+              -4.9996185302734375,
+              -4.8002166748046875,
+              -4.7817230224609375,
+              -4.8775482177734375,
+              -4.959606170654297,
+              -4.809593200683594,
+              -4.9024505615234375,
+              -4.235496520996094,
+              -4.4963531494140625,
+              -4.620704650878906,
+              -4.7925567626953125
+            ],
+            "lk_signed_sum": -52.687015533447266,
+            "median_track_count": 593.0,
+            "track_counts": [
+              593,
+              597,
+              597,
+              597,
+              591,
+              593,
+              583,
+              595,
+              561,
+              558,
+              588,
+              598
+            ]
+          },
+          "new_action": "mouse_right",
+          "nfe_per_second": 2.5034733120963035,
+          "old_action": "mouse_right",
+          "peak_allocated_bytes": 10065501184,
+          "peak_reserved_bytes": 12981370880,
+          "switch_after": 0,
+          "trace": {
+            "actions_by_nfe": [
+              "new",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 0
+          }
+        },
+        "rl_s1": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1668017134070396,
+          "decoded_frame_equivalent_per_second": 9.974584741057159,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.2030576020479202,
+          "latent_frames_per_second": 2.4936461852642897,
+          "latent_sha256": "5d208c004ebefde345c91e2466326082e87e5c0d8fdde64d0b18fb609feaae9b",
+          "motion": {
+            "dense_per_transition": [
+              0.16590185463428497,
+              5.377767562866211,
+              4.951470375061035,
+              4.851137161254883,
+              5.313762664794922,
+              5.154857635498047,
+              5.139520645141602,
+              5.035622596740723,
+              5.071750640869141,
+              5.283470630645752,
+              5.066073417663574,
+              5.1646728515625
+            ],
+            "dense_signed_sum": 56.576008036732674,
+            "lk_per_transition": [
+              0.1656646728515625,
+              5.511077880859375,
+              5.1572265625,
+              4.9218292236328125,
+              5.359584808349609,
+              5.2226104736328125,
+              5.185169219970703,
+              5.230884552001953,
+              5.079334259033203,
+              5.4151763916015625,
+              5.207366943359375,
+              5.285575866699219
+            ],
+            "lk_signed_sum": 57.74150085449219,
+            "median_track_count": 587.0,
+            "track_counts": [
+              600,
+              593,
+              583,
+              587,
+              574,
+              587,
+              592,
+              586,
+              566,
+              595,
+              592,
+              584
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.4936461852642897,
+          "old_action": "mouse_right",
+          "peak_allocated_bytes": 10043189248,
+          "peak_reserved_bytes": 12129927168,
+          "switch_after": 1,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 1
+          }
+        },
+        "rl_s2": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1608353117480874,
+          "decoded_frame_equivalent_per_second": 9.960987488100452,
+          "future_noise_hashes": {
+            "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+            "renoise": [
+              "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+              "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+            ]
+          },
+          "generation_seconds": 1.2046998366713524,
+          "latent_frames_per_second": 2.490246872025113,
+          "latent_sha256": "6697f67cdec52581bf8f6e6d7cd119a7b9ee148ceb7c3da09f7ead5b45333edc",
+          "motion": {
+            "dense_per_transition": [
+              -0.26450759172439575,
+              -2.5952014923095703,
+              0.17041395604610443,
+              0.018098466098308563,
+              0.0370359942317009,
+              -4.047273635864258,
+              -1.1693106889724731,
+              -1.2970885038375854,
+              -0.19901646673679352,
+              -1.5348758697509766,
+              -1.3148927688598633,
+              -0.9822919368743896
+            ],
+            "dense_signed_sum": -13.178910538554192,
+            "lk_per_transition": [
+              -0.28092193603515625,
+              -3.4628067016601562,
+              -0.7442626953125,
+              -0.8086395263671875,
+              -0.78472900390625,
+              -3.8971519470214844,
+              -2.40460205078125,
+              -2.482696533203125,
+              -1.2957382202148438,
+              -0.4034881591796875,
+              -2.17254638671875,
+              -1.4141845703125
+            ],
+            "lk_signed_sum": -20.15176773071289,
+            "median_track_count": 594.0,
+            "track_counts": [
+              600,
+              588,
+              600,
+              597,
+              594,
+              598,
+              599,
+              587,
+              584,
+              545,
+              594,
+              591
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.490246872025113,
+          "old_action": "mouse_right",
+          "peak_allocated_bytes": 10035718144,
+          "peak_reserved_bytes": 11867783168,
+          "switch_after": 2,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 2
+          }
+        }
+      }
+    },
+    "0001": {
+      "condition_changed_keys": [
+        "mouse_cond"
+      ],
+      "condition_hashes": {
+        "mouse_left": {
+          "cond_concat": "6c52f8657dc8d55091460ca168fd4dfe4451b70c7a8be490c8028f3b242e18c7",
+          "keyboard_cond": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "mouse_cond": "8fbcda7a83d55e8a04d8a1164502b994742ecd54630adc74b5d720508b395264",
+          "visual_context": "f80fec45ef408a2d8a4b6c2b9859efceb98cf5ce2fdb4928efb1c48e559cb972"
+        },
+        "mouse_right": {
+          "cond_concat": "6c52f8657dc8d55091460ca168fd4dfe4451b70c7a8be490c8028f3b242e18c7",
+          "keyboard_cond": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "mouse_cond": "fb6857e0f277315106ea2de7c4460764fb7cd6eac11a4261d9e2f82218cf77cf",
+          "visual_context": "f80fec45ef408a2d8a4b6c2b9859efceb98cf5ce2fdb4928efb1c48e559cb972"
+        }
+      },
+      "engineering_checks": {
+        "all_historical_cache_checks_passed": true,
+        "all_noise_hashes_match": true,
+        "only_mouse_condition_differs": true,
+        "oracle_latents_distinct": true,
+        "same_action_controls_exact": true,
+        "same_action_motion_range": 0.0
+      },
+      "fixed_condition_hashes": {
+        "cond_concat": "6c52f8657dc8d55091460ca168fd4dfe4451b70c7a8be490c8028f3b242e18c7",
+        "visual_context": "f80fec45ef408a2d8a4b6c2b9859efceb98cf5ce2fdb4928efb1c48e559cb972"
+      },
+      "future_noise_hashes": {
+        "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+        "renoise": [
+          "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+          "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+        ]
+      },
+      "image": "/mnt/NAS/data/hl5757/third_party/Matrix-Game/Matrix-Game-2/demo_images/universal/0001.png",
+      "prefix_noise_hashes": {
+        "initial": "eecd24529af2af411b328eecbaf494c76f6f43c6a5898bb0d99a9ce185908bb6",
+        "renoise": [
+          "d9d1274b844897ab73468a231afcd31adcd9bfd20008825d499fefade4cad174",
+          "0059aff57e2c9a20eb0e335786f10a876835f061227b23a3f7e2c68aeb704345"
+        ]
+      },
+      "prefix_peak_allocated_bytes": 8409685504,
+      "prefix_seconds": 1.0958322985097766,
+      "prefix_snapshot_hashes": {
+        "cross": "2470d2eb2cb4dffb1cd8c7e1faa548814a2a9ecebe92dabe5273853a556a5792",
+        "keyboard": "fb7496b0c1f1a20d3392151cc3e24efffea649dbe6f910750158db00163a358c",
+        "mouse": "a685533af15a740e22c606bdd86f4c0976b2ae09f0c4c01dc0f7ddbf5ceb9432",
+        "visual": "0133bd9b3410a54c2fcb7799185d02ecc1136f08136334338227d40622499bff"
+      },
+      "runs": {
+        "control_left_s0": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1686002034693956,
+          "decoded_frame_equivalent_per_second": 9.89993085070384,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.2121296785771847,
+          "latent_frames_per_second": 2.47498271267596,
+          "latent_sha256": "66534578c6a0ad45affd1f341ce614c88263e07d995a723534fa3bd91190c825",
+          "motion": {
+            "dense_per_transition": [
+              -0.0031906901858747005,
+              4.960491180419922,
+              4.783351898193359,
+              4.533412933349609,
+              5.16737174987793,
+              4.828099250793457,
+              4.678210258483887,
+              4.56220817565918,
+              5.033838748931885,
+              4.636605262756348,
+              4.531152725219727,
+              4.338052749633789
+            ],
+            "dense_signed_sum": 52.04960424313322,
+            "lk_per_transition": [
+              0.001567840576171875,
+              5.757537841796875,
+              5.35711669921875,
+              5.099571228027344,
+              5.524940490722656,
+              5.325054168701172,
+              5.0655670166015625,
+              4.9074859619140625,
+              5.3941650390625,
+              5.0040740966796875,
+              4.8277130126953125,
+              4.5970916748046875
+            ],
+            "lk_signed_sum": 56.86188507080078,
+            "median_track_count": 295.0,
+            "track_counts": [
+              348,
+              345,
+              307,
+              321,
+              295,
+              314,
+              263,
+              295,
+              288,
+              292,
+              255,
+              247
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.47498271267596,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10039942144,
+          "peak_reserved_bytes": 11926503424,
+          "switch_after": 0,
+          "trace": {
+            "actions_by_nfe": [
+              "new",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 0
+          }
+        },
+        "control_left_s1": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.16041973605752,
+          "decoded_frame_equivalent_per_second": 9.895872059563807,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.2126268334686756,
+          "latent_frames_per_second": 2.4739680148909517,
+          "latent_sha256": "66534578c6a0ad45affd1f341ce614c88263e07d995a723534fa3bd91190c825",
+          "motion": {
+            "dense_per_transition": [
+              -0.0031906901858747005,
+              4.960491180419922,
+              4.783351898193359,
+              4.533412933349609,
+              5.16737174987793,
+              4.828099250793457,
+              4.678210258483887,
+              4.56220817565918,
+              5.033838748931885,
+              4.636605262756348,
+              4.531152725219727,
+              4.338052749633789
+            ],
+            "dense_signed_sum": 52.04960424313322,
+            "lk_per_transition": [
+              0.001567840576171875,
+              5.757537841796875,
+              5.35711669921875,
+              5.099571228027344,
+              5.524940490722656,
+              5.325054168701172,
+              5.0655670166015625,
+              4.9074859619140625,
+              5.3941650390625,
+              5.0040740966796875,
+              4.8277130126953125,
+              4.5970916748046875
+            ],
+            "lk_signed_sum": 56.86188507080078,
+            "median_track_count": 295.0,
+            "track_counts": [
+              348,
+              345,
+              307,
+              321,
+              295,
+              314,
+              263,
+              295,
+              288,
+              292,
+              255,
+              247
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.4739680148909517,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10037648384,
+          "peak_reserved_bytes": 11842617344,
+          "switch_after": 1,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 1
+          }
+        },
+        "control_left_s2": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1657451326027513,
+          "decoded_frame_equivalent_per_second": 9.868533911764384,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.215986093506217,
+          "latent_frames_per_second": 2.467133477941096,
+          "latent_sha256": "66534578c6a0ad45affd1f341ce614c88263e07d995a723534fa3bd91190c825",
+          "motion": {
+            "dense_per_transition": [
+              -0.0031906901858747005,
+              4.960491180419922,
+              4.783351898193359,
+              4.533412933349609,
+              5.16737174987793,
+              4.828099250793457,
+              4.678210258483887,
+              4.56220817565918,
+              5.033838748931885,
+              4.636605262756348,
+              4.531152725219727,
+              4.338052749633789
+            ],
+            "dense_signed_sum": 52.04960424313322,
+            "lk_per_transition": [
+              0.001567840576171875,
+              5.757537841796875,
+              5.35711669921875,
+              5.099571228027344,
+              5.524940490722656,
+              5.325054168701172,
+              5.0655670166015625,
+              4.9074859619140625,
+              5.3941650390625,
+              5.0040740966796875,
+              4.8277130126953125,
+              4.5970916748046875
+            ],
+            "lk_signed_sum": 56.86188507080078,
+            "median_track_count": 295.0,
+            "track_counts": [
+              348,
+              345,
+              307,
+              321,
+              295,
+              314,
+              263,
+              295,
+              288,
+              292,
+              255,
+              247
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.467133477941096,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10037091328,
+          "peak_reserved_bytes": 11842617344,
+          "switch_after": 2,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 2
+          }
+        },
+        "control_left_s3": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.177112014964223,
+          "decoded_frame_equivalent_per_second": 9.890636953664123,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.213268675841391,
+          "latent_frames_per_second": 2.4726592384160306,
+          "latent_sha256": "66534578c6a0ad45affd1f341ce614c88263e07d995a723534fa3bd91190c825",
+          "motion": {
+            "dense_per_transition": [
+              -0.0031906901858747005,
+              4.960491180419922,
+              4.783351898193359,
+              4.533412933349609,
+              5.16737174987793,
+              4.828099250793457,
+              4.678210258483887,
+              4.56220817565918,
+              5.033838748931885,
+              4.636605262756348,
+              4.531152725219727,
+              4.338052749633789
+            ],
+            "dense_signed_sum": 52.04960424313322,
+            "lk_per_transition": [
+              0.001567840576171875,
+              5.757537841796875,
+              5.35711669921875,
+              5.099571228027344,
+              5.524940490722656,
+              5.325054168701172,
+              5.0655670166015625,
+              4.9074859619140625,
+              5.3941650390625,
+              5.0040740966796875,
+              4.8277130126953125,
+              4.5970916748046875
+            ],
+            "lk_signed_sum": 56.86188507080078,
+            "median_track_count": 295.0,
+            "track_counts": [
+              348,
+              345,
+              307,
+              321,
+              295,
+              314,
+              263,
+              295,
+              288,
+              292,
+              255,
+              247
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.4726592384160306,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10034863104,
+          "peak_reserved_bytes": 11305746432,
+          "switch_after": 3,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "old"
+            ],
+            "context_action": "old",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 3
+          }
+        },
+        "lr_s1": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.170638489536941,
+          "decoded_frame_equivalent_per_second": 9.939177807024492,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.207343326881528,
+          "latent_frames_per_second": 2.484794451756123,
+          "latent_sha256": "11040df47a4f11f63c2a89cb511af0636940efdee2f9ab0c47b97ae9796507d8",
+          "motion": {
+            "dense_per_transition": [
+              -0.0009488602518104017,
+              -4.105064392089844,
+              -3.995737075805664,
+              -3.932770252227783,
+              -4.307010650634766,
+              -4.043322563171387,
+              -4.045590400695801,
+              -4.005975246429443,
+              -4.071396827697754,
+              -3.9737634658813477,
+              -4.078761100769043,
+              -4.077814102172852
+            ],
+            "dense_signed_sum": -44.638154937827494,
+            "lk_per_transition": [
+              -0.11392974853515625,
+              -4.9915618896484375,
+              -4.889533996582031,
+              -4.706329345703125,
+              -4.926128387451172,
+              -4.9034881591796875,
+              -4.5970916748046875,
+              -4.518974304199219,
+              -4.836578369140625,
+              -4.684150695800781,
+              -4.45025634765625,
+              -4.385963439941406
+            ],
+            "lk_signed_sum": -52.00398635864258,
+            "median_track_count": 327.0,
+            "track_counts": [
+              350,
+              355,
+              314,
+              347,
+              294,
+              315,
+              336,
+              336,
+              337,
+              318,
+              303,
+              315
+            ]
+          },
+          "new_action": "mouse_right",
+          "nfe_per_second": 2.484794451756123,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10053016576,
+          "peak_reserved_bytes": 12140412928,
+          "switch_after": 1,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 1
+          }
+        },
+        "lr_s2": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1576468273997307,
+          "decoded_frame_equivalent_per_second": 9.904929790509533,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.2115179263055325,
+          "latent_frames_per_second": 2.476232447627383,
+          "latent_sha256": "d55b2f87a010e3878a6881edb84a4b9011372d6fd31bc0b84f47b820285370c7",
+          "motion": {
+            "dense_per_transition": [
+              2.9633385565830395e-05,
+              0.6549737453460693,
+              3.719517707824707,
+              3.006650447845459,
+              1.8901491165161133,
+              2.418272018432617,
+              2.098088264465332,
+              1.8816184997558594,
+              1.0496866703033447,
+              0.565865695476532,
+              0.2250579297542572,
+              0.33198297023773193
+            ],
+            "dense_signed_sum": 17.84189269934359,
+            "lk_per_transition": [
+              0.00292205810546875,
+              1.9931640625,
+              5.010677337646484,
+              4.503948211669922,
+              3.2156219482421875,
+              5.0081939697265625,
+              4.5229644775390625,
+              3.7454681396484375,
+              2.388671875,
+              2.4961929321289062,
+              2.4101409912109375,
+              2.160888671875
+            ],
+            "lk_signed_sum": 37.45885467529297,
+            "median_track_count": 271.5,
+            "track_counts": [
+              350,
+              384,
+              280,
+              266,
+              259,
+              233,
+              213,
+              297,
+              235,
+              284,
+              204,
+              277
+            ]
+          },
+          "new_action": "mouse_right",
+          "nfe_per_second": 2.476232447627383,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10042989568,
+          "peak_reserved_bytes": 12222201856,
+          "switch_after": 2,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 2
+          }
+        },
+        "oracle_mouse_left": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1708257319405675,
+          "decoded_frame_equivalent_per_second": 8.443851458382538,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.4211524277925491,
+          "latent_frames_per_second": 2.1109628645956344,
+          "latent_sha256": "66534578c6a0ad45affd1f341ce614c88263e07d995a723534fa3bd91190c825",
+          "motion": {
+            "dense_per_transition": [
+              -0.0031906901858747005,
+              4.960491180419922,
+              4.783351898193359,
+              4.533412933349609,
+              5.16737174987793,
+              4.828099250793457,
+              4.678210258483887,
+              4.56220817565918,
+              5.033838748931885,
+              4.636605262756348,
+              4.531152725219727,
+              4.338052749633789
+            ],
+            "dense_signed_sum": 52.04960424313322,
+            "lk_per_transition": [
+              0.001567840576171875,
+              5.757537841796875,
+              5.35711669921875,
+              5.099571228027344,
+              5.524940490722656,
+              5.325054168701172,
+              5.0655670166015625,
+              4.9074859619140625,
+              5.3941650390625,
+              5.0040740966796875,
+              4.8277130126953125,
+              4.5970916748046875
+            ],
+            "lk_signed_sum": 56.86188507080078,
+            "median_track_count": 295.0,
+            "track_counts": [
+              348,
+              345,
+              307,
+              321,
+              295,
+              314,
+              263,
+              295,
+              288,
+              292,
+              255,
+              247
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.1109628645956344,
+          "old_action": "mouse_left",
+          "peak_allocated_bytes": 10037713920,
+          "peak_reserved_bytes": 12830375936,
+          "switch_after": 0,
+          "trace": {
+            "actions_by_nfe": [
+              "new",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 0
+          }
+        },
+        "oracle_mouse_right": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1568073434755206,
+          "decoded_frame_equivalent_per_second": 9.933204015985877,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.2080694185569882,
+          "latent_frames_per_second": 2.4833010039964694,
+          "latent_sha256": "12627c6a32b94c4b619f237b3738cc0911b170299d3614fc47c32550e9380a77",
+          "motion": {
+            "dense_per_transition": [
+              -0.037361904978752136,
+              -4.211664199829102,
+              -4.05814790725708,
+              -4.014577865600586,
+              -4.298183917999268,
+              -4.112621784210205,
+              -4.086738586425781,
+              -4.021408557891846,
+              -4.212926864624023,
+              -3.9759044647216797,
+              -4.096053123474121,
+              -4.0616350173950195
+            ],
+            "dense_signed_sum": -45.18722419440746,
+            "lk_per_transition": [
+              -0.1723194122314453,
+              -5.04302978515625,
+              -5.01116943359375,
+              -4.760467529296875,
+              -4.90167236328125,
+              -4.897075653076172,
+              -4.6240081787109375,
+              -4.509426116943359,
+              -4.98636531829834,
+              -4.803535461425781,
+              -4.348705291748047,
+              -4.370643615722656
+            ],
+            "lk_signed_sum": -52.42841815948486,
+            "median_track_count": 328.5,
+            "track_counts": [
+              347,
+              355,
+              335,
+              331,
+              289,
+              326,
+              325,
+              358,
+              332,
+              323,
+              308,
+              300
+            ]
+          },
+          "new_action": "mouse_right",
+          "nfe_per_second": 2.4833010039964694,
+          "old_action": "mouse_right",
+          "peak_allocated_bytes": 10051086336,
+          "peak_reserved_bytes": 12178161664,
+          "switch_after": 0,
+          "trace": {
+            "actions_by_nfe": [
+              "new",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 0
+          }
+        },
+        "rl_s1": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.1620187116786838,
+          "decoded_frame_equivalent_per_second": 9.901898252152565,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.2118888413533568,
+          "latent_frames_per_second": 2.475474563038141,
+          "latent_sha256": "d9108636ee4fdab9f09a3f0e1d7bafc308dca37cc7c5434dae1adb9bc6a4eb89",
+          "motion": {
+            "dense_per_transition": [
+              -0.0011289817048236728,
+              4.811520576477051,
+              4.670722007751465,
+              4.382325649261475,
+              4.998297691345215,
+              4.716608047485352,
+              4.570691108703613,
+              4.4603071212768555,
+              5.013923645019531,
+              4.601344108581543,
+              4.560090065002441,
+              4.378495216369629
+            ],
+            "dense_signed_sum": 51.163196255569346,
+            "lk_per_transition": [
+              0.00911712646484375,
+              5.645027160644531,
+              5.290515899658203,
+              5.0449371337890625,
+              5.556324005126953,
+              5.2576446533203125,
+              5.164703369140625,
+              4.771026611328125,
+              5.394989013671875,
+              5.17193603515625,
+              4.8563690185546875,
+              4.6830596923828125
+            ],
+            "lk_signed_sum": 56.84564971923828,
+            "median_track_count": 306.5,
+            "track_counts": [
+              350,
+              355,
+              310,
+              317,
+              304,
+              320,
+              271,
+              309,
+              293,
+              302,
+              284,
+              265
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.475474563038141,
+          "old_action": "mouse_right",
+          "peak_allocated_bytes": 10051217408,
+          "peak_reserved_bytes": 12601786368,
+          "switch_after": 1,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "new",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 1
+          }
+        },
+        "rl_s2": {
+          "cache_bytes_at_fork": {
+            "cross": 47370240,
+            "keyboard": 737760,
+            "mouse": 648806880,
+            "total": 1670124960,
+            "visual": 973210080
+          },
+          "decode_seconds": 1.166938646696508,
+          "decoded_frame_equivalent_per_second": 9.896408938897249,
+          "future_noise_hashes": {
+            "initial": "baebcc65e86e556c6c0e80b4dba7e1500cd78b07ed47ce34802780786fd18bf3",
+            "renoise": [
+              "ee90813bba19ca42bfc57d9670557928fb846f73555b8820d4bb2d5f9a44c10e",
+              "fe355a2d4edbcd111d0a488dc24f2df767c1d63201dcca29fe1db1e6c2272882"
+            ]
+          },
+          "generation_seconds": 1.212561048567295,
+          "latent_frames_per_second": 2.4741022347243122,
+          "latent_sha256": "5a4422f212dfea414e22852c24bea75ea9dc0cc90de9baf7286a50b0a922fa2e",
+          "motion": {
+            "dense_per_transition": [
+              -0.00019058739417232573,
+              0.05993339791893959,
+              0.0018204394727945328,
+              0.0003858136187773198,
+              0.2104460597038269,
+              0.00020407777628861368,
+              -0.1109529435634613,
+              -0.478799432516098,
+              0.0007988293073140085,
+              -0.6690982580184937,
+              -0.06175509840250015,
+              -0.50413978099823
+            ],
+            "dense_signed_sum": -1.5513474830950145,
+            "lk_per_transition": [
+              -0.010223388671875,
+              0.398468017578125,
+              2.5394554138183594,
+              1.54638671875,
+              1.1241531372070312,
+              -2.5398941040039062,
+              -0.7055492401123047,
+              -1.4618453979492188,
+              0.050266265869140625,
+              -2.8110198974609375,
+              -1.2050323486328125,
+              -1.5031585693359375
+            ],
+            "lk_signed_sum": -4.577993392944336,
+            "median_track_count": 329.5,
+            "track_counts": [
+              349,
+              323,
+              339,
+              369,
+              334,
+              385,
+              342,
+              311,
+              299,
+              325,
+              248,
+              309
+            ]
+          },
+          "new_action": "mouse_left",
+          "nfe_per_second": 2.4741022347243122,
+          "old_action": "mouse_right",
+          "peak_allocated_bytes": 10038828032,
+          "peak_reserved_bytes": 12188647424,
+          "switch_after": 2,
+          "trace": {
+            "actions_by_nfe": [
+              "old",
+              "old",
+              "new"
+            ],
+            "context_action": "new",
+            "context_cache_writes": 1,
+            "history_exact_after_context_write": true,
+            "history_exact_after_nfe": [
+              true,
+              true,
+              true
+            ],
+            "indices_after_context_write": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    5280,
+                    5280
+                  ]
+                ]
+              }
+            },
+            "indices_after_nfe": [
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              },
+              {
+                "keyboard": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "mouse": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      6,
+                      6
+                    ]
+                  ]
+                },
+                "visual": {
+                  "layer_count": 30,
+                  "unique": [
+                    [
+                      5280,
+                      5280
+                    ]
+                  ]
+                }
+              }
+            ],
+            "indices_before": {
+              "keyboard": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "mouse": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              },
+              "visual": {
+                "layer_count": 30,
+                "unique": [
+                  [
+                    2640,
+                    2640
+                  ]
+                ]
+              }
+            },
+            "nfe": 3,
+            "switch_after": 2
+          }
+        }
+      }
+    }
+  },
+  "shard_count": 1,
+  "shard_index": 0,
+  "status": "complete",
+  "torch": "2.5.1+cu121",
+  "wall_finished_unix": 1787523268.5051525
+}

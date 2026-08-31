@@ -1,13 +1,68 @@
+# Python and test caches
 __pycache__/
 *.py[cod]
 .pytest_cache/
-.DS_Store
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# Large outputs live outside this repository.
+# Local environments and editor/OS state
+.venv/
+venv/
+env/
+conda_envs/
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Machine-specific environment files (publish only examples)
+.env
+.env.*
+!.env.example
+config/storage.env
+*.pem
+*.key
+credentials*
+secrets*
+
+# Large experiment/model/data outputs live outside the recovery repository
 artifacts/
+generated_artifacts/
 checkpoints/
 models/
-*.mp4
+datasets/
+data/
+runs/
+wandb/
+.cache/
+cache/
+huggingface/
+torch/
+third_party/
 *.pt
+*.pth
+*.ckpt
 *.safetensors
+*.bin
+*.npy
+*.npz
 
+# Generated video outputs. The small curated showcase clips are intentional.
+*.mp4
+!showcase/lateact_demo.mp4
+!showcase/source_clips/*.mp4
+
+# Temporary/local serving output
+site_review/
+paper/build/
+*.log
+*.tmp
+*.pid
+nohup.out
+
+# Recovery-critical JSON/CSV, paper source/PDF, patches, and vendored source are
+# deliberately not ignored. Large generated MP4/latent trees remain external.

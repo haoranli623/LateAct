@@ -1,0 +1,3738 @@
+{
+  "arrival_protocol": {
+    "count_per_direction": 8,
+    "distribution": "stratified_uniform_over_three_nfe_wall_interval",
+    "intervention": "next_completed_nfe_boundary",
+    "seed": 20260824
+  },
+  "cuda_runtime": "12.1",
+  "family": "keyboard",
+  "finished_unix": 1787541664.827065,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "scenes": {
+    "0009_v0": {
+      "directions": {
+        "left_to_right": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.32837477769490225,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.11741237049266559,
+              "inflight_nfe": 2,
+              "normalized_time": 0.37240219776854844,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.9896884199625637,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.10746786917110078
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.575778285267093,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2668565364948297,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.016242196077743,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.25926087912384527
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.013549058227395789,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.046103298229062215,
+              "inflight_nfe": 1,
+              "normalized_time": 0.015365671800360553,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.2911426252736096,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.5850842841814746
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5968531402809862,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2911426252736096,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.331067915545249,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.280335734137738
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.4736983720281263,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.6121295336354217,
+              "inflight_nfe": 2,
+              "normalized_time": 0.5372103060441487,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.8443648256293397,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.10746786917110078
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.4304546909338693,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.121532942161606,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.870918601744519,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.11393728479062121
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.7313942301777597,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.4887438559965039,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8294571850658361,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.613222743594886,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.4668977188187244,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.157975970046461,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.613222743594886,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.15038031267547647
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.8681213382028267,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.9535824561162966,
+              "inflight_nfe": 3,
+              "normalized_time": 0.9845162181636242,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.476495635569819,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.3301706107936577,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.021248862021394,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.476495635569819,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.013653204650409534
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.3695494854983086,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.25758117605513664,
+              "inflight_nfe": 2,
+              "normalized_time": 0.41909747621259796,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.9485137121591574,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.10746786917110078
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5346035774636873,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2256818286914237,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.975067488274337,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2180861713204389
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.20735874550920697,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.7055783453115073,
+              "inflight_nfe": 1,
+              "normalized_time": 0.2351607303588487,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.097332937991798,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.5850842841814746
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.403043452999175,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.097332937991798,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.137258228263438,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.0865260468559268
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.656685261456324,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.23475170375630036,
+              "inflight_nfe": 3,
+              "normalized_time": 0.7447314812825387,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.68793171231632,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.54160668754016,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2326849387678966,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.5850842841814746
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.68793171231632,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2250892813969122
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0008688988164067268,
+            "checkpoint_save_seconds": 0.001469121314585209,
+            "cross_attention_hash": "c0f634e59fe93d29a34587757df18bcc1f4a187a5365227ecb895525f9033ce0",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "c0f634e59fe93d29a34587757df18bcc1f4a187a5365227ecb895525f9033ce0",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "4d536ac8a31b6339301cfc9a350fdb637821395d70cfce23a3ae0632928ab718",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9110039552,
+            "peak_reserved_bytes": 9657384960,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": -12.384538196027279,
+          "evaluator_valid": true,
+          "median_track_support": 495.0,
+          "new_action": "keyboard_right",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_left",
+          "oracle_gap": -14.336652755737305,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.5704303498616928,
+            "lateact_boundary_jump_minus_new": 0.6884350776672363,
+            "lateact_temporal_minus_new": 0.0807317966872757,
+            "lateact_vs_new_future_ssim": 0.6026999198319709
+          },
+          "response": {
+            "direct_late": 0.10746786917110078,
+            "lateact": 0.5850842841814746,
+            "new_oracle": 1.0,
+            "old": -0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.1483378252014518,
+              "lateact": 1.1323511814698577,
+              "new_oracle": 1.143587177619338,
+              "next_new": 1.8075728323310614,
+              "next_old": 1.8096474818885326,
+              "old": 1.1855829562991858
+            },
+            "direct_late_suffix": 0.5820897156372666,
+            "early_direct_suffix": 0.8784557096660137,
+            "lateact_restore": 0.0008688988164067268,
+            "lateact_suffix": 0.8743755770847201,
+            "new_full_restart": {
+              "context": 0.2931241597980261,
+              "generation_total": 1.17293022852391,
+              "nfes": [
+                0.29236348439008,
+                0.29345039185136557,
+                0.2931786812841892
+              ],
+              "reset": 0.0008135112002491951
+            },
+            "next_generation": 1.1760089509189129,
+            "old": {
+              "context": 0.2936776913702488,
+              "generation_total": 1.1763850757852197,
+              "nfes": [
+                0.29388479236513376,
+                0.29375086445361376,
+                0.2941388860344887
+              ],
+              "reset": 0.0009328415617346764
+            }
+          }
+        },
+        "right_to_left": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.6326577463192722,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.13543785012170867,
+              "inflight_nfe": 3,
+              "normalized_time": 0.711471513016112,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.771490831393204,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.610613159369133,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.317624005954168,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.771490831393204,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.25656653707792554
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.5147374266117186,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.7377451807947225,
+              "inflight_nfe": 2,
+              "normalized_time": 0.5788611897160666,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.8253073661298185,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.14939761139940144
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.4317745507404833,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.1387853973255186,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.889411151100758,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.07772792844927601
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.7735091159384998,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.6100701397344235,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8698695372818441,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.630639461773976,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.469761789749905,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.1767726363349404,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.630639461773976,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.11571516745869792
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.12753741985664718,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.4307501394343549,
+              "inflight_nfe": 1,
+              "normalized_time": 0.14342548020551404,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.222124102688273,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9464726100523712
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5225913349304996,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.222124102688273,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.276611157855829,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.16854471263929255
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.07893048215578444,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.2665830642680434,
+              "inflight_nfe": 1,
+              "normalized_time": 0.08876330036134186,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.270731040389136,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9464726100523712
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5711982726313627,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.270731040389136,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.325218095556692,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2171516503401553
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.78075115071589,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.6344739034829754,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8780137534403623,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.623397426996586,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.462519754972515,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.1695306015575504,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.623397426996586,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.10847313268130776
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.362054868289602,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.22259267991858583,
+              "inflight_nfe": 2,
+              "normalized_time": 0.40715809841180384,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.977989924451935,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.14939761139940144
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5844571090626,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.291467955647635,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.042093709422874,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.23041048677139264
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.2819018707126588,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.9521069992851549,
+              "inflight_nfe": 1,
+              "normalized_time": 0.31701998694376543,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.0677596518322616,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9464726100523712
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.3682268840744882,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.0677596518322616,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9464726100523712
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.122246706999817,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.014180261783280912
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0009263632819056511,
+            "checkpoint_save_seconds": 0.0014380048960447311,
+            "cross_attention_hash": "c0f634e59fe93d29a34587757df18bcc1f4a187a5365227ecb895525f9033ce0",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "c0f634e59fe93d29a34587757df18bcc1f4a187a5365227ecb895525f9033ce0",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "20c68b37d6bb2f9d10b1509310f6040814261f826af8607756a3bfe3ea2d9e22",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9537772544,
+            "peak_reserved_bytes": 11112808448,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": 12.384538196027279,
+          "evaluator_valid": true,
+          "median_track_support": 495.0,
+          "new_action": "keyboard_left",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_right",
+          "oracle_gap": 14.336652755737305,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.562054953462164,
+            "lateact_boundary_jump_minus_new": 0.12052559852600098,
+            "lateact_temporal_minus_new": 0.012852619158459921,
+            "lateact_vs_new_future_ssim": 0.9487338383294687
+          },
+          "response": {
+            "direct_late": 0.14939761139940144,
+            "lateact": 0.9464726100523712,
+            "new_oracle": 1.0,
+            "old": 0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.1612598272040486,
+              "lateact": 1.1695412090048194,
+              "new_oracle": 1.1525569949299097,
+              "next_new": 1.852185931056738,
+              "next_old": 1.857662020251155,
+              "old": 1.1722251595929265
+            },
+            "direct_late_suffix": 0.5863196104764938,
+            "early_direct_suffix": 0.8840381810441613,
+            "lateact_restore": 0.0009263632819056511,
+            "lateact_suffix": 0.8905898965895176,
+            "new_full_restart": {
+              "context": 0.29477319587022066,
+              "generation_total": 1.2014896273612976,
+              "nfes": [
+                0.3042649021372199,
+                0.3023683773353696,
+                0.2988101579248905
+              ],
+              "reset": 0.0012729940935969353
+            },
+            "next_generation": 1.1950304815545678,
+            "old": {
+              "context": 0.2954827221110463,
+              "generation_total": 1.1855828063562512,
+              "nfes": [
+                0.29608213249593973,
+                0.2963832225650549,
+                0.2967589283362031
+              ],
+              "reset": 0.0008758008480072021
+            }
+          }
+        }
+      },
+      "fixed_condition_hashes": {
+        "cond_concat": "a6d616da06dec3e530bb15256dd6ffdb785718d87e091beaba7731c682b05528",
+        "visual_context": "d2eb16ae11cee1b866027ff6e6e48a66bf0f8e71d44aeca8a1bfe91ea207abf6"
+      },
+      "noise_hashes": {
+        "current": {
+          "initial": "734d069e1e2b18dcfeaba45a2df210434cb3d8bff2a6a0573f0001879f9261ea",
+          "renoise": [
+            "a784dd02e566464eadd817ab6b93b234dfb25bb78883c69d0d19497e9fc3d1f3",
+            "eb892ad77f285169748572ddf5e75b01f303d946bda40eabe24519dd963e5de4"
+          ]
+        },
+        "next": {
+          "initial": "d52d1c8563862a3dab8d6cddd109cff98405ea0fba18d55cc76458a093913f52",
+          "renoise": [
+            "32cbf2c1f5d019ddc09c3c4f86a543f88203dc79760615e16e6b69493ca0e7a9",
+            "7504c253386b6fdc68ccbf6905f47b7614479cfce82b8819acb5fff67e66b970"
+          ]
+        },
+        "prefix": {
+          "initial": "c88dca6b29573126edd9fae48916e56ec107343477bb7873b64030c081bf201f",
+          "renoise": [
+            "777ab9977998dd9194afaa6edb10cd0f7c10968ab76d2d7a6a25e7f6c5b38eae",
+            "d67c6d602b5acc192959aee390e946ebddcf4dfcc3f23fb219053cc839739886"
+          ]
+        }
+      },
+      "prefix_variant": 0,
+      "source_image": "/mnt/NAS/data/hl5757/third_party/Matrix-Game/Matrix-Game-2/demo_images/universal/0009.png",
+      "source_image_index": 9
+    },
+    "0011_v0": {
+      "directions": {
+        "left_to_right": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.571702301055181,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.860347249589999,
+              "inflight_nfe": 2,
+              "normalized_time": 0.6201862399884169,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.8287281929329158,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.2722864752586347
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.47938410703094,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.174572056606424,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.0130549170822025,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.04290029544384477
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.911522829610992,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.9664711964139634,
+              "inflight_nfe": 3,
+              "normalized_time": 0.9888256795829812,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.673234388526391,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.4467845636567587,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.1419725132322425,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.673234388526391,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.010300752069663521
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.4387923176242585,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.4276871816104644,
+              "inflight_nfe": 2,
+              "normalized_time": 0.47600465679589005,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.9616381763638382,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.2722864752586347
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.6122940904618623,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.307482040037346,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.145964900513125,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.1758102788747673
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.20452647222220574,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.6653215359336664,
+              "inflight_nfe": 1,
+              "normalized_time": 0.22187159917227983,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.234663747865561,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9480436513089028
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5393673075920375,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.234663747865561,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.380230745915178,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.10288349600494232
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.6877412434196306,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.2380652704351074,
+              "inflight_nfe": 3,
+              "normalized_time": 0.7460660120733196,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.897015974717753,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.67056614984812,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.365754099423604,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.897015974717753,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.23408233826102487
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.7780479694884614,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.5320123978275976,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8440313146143816,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.806709248648922,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5802594237792893,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.275447373354773,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.806709248648922,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.14377561219219404
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.007790435502971763,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.025342169441998505,
+              "inflight_nfe": 1,
+              "normalized_time": 0.008451113269166269,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.4313997845847948,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9480436513089028
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7361033443112714,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4313997845847948,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.576966782634411,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2996195327241763
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.32967450461249626,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.07247744358514747,
+              "inflight_nfe": 2,
+              "normalized_time": 0.35763296921894583,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.0707559893756002,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.2722864752586347
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7214119034736246,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4165998530491084,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.9480436513089028
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.255082713524887,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.28492809188652957
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0008677197620272636,
+            "checkpoint_save_seconds": 0.00140287633985281,
+            "cross_attention_hash": "86f0daa186efee3b500e85ef4332e70d611d8ffef76c86ac766d134e0c5458be",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "86f0daa186efee3b500e85ef4332e70d611d8ffef76c86ac766d134e0c5458be",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "5099ae0c9cc00d0e995419fde642f3b18df361cfeb79c4bc51406a8222042a4c",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9121344512,
+            "peak_reserved_bytes": 10817110016,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": -6.235878700390458,
+          "evaluator_valid": true,
+          "median_track_support": 404.0,
+          "new_action": "keyboard_right",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_left",
+          "oracle_gap": -6.944507122039795,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.6472071244301608,
+            "lateact_boundary_jump_minus_new": 0.03956866264343262,
+            "lateact_temporal_minus_new": 0.007753556865490063,
+            "lateact_vs_new_future_ssim": 0.9439457034476932
+          },
+          "response": {
+            "direct_late": 0.2722864752586347,
+            "lateact": 0.9480436513089028,
+            "new_oracle": 1.0,
+            "old": -0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.1849931366741657,
+              "lateact": 1.2121719159185886,
+              "new_oracle": 1.2052719667553902,
+              "next_new": 1.9050266817212105,
+              "next_old": 1.9076951388269663,
+              "old": 1.2018750570714474
+            },
+            "direct_late_suffix": 0.6008347608149052,
+            "early_direct_suffix": 0.91960833594203,
+            "lateact_restore": 0.0008677197620272636,
+            "lateact_suffix": 0.9186321254819632,
+            "new_full_restart": {
+              "context": 0.3071936024352908,
+              "generation_total": 1.231211844831705,
+              "nfes": [
+                0.30798835400491953,
+                0.30788342747837305,
+                0.307217238470912
+              ],
+              "reset": 0.0009292224422097206
+            },
+            "next_generation": 1.2485528066754341,
+            "old": {
+              "context": 0.307479090988636,
+              "generation_total": 1.230214406736195,
+              "nfes": [
+                0.30740996822714806,
+                0.30719262827187777,
+                0.30722098518162966
+              ],
+              "reset": 0.0009117340669035912
+            }
+          }
+        },
+        "right_to_left": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.919319889021812,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.9708081929130299,
+              "inflight_nfe": 3,
+              "normalized_time": 0.9902736323505545,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.726078575963379,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.476463547462823,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.151929237434866,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.726078575963379,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.00902946714520636
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.7785726628983227,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.5157795841424326,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8386634382048846,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.866825802086869,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.6172107735863124,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2926764635583554,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.866825802086869,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.1497766932686957
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.07187405819834236,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.23179340064648046,
+              "inflight_nfe": 1,
+              "normalized_time": 0.07742134760032253,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.3883691519981527,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.8102562215186305
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7056381261458897,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3883691519981527,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.5735244067868495,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.23820404582827326
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.22238662985196067,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.717195529010562,
+              "inflight_nfe": 1,
+              "normalized_time": 0.23955058338183552,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.2378565803445345,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.8102562215186305
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5551255544922715,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2378565803445345,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.423011835133231,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.08769147417465495
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.2832601627454645,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.9135123024396163,
+              "inflight_nfe": 1,
+              "normalized_time": 0.3051223775443686,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.1769830474510306,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.8102562215186305
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.4942520215987676,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.1769830474510306,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.362138302239727,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.026817941281151114
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.4076946609138949,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.31595603687938506,
+              "inflight_nfe": 2,
+              "normalized_time": 0.4391608161362768,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.016424626256575,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.0651369738995352
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.6787736612886683,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3542393512607114,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.237703804071296,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.21133958097105193
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.5556655856746341,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.7948943282059999,
+              "inflight_nfe": 2,
+              "normalized_time": 0.5985522389640833,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.8684537014958358,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.0651369738995352
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5308027365279293,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2062684264999723,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.089732879310558,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.06336865621031273
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.6532367250900751,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.11057488504728635,
+              "inflight_nfe": 3,
+              "normalized_time": 0.7036539862398008,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.992161739895117,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7425467113945596,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4180124013666027,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.8102562215186305
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.992161739895117,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2751126310769433
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0008769603446125984,
+            "checkpoint_save_seconds": 0.0014573410153388977,
+            "cross_attention_hash": "86f0daa186efee3b500e85ef4332e70d611d8ffef76c86ac766d134e0c5458be",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "86f0daa186efee3b500e85ef4332e70d611d8ffef76c86ac766d134e0c5458be",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "44f44bb69e916c708cb14378374db0b61f4b47b847db828e342d2191a7d54ee1",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9565199360,
+            "peak_reserved_bytes": 10817110016,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": 6.235878700390458,
+          "evaluator_valid": true,
+          "median_track_support": 404.0,
+          "new_action": "keyboard_left",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_right",
+          "oracle_gap": 6.944507122039795,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.600401866043682,
+            "lateact_boundary_jump_minus_new": -0.13665366172790527,
+            "lateact_temporal_minus_new": 0.05172798265670098,
+            "lateact_vs_new_future_ssim": 0.7624854277376617
+          },
+          "response": {
+            "direct_late": 0.0651369738995352,
+            "lateact": 0.8102562215186305,
+            "new_oracle": 1.0,
+            "old": 0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.2047445550560951,
+              "lateact": 1.223724846728146,
+              "new_oracle": 1.2306340085342526,
+              "next_new": 1.923564326018095,
+              "next_old": 1.951241860166192,
+              "old": 1.228551466949284
+            },
+            "direct_late_suffix": 0.6003404902294278,
+            "early_direct_suffix": 0.9264402594417334,
+            "lateact_restore": 0.0008769603446125984,
+            "lateact_suffix": 0.9182979632169008,
+            "new_full_restart": {
+              "context": 0.3091649189591408,
+              "generation_total": 1.2368000717833638,
+              "nfes": [
+                0.30874414928257465,
+                0.30894490517675877,
+                0.3091265391558409
+              ],
+              "reset": 0.000819559209048748
+            },
+            "next_generation": 1.2553596710786223,
+            "old": {
+              "context": 0.309573644772172,
+              "generation_total": 1.2387777836993337,
+              "nfes": [
+                0.3100781040266156,
+                0.3089561378583312,
+                0.3093151142820716
+              ],
+              "reset": 0.00085478276014328
+            }
+          }
+        }
+      },
+      "fixed_condition_hashes": {
+        "cond_concat": "3f6bfa81d2653527661e33528025d0fad190449f9344049c46b9cf3651cab283",
+        "visual_context": "3e72f64ab04a78573f676ad272ce2a57a3e97284902e9582cae2d13f55df7aac"
+      },
+      "noise_hashes": {
+        "current": {
+          "initial": "cf3312cb74b5ad7ee5a406fcf8f0647ef7a5106186b2d5c41ceb0e6b044a37e2",
+          "renoise": [
+            "ff02c64ef44ffc5c6e1bdefafe2044ad78eea31f486618ecaf5117b9e1cf08c1",
+            "7f523bd4aa12a08c721fa1cebed9d553627aed5389868f219978990fe4cb2360"
+          ]
+        },
+        "next": {
+          "initial": "03400ce387b5e41ca2cd78e92c758ebe6c4ef0321710b402ef4db988818b0bff",
+          "renoise": [
+            "bf6ab5d73b4718d4371a0e5b63fdb2076976d31fd556e37edaf2d9756536cb8a",
+            "943ce7a2c7fb029dad620865fce881bfe9c99763e60cc0948c210b9f98a5fddb"
+          ]
+        },
+        "prefix": {
+          "initial": "47c80722725ce8481a94ca4786f6fc453593fe1696b7a7e12331bf6517852bdc",
+          "renoise": [
+            "59982d9c4aabde65f533aa1b8fab59942d74e89ce4674242fe26dd630b47b058",
+            "883809a028fd8f324c82093882b8737c1702fac9e878e60be657fca352b51326"
+          ]
+        }
+      },
+      "prefix_variant": 0,
+      "source_image": "/mnt/NAS/data/hl5757/third_party/Matrix-Game/Matrix-Game-2/demo_images/universal/0011.png",
+      "source_image_index": 11
+    },
+    "0013_v0": {
+      "directions": {
+        "left_to_right": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.1766643156335159,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.5496375489189143,
+              "inflight_nfe": 1,
+              "normalized_time": 0.1831191019095407,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.357994711488445,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.4421245008933268
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.6617694483100967,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.357994711488445,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.6338089094459605,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.144755347162445
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.6194785196159346,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.9265696068665834,
+              "inflight_nfe": 2,
+              "normalized_time": 0.6421124139163776,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.863686114008321,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.037588965999008093
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5406351857062117,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.214929371530904,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.190994705463542,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.023621084558560157
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.12047562851335056,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.3748234549976154,
+              "inflight_nfe": 1,
+              "normalized_time": 0.12487744803606977,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.4141833986086105,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.4421245008933268
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.717958135430262,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4141833986086105,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.689997596566126,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.20094403428261035
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.253659112784374,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.789183557028987,
+              "inflight_nfe": 1,
+              "normalized_time": 0.2629270589121351,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.2809999143375874,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.4421245008933268
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.584774651159239,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2809999143375874,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.556814112295102,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.06776055001158693
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.8502983751728339,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.6441720687257412,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8813657373784392,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.960174849906643,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.6314666110069354,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3057607968316276,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.960174849906643,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.11445250985928346
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.7534546992548071,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.34308924493032106,
+              "inflight_nfe": 3,
+              "normalized_time": 0.7809836828807096,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 5.05701852582467,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.728310286924962,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4026044727496543,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.05701852582467,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.21129618577731024
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.39389027544132194,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.2252879440812939,
+              "inflight_nfe": 2,
+              "normalized_time": 0.40828184928610767,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.0892743581829336,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.037588965999008093
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7662234298808244,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4405176157055166,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.416582949638155,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2492093287331728
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.5741765535932751,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.7857402911544458,
+              "inflight_nfe": 2,
+              "normalized_time": 0.5951552494032284,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.9089880800309804,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.037588965999008093
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.585937151728871,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2602313375535634,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.4421245008933268
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.236296671486201,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.06892305058121961
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0009348299354314804,
+            "checkpoint_save_seconds": 0.0014343634247779846,
+            "cross_attention_hash": "f02b494588216afb1bad9a2fed18ac14614ccc42f2f0d10ec260b2988bad89d2",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "f02b494588216afb1bad9a2fed18ac14614ccc42f2f0d10ec260b2988bad89d2",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "3cf7493ca80c1925352c62d6b6a426dd5f6db000289cfdff8c4cc281689a3072",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9121704960,
+            "peak_reserved_bytes": 11374952448,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": -13.471412669867277,
+          "evaluator_valid": true,
+          "median_track_support": 506.5,
+          "new_action": "keyboard_right",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_left",
+          "oracle_gap": -13.979616165161133,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.4984410681308453,
+            "lateact_boundary_jump_minus_new": 0.05413389205932617,
+            "lateact_temporal_minus_new": 0.16993669945555212,
+            "lateact_vs_new_future_ssim": 0.5089205029791708
+          },
+          "response": {
+            "direct_late": 0.037588965999008093,
+            "lateact": 0.4421245008933268,
+            "new_oracle": 1.0,
+            "old": -0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.2260173531249166,
+              "lateact": 1.2561042066663504,
+              "new_oracle": 1.2474531419575214,
+              "next_new": 1.9847808480262756,
+              "next_old": 1.9858933351933956,
+              "old": 1.258251373656094
+            },
+            "direct_late_suffix": 0.6140476763248444,
+            "early_direct_suffix": 0.9571351576596498,
+            "lateact_restore": 0.0009348299354314804,
+            "lateact_suffix": 0.9342692503705621,
+            "new_full_restart": {
+              "context": 0.3186787236481905,
+              "generation_total": 1.2695609591901302,
+              "nfes": [
+                0.31188456527888775,
+                0.3163156183436513,
+                0.3218202367424965
+              ],
+              "reset": 0.0008618151769042015
+            },
+            "next_generation": 1.281290722079575,
+            "old": {
+              "context": 0.3213993962854147,
+              "generation_total": 1.2871078038588166,
+              "nfes": [
+                0.3214196627959609,
+                0.32167994137853384,
+                0.3216512808576226
+              ],
+              "reset": 0.0009575225412845612
+            }
+          }
+        },
+        "right_to_left": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.4581282660784567,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.4135072156508114,
+              "inflight_nfe": 2,
+              "normalized_time": 0.47231088031847523,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.0179372336296,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.12603240808012176
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7379209706140317,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4000958371488013,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.385507069486157,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.18898275583513136
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.0008220465269302879,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.0025302628684519923,
+              "inflight_nfe": 1,
+              "normalized_time": 0.0008474952268732044,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.564271507098117,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.679086193923195
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.8730019882905866,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.564271507098117,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.842813289037683,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.32406377351168636
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.48624126100676046,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.5007536345054485,
+              "inflight_nfe": 2,
+              "normalized_time": 0.5012941899418593,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.989824238701296,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.12603240808012176
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.709807975685728,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3719828422204974,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.3573940745578525,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.16086976090682759
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.6452876011205441,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.9943411602120696,
+              "inflight_nfe": 2,
+              "normalized_time": 0.6652642447773498,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.8307778985875123,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.12603240808012176
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.550761635571944,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2129365021067136,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.198347734444069,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.0018234207930439839
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.9581374010238631,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.9633449966848576,
+              "inflight_nfe": 3,
+              "normalized_time": 0.9877991664154101,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.88549793454075,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.5607726801019326,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.222947546636702,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.88549793454075,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.011834465323032561
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.784891267288457,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.4267480797081599,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8091897244860425,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 5.058744068276156,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7340188138373387,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3961936803721082,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.058744068276156,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.18508059905843866
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.23103815835793032,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.7111364796729774,
+              "inflight_nfe": 1,
+              "normalized_time": 0.23819057683401204,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.334055395267117,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.679086193923195
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.6427858764595866,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.334055395267117,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.612597177206683,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.09384766168068634
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.3614810717045858,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.11357042047930414,
+              "inflight_nfe": 2,
+              "normalized_time": 0.3726717075475544,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.1145844280034707,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.12603240808012176
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.8345681649879024,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.496743031522672,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.679086193923195
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.482154263860028,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2856299502090022
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0008969027549028397,
+            "checkpoint_save_seconds": 0.001486445777118206,
+            "cross_attention_hash": "f02b494588216afb1bad9a2fed18ac14614ccc42f2f0d10ec260b2988bad89d2",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "f02b494588216afb1bad9a2fed18ac14614ccc42f2f0d10ec260b2988bad89d2",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "330b7123417083e2c7f40df8bed2111a243f24500c0690a43f33707f28a330ba",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9551354880,
+            "peak_reserved_bytes": 10502537216,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": 13.471412669867277,
+          "evaluator_valid": true,
+          "median_track_support": 506.5,
+          "new_action": "keyboard_left",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_right",
+          "oracle_gap": 13.979616165161133,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.47631076345361345,
+            "lateact_boundary_jump_minus_new": 1.0844252109527588,
+            "lateact_temporal_minus_new": -0.14014349360823108,
+            "lateact_vs_new_future_ssim": 0.5641741460525035
+          },
+          "response": {
+            "direct_late": 0.12603240808012176,
+            "lateact": 0.679086193923195,
+            "new_oracle": 1.0,
+            "old": 0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.2100673904642463,
+              "lateact": 1.2747774636372924,
+              "new_oracle": 1.2657627929002047,
+              "next_new": 2.0005766497924924,
+              "next_old": 1.998937226831913,
+              "old": 1.263414315879345
+            },
+            "direct_late_suffix": 0.6188870873302221,
+            "early_direct_suffix": 0.9654302699491382,
+            "lateact_restore": 0.0008969027549028397,
+            "lateact_suffix": 0.9354387149214745,
+            "new_full_restart": {
+              "context": 0.3209995115175843,
+              "generation_total": 1.2831754218786955,
+              "nfes": [
+                0.3194486750289798,
+                0.321036109700799,
+                0.32083744183182716
+              ],
+              "reset": 0.0008536837995052338
+            },
+            "next_generation": 1.2879153797402978,
+            "old": {
+              "context": 0.3217571238055825,
+              "generation_total": 1.2925486043095589,
+              "nfes": [
+                0.32488582003861666,
+                0.3222252018749714,
+                0.32286084443330765
+              ],
+              "reset": 0.0008196141570806503
+            }
+          }
+        }
+      },
+      "fixed_condition_hashes": {
+        "cond_concat": "f765326663505cf47f5972058963a81a0db037506b6231aac030311043d0e859",
+        "visual_context": "7f4436c00b1b33bd3cb467bb156a3765543dfb364325551593e349f3ab5ab710"
+      },
+      "noise_hashes": {
+        "current": {
+          "initial": "fa6aef9d9a2d30e94e70e18e08ff0b42bf4da090687ff7ffa5628b173bec94e6",
+          "renoise": [
+            "5bbc716f0b4bd2669d36f0fbb000789bbf3fe9f98fd95e23f8e4162eb1633082",
+            "503f5296dde4aecce9ec7ab038c333f76f45f96ceaaf5f5c63d9fffb880c5dda"
+          ]
+        },
+        "next": {
+          "initial": "5d9edb1655fd8bb7f27f5bd61d7c3268a20d3340c28368ae3da15541d4b730f7",
+          "renoise": [
+            "70e88e7237bad645841c9da736407a986adfe4b7413c3ce7ed30e30df69fb091",
+            "8ca17a3626c914e365f7b7cb06665cb930791dc3cd6247563f40d893d122da0c"
+          ]
+        },
+        "prefix": {
+          "initial": "e161a9af340da3315eea40fa30e73c3d2f1e7cec04b66b72e9798006856c1b36",
+          "renoise": [
+            "82ea82f5f77551be8899b7b6855da480ed081db0b9070ce9627ecb5a743e61c3",
+            "d5aa4661d18334400c6e0ffff065787a30ec65c7f28fd08b5e7ea563793d8e5e"
+          ]
+        }
+      },
+      "prefix_variant": 0,
+      "source_image": "/mnt/NAS/data/hl5757/third_party/Matrix-Game/Matrix-Game-2/demo_images/universal/0013.png",
+      "source_image_index": 13
+    },
+    "0015_v0": {
+      "directions": {
+        "left_to_right": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.7971050236817668,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.44174081112136326,
+              "inflight_nfe": 3,
+              "normalized_time": 0.8150650829137399,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 5.087024127088838,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.749472559385352,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4060274390060234,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.087024127088838,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.18085985346918598
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.6789404024996922,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.07700267653863568,
+              "inflight_nfe": 3,
+              "normalized_time": 0.694238022614482,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 5.2051887482709125,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.867637180567427,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.5241920601880983,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.2051887482709125,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2990244746512606
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.5646422480725825,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.72664278163373,
+              "inflight_nfe": 2,
+              "normalized_time": 0.5773645467897797,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.992527716464442,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.024343645801280272
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.657964217147869,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.31451909676854,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.3194869026980225,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.0893515112317026
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.12664326324092112,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.38713844355489024,
+              "inflight_nfe": 1,
+              "normalized_time": 0.1294967398112123,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.432417526403797,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.13256473246939302
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7690959922320966,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.432417526403797,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.7574858875296835,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.20048328631593026
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.34341602052953707,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.04983513331077889,
+              "inflight_nfe": 2,
+              "normalized_time": 0.35115373624663354,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.2137539440074874,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.024343645801280272
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.8791904446909142,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.5357453243115855,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.540713130241068,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.310577738774748
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.47867552881836317,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.46364081419672487,
+              "inflight_nfe": 2,
+              "normalized_time": 0.4894608589756927,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.078494435718661,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.024343645801280272
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.743930936402088,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4004858160227593,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.405453621952241,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.17531823048592188
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.9638941506074361,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.9565679600174228,
+              "inflight_nfe": 3,
+              "normalized_time": 0.985612237338719,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.920235000163169,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.582683432459683,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.2392383120803543,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.920235000163169,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.01407072654351671
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.08185626001018613,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.25022811545279455,
+              "inflight_nfe": 1,
+              "normalized_time": 0.08370061330694527,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.477204529634532,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.13256473246939302
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.8138829954628317,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.477204529634532,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 0.13256473246939302
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.802272890760419,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.24527028954666524
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0009134728461503983,
+            "checkpoint_save_seconds": 0.001446838490664959,
+            "cross_attention_hash": "02a4521676dc61a18dd9d7756e64861f4ed7d82b31329b0dbdae817765bef2fa",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "02a4521676dc61a18dd9d7756e64861f4ed7d82b31329b0dbdae817765bef2fa",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "8d8372bfb06ef96493e3016d398b97390acba0c82c62d8cf5cded358fb57abea",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9119984640,
+            "peak_reserved_bytes": 11605639168,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": -9.679404688067734,
+          "evaluator_valid": true,
+          "median_track_support": 348.5,
+          "new_action": "keyboard_right",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_left",
+          "oracle_gap": -9.45277214050293,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.6524509425944734,
+            "lateact_boundary_jump_minus_new": 0.06495475769042969,
+            "lateact_temporal_minus_new": 0.17685183462089338,
+            "lateact_vs_new_future_ssim": 0.6537295178987085
+          },
+          "response": {
+            "direct_late": 0.024343645801280272,
+            "lateact": 0.13256473246939302,
+            "new_oracle": 1.0,
+            "old": -0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.2734023313969374,
+              "lateact": 1.2552240435034037,
+              "new_oracle": 1.2670405013486743,
+              "next_new": 2.0067562898620963,
+              "next_old": 2.005119113251567,
+              "old": 1.2666069101542234
+            },
+            "direct_late_suffix": 0.6297738738358021,
+            "early_direct_suffix": 0.9767101965844631,
+            "lateact_restore": 0.0009134728461503983,
+            "lateact_suffix": 0.9690300691872835,
+            "new_full_restart": {
+              "context": 0.3257179278880358,
+              "generation_total": 1.301572204567492,
+              "nfes": [
+                0.32394551672041416,
+                0.3254623441025615,
+                0.32554158568382263
+              ],
+              "reset": 0.0009048301726579666
+            },
+            "next_generation": 1.3104906920343637,
+            "old": {
+              "context": 0.3223103815689683,
+              "generation_total": 1.3011546460911632,
+              "nfes": [
+                0.3271265495568514,
+                0.32686720974743366,
+                0.32397111784666777
+              ],
+              "reset": 0.0008793873712420464
+            }
+          }
+        },
+        "right_to_left": {
+          "arrivals": [
+            {
+              "arrival_index": 0,
+              "arrival_seconds": 0.1749763174747377,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.5334667777364531,
+              "inflight_nfe": 1,
+              "normalized_time": 0.17750380811255306,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.416446663176522,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 1.0412210513572002
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.727731764053807,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.416446663176522,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.729662027878568,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.15302220985095208
+            },
+            {
+              "arrival_index": 1,
+              "arrival_seconds": 0.5526863530658797,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.6793008695503591,
+              "inflight_nfe": 2,
+              "normalized_time": 0.5606697739263855,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 1.983004138021855,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.12851310791519327
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.680785070321648,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3570385716474935,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.351951992287425,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.10607551611879318
+            },
+            {
+              "arrival_index": 2,
+              "arrival_seconds": 0.8567080417720719,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.6053417314753834,
+              "inflight_nfe": 3,
+              "normalized_time": 0.869082982485021,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 5.047930303581234,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.7037624340431647,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3800159353690105,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.047930303581234,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.12905287984031
+            },
+            {
+              "arrival_index": 3,
+              "arrival_seconds": 0.4587443611783914,
+              "direct_output": "direct_late",
+              "fully_completed_nfe_at_arrival": 1,
+              "inflight_fraction": 0.39528513987636366,
+              "inflight_nfe": 2,
+              "normalized_time": 0.46537081265915464,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.0769461299093432,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 1,
+                  "redone_nfe": 0,
+                  "response_current": 0.12851310791519327
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.774727062209136,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 2,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.4509805635349817,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 1,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.445893984174914,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 4,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.20001750800628143
+            },
+            {
+              "arrival_index": 4,
+              "arrival_seconds": 0.02876666963862275,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.08770365487055545,
+              "inflight_nfe": 1,
+              "normalized_time": 0.029182197232539814,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.5626563110126366,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 1.0412210513572002
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.8739414118899216,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.5626563110126366,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.8758716757146825,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.29923185768706706
+            },
+            {
+              "arrival_index": 5,
+              "arrival_seconds": 0.7329516808136725,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.22688081533631063,
+              "inflight_nfe": 3,
+              "normalized_time": 0.7435389907877497,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 5.171686664539633,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.827518795001564,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.50377229632741,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.171686664539633,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.2528092407987095
+            },
+            {
+              "arrival_index": 6,
+              "arrival_seconds": 0.9216993528278733,
+              "direct_output": "old_then_next",
+              "fully_completed_nfe_at_arrival": 2,
+              "inflight_fraction": 0.804092494125282,
+              "inflight_nfe": 3,
+              "normalized_time": 0.9350130773294149,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 4.9829389925254315,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.638771122987363,
+                  "discarded_nfe": 3,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 3,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.315024624313209,
+                  "checkpoint_used": true,
+                  "discarded_nfe": 2,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 2,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 4.9829389925254315,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.06406156878450864
+            },
+            {
+              "arrival_index": 7,
+              "arrival_seconds": 0.285939079890418,
+              "direct_output": "early_direct",
+              "fully_completed_nfe_at_arrival": 0,
+              "inflight_fraction": 0.8717694015939639,
+              "inflight_nfe": 1,
+              "normalized_time": 0.2900694008266379,
+              "policies": {
+                "direct_late_bind": {
+                  "action_to_pixel_seconds": 2.3054839007608416,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 1.0412210513572002
+                },
+                "full_restart": {
+                  "action_to_pixel_seconds": 2.6167690016381266,
+                  "discarded_nfe": 1,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 3,
+                  "redone_nfe": 1,
+                  "response_current": 1.0
+                },
+                "lateact": {
+                  "action_to_pixel_seconds": 2.3054839007608416,
+                  "checkpoint_used": false,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": null,
+                  "post_boundary_nfe": 2,
+                  "redone_nfe": 0,
+                  "response_current": 1.0412210513572002
+                },
+                "next_block": {
+                  "action_to_pixel_seconds": 5.618699265462888,
+                  "discarded_nfe": 0,
+                  "eventual_next_response": 1.0,
+                  "post_boundary_nfe": 5,
+                  "redone_nfe": 0,
+                  "response_current": 0.0
+                }
+              },
+              "wait_to_boundary_seconds": 0.04205944743527179
+            }
+          ],
+          "audit": {
+            "checkpoint_restore_seconds": 0.0008787112310528755,
+            "checkpoint_save_seconds": 0.0014072917401790619,
+            "cross_attention_hash": "02a4521676dc61a18dd9d7756e64861f4ed7d82b31329b0dbdae817765bef2fa",
+            "gate1_checkpoint_bytes": 649330080,
+            "historical_prefix_exact": true,
+            "host_checkpoint_bytes": 0,
+            "independent_early_bind_exact": true,
+            "optimized_checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata": 1440,
+              "mathematical_minimum_latent_plus_step": 337928,
+              "total": 339360
+            },
+            "optimized_checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "02a4521676dc61a18dd9d7756e64861f4ed7d82b31329b0dbdae817765bef2fa",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "3481bd18ac9626cab04b7f059649be92d44f26270b5d114b2fab9f6bcb003d31",
+              "keyboard_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "mouse_indices": "a1f54e5f3953aa60e635313d4921516f39dfd0e0e1b6b7fd530f94ccfd92a4c3",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_indices": "3208d6e9b73c4997125d478a9900ea772e0681aec5a00e93bd9843f6173435d7"
+            },
+            "peak_allocated_bytes": 9547389952,
+            "peak_reserved_bytes": 10716446720,
+            "rng_unchanged": true,
+            "scheduler_unchanged": true
+          },
+          "dense_oracle_gap": 9.679404688067734,
+          "evaluator_valid": true,
+          "median_track_support": 348.5,
+          "new_action": "keyboard_left",
+          "next_block_response": 1.0,
+          "old_action": "keyboard_right",
+          "oracle_gap": 9.45277214050293,
+          "quality": {
+            "all_decodes_valid": true,
+            "direct_late_vs_new_future_ssim": 0.6430866151354829,
+            "lateact_boundary_jump_minus_new": 0.03618597984313965,
+            "lateact_temporal_minus_new": -0.021360432036060306,
+            "lateact_vs_new_future_ssim": 0.8881030882457851
+          },
+          "response": {
+            "direct_late": 0.12851310791519327,
+            "lateact": 1.0412210513572002,
+            "new_oracle": 1.0,
+            "old": 0.0
+          },
+          "timing_components": {
+            "decode": {
+              "direct_late": 1.2568111224099994,
+              "lateact": 1.2857334958389401,
+              "new_oracle": 1.2775627691298723,
+              "next_new": 1.9985833307728171,
+              "next_old": 2.016827997751534,
+              "old": 1.2793461019173265
+            },
+            "direct_late_suffix": 0.6201174994930625,
+            "early_direct_suffix": 0.9776909574866295,
+            "lateact_restore": 0.0008787112310528755,
+            "lateact_suffix": 0.9643508484587073,
+            "new_full_restart": {
+              "context": 0.326587681658566,
+              "generation_total": 1.2971467850729823,
+              "nfes": [
+                0.321209947578609,
+                0.32315073534846306,
+                0.32532373256981373
+              ],
+              "reset": 0.0008746879175305367
+            },
+            "next_generation": 1.3144498085603118,
+            "old": {
+              "context": 0.326498182490468,
+              "generation_total": 1.31315612886101,
+              "nfes": [
+                0.3279985273256898,
+                0.33076334185898304,
+                0.3269990524277091
+              ],
+              "reset": 0.0008970247581601143
+            }
+          }
+        }
+      },
+      "fixed_condition_hashes": {
+        "cond_concat": "fea94c373f8ea6fc989382a850934db81d9d57d3568de8144890bb961bdf634b",
+        "visual_context": "14de8e6884c68dc76bf12eed8bbe31efc20351c645d4b88d02af472964e03b1c"
+      },
+      "noise_hashes": {
+        "current": {
+          "initial": "057de0dc9773f7823be4d33c2ee96cd284d08288b8391d12dad5779bb9d994c2",
+          "renoise": [
+            "b59d9c160fed91243e84b10a1776d520458767f7aaf343c28ffaa7ee07963d60",
+            "4d0e6a39418eabdafa0a5f44953c8aff33286d0a5a077729a96560500ed0c0a4"
+          ]
+        },
+        "next": {
+          "initial": "06567a05d990b2bc22c36c1df1a974a8aae75ded41c0f4365a0f1dade2c473c5",
+          "renoise": [
+            "35bf755977339d8a697991d6ea2241497ec2c809d24ac6c83b2139e34ac6a28e",
+            "ebf6200b9bdd5aab261fda222207ee625491e21bdf33c1eab2b54b7c76ce9476"
+          ]
+        },
+        "prefix": {
+          "initial": "97d8af59b3068f08995867029d4e8227d87eee82c130dc769dfc872437491cb1",
+          "renoise": [
+            "be18faf6d0c6cea32515d2107da1b6c540b9b144dfd9dc14e2d6fda736fe3fe1",
+            "14a87209d0c3efc1f471b4d3bedcc4a66794808ca991658e6fbbe9c7cf13b7d3"
+          ]
+        }
+      },
+      "prefix_variant": 0,
+      "source_image": "/mnt/NAS/data/hl5757/third_party/Matrix-Game/Matrix-Game-2/demo_images/universal/0015.png",
+      "source_image_index": 15
+    }
+  },
+  "shard_count": 2,
+  "shard_index": 1,
+  "status": "complete",
+  "torch": "2.5.1+cu121"
+}

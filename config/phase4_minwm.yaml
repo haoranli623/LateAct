@@ -9,9 +9,9 @@ upstream:
   checkpoint_path: Wan21/Action2V/dmd/model.pt
 
 storage:
-  artifacts: /mnt/NAS/data/hl5757/generated_artifacts/lateact/phase4_minwm
-  models: /mnt/NAS/data/hl5757/models/minwm
-  environment: /mnt/NAS/data/hl5757/conda_envs/minwm-wan21
+  artifacts: ${oc.env:LATEACT_ARTIFACT_ROOT}/phase4_minwm
+  models: ${oc.env:LATEACT_MINWM_MODEL_ROOT}
+  environment: user-managed
 
 sampler:
   nfe: 4

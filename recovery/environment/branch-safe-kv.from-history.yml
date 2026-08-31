@@ -1,0 +1,5 @@
+name: lateact-matrix-game-recovery
+channels:
+  - defaults
+dependencies:
+  - python=3.10

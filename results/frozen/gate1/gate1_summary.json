@@ -1,0 +1,804 @@
+{
+  "checkpoint_bytes": {
+    "entering_latent": 337920,
+    "index_metadata_estimate": 1440,
+    "keyboard_current_slice": 184320,
+    "mouse_current_slice": 162201600,
+    "tensor_total": 649328640,
+    "total": 649330080,
+    "visual_current_slice": 486604800
+  },
+  "compute": {
+    "direct": {
+      "before_arrival": 2,
+      "block_equivalent": 1.0,
+      "discarded": 0,
+      "post_arrival": 1,
+      "redone": 0,
+      "total_nfe": 3
+    },
+    "full_restart": {
+      "before_arrival": 2,
+      "block_equivalent": 1.6666666666666667,
+      "discarded": 2,
+      "post_arrival": 3,
+      "redone": 2,
+      "total_nfe": 5
+    },
+    "minimal": {
+      "before_arrival": 2,
+      "block_equivalent": 1.3333333333333333,
+      "discarded": 1,
+      "post_arrival": 2,
+      "redone": 1,
+      "total_nfe": 4
+    }
+  },
+  "early_arrival_control": {
+    "interpretation": "minimal rollback trajectory is zero-rollback direct binding for arrival after NFE1; full restart is the rollback comparator",
+    "median_full_restart_benefit": 0.0029462762733090675,
+    "no_meaningful_rollback_benefit": true,
+    "within_0_10_count": 16
+  },
+  "engineering": {
+    "all_decodes_valid": true,
+    "all_gate0_reproduction_exact": true,
+    "all_same_action_controls_exact": true,
+    "all_state_audits_pass": true,
+    "same_action_control_count": 2
+  },
+  "latency_seconds": {
+    "direct_from_arrival": {
+      "mean": 0.5856477114139125,
+      "median": 0.584472865331918
+    },
+    "full_from_arrival": {
+      "mean": 1.1834934680373408,
+      "median": 1.1759770149365067
+    },
+    "minimal_added_vs_direct_mean": 0.29642268928000703,
+    "minimal_from_arrival": {
+      "mean": 0.8820704006939195,
+      "median": 0.8799638655036688
+    },
+    "minimal_saved_vs_full_mean": 0.3014230673434213,
+    "prearrival_two_nfes_mean": 0.5923580208909698
+  },
+  "paired_condition_count": 16,
+  "paired_effect": {
+    "bootstrap_mean_95_percent_ci": [
+      0.5528982104238925,
+      0.79951539182042
+    ],
+    "rollback_minus_direct_mean": 0.6867466698244211,
+    "rollback_minus_direct_median": 0.7739791787449718,
+    "wilcoxon_greater_p": 1.52587890625e-05
+  },
+  "peak_allocated_bytes": 10733220864,
+  "per_pair": [
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.25658984744474367,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5824789358302951,
+        "full_from_arrival": 1.1755417054519057,
+        "full_reset": 0.0014735674485564232,
+        "full_suffix": 1.1740681380033493,
+        "minimal_from_arrival": 0.8801603345200419,
+        "minimal_restore": 0.0024021724238991737,
+        "minimal_suffix": 0.8777581620961428,
+        "prearrival_nfe1": 0.29268285818398,
+        "prearrival_nfe2": 0.29327666759490967,
+        "prearrival_total": 0.5859595257788897
+      },
+      "minimal_added_vs_direct": 0.29768139868974686,
+      "minimal_saved_vs_full": 0.2953813709318638,
+      "minimal_temporal_minus_new": 0.002964597767452448,
+      "minimal_vs_new_future_ssim": 0.5157751429816326,
+      "peak_allocated_bytes": 10733220864,
+      "response": {
+        "direct_late_bind": 0.17927069274600654,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9680285293625381,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.03197147063746186,
+      "rollback_minus_direct": 0.7887578366165315,
+      "scene": "0000",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.2574842747445582,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5815566498786211,
+        "full_from_arrival": 1.1722322776913643,
+        "full_reset": 0.0007595987990498543,
+        "full_suffix": 1.1714726788923144,
+        "minimal_from_arrival": 0.8768847370520234,
+        "minimal_restore": 0.002593385986983776,
+        "minimal_suffix": 0.8742913510650396,
+        "prearrival_nfe1": 0.2996798465028405,
+        "prearrival_nfe2": 0.2927074143663049,
+        "prearrival_total": 0.5923872608691454
+      },
+      "minimal_added_vs_direct": 0.2953280871734023,
+      "minimal_saved_vs_full": 0.2953475406393409,
+      "minimal_temporal_minus_new": -0.00803901251566036,
+      "minimal_vs_new_future_ssim": 0.6018678513065591,
+      "peak_allocated_bytes": 10732106752,
+      "response": {
+        "direct_late_bind": 0.2890239637983669,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9809818482505245,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.01901815174947552,
+      "rollback_minus_direct": 0.6919578844521576,
+      "scene": "0000",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.48489444352635025,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5744772963225842,
+        "full_from_arrival": 1.158147545531392,
+        "full_reset": 0.00082432571798563,
+        "full_suffix": 1.1573232198134065,
+        "minimal_from_arrival": 0.8663527257740498,
+        "minimal_restore": 0.002497880719602108,
+        "minimal_suffix": 0.8638548450544477,
+        "prearrival_nfe1": 0.28978948947042227,
+        "prearrival_nfe2": 0.28921409975737333,
+        "prearrival_total": 0.5790035892277956
+      },
+      "minimal_added_vs_direct": 0.2918754294514656,
+      "minimal_saved_vs_full": 0.29179481975734234,
+      "minimal_temporal_minus_new": -0.0010988241805265364,
+      "minimal_vs_new_future_ssim": 0.8620949549037552,
+      "peak_allocated_bytes": 10733220864,
+      "response": {
+        "direct_late_bind": 0.1775366141552712,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9961164733897027,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.0038835266102973387,
+      "rollback_minus_direct": 0.8185798592344314,
+      "scene": "0001",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.5106130817001394,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5786384362727404,
+        "full_from_arrival": 1.1641582138836384,
+        "full_reset": 0.0008172225207090378,
+        "full_suffix": 1.1633409913629293,
+        "minimal_from_arrival": 0.8706142315641046,
+        "minimal_restore": 0.0024179425090551376,
+        "minimal_suffix": 0.8681962890550494,
+        "prearrival_nfe1": 0.30622852966189384,
+        "prearrival_nfe2": 0.2899886127561331,
+        "prearrival_total": 0.5962171424180269
+      },
+      "minimal_added_vs_direct": 0.2919757952913642,
+      "minimal_saved_vs_full": 0.2935439823195338,
+      "minimal_temporal_minus_new": 0.0013828039085086452,
+      "minimal_vs_new_future_ssim": 0.9052132341893727,
+      "peak_allocated_bytes": 10732106752,
+      "response": {
+        "direct_late_bind": 0.43782863943304173,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9998514474653045,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.00014855253469547858,
+      "rollback_minus_direct": 0.5620228080322628,
+      "scene": "0001",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.15661255373639568,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5844145994633436,
+        "full_from_arrival": 1.1793368831276894,
+        "full_reset": 0.0007963301613926888,
+        "full_suffix": 1.1785405529662967,
+        "minimal_from_arrival": 0.8797673964872956,
+        "minimal_restore": 0.002539984881877899,
+        "minimal_suffix": 0.8772274116054177,
+        "prearrival_nfe1": 0.2940190667286515,
+        "prearrival_nfe2": 0.29356759414076805,
+        "prearrival_total": 0.5875866608694196
+      },
+      "minimal_added_vs_direct": 0.295352797023952,
+      "minimal_saved_vs_full": 0.29956948664039373,
+      "minimal_temporal_minus_new": -0.0015122501152010914,
+      "minimal_vs_new_future_ssim": 0.7501848836520709,
+      "peak_allocated_bytes": 10732950528,
+      "response": {
+        "direct_late_bind": 0.2479717315877405,
+        "full_restart": 1.0,
+        "minimal_rollback": 1.0071722524611526,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.007172252461152606,
+      "rollback_minus_direct": 0.759200520873412,
+      "scene": "0002",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.1613690766834849,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5809874879196286,
+        "full_from_arrival": 1.1723520709201694,
+        "full_reset": 0.0007836474105715752,
+        "full_suffix": 1.1715684235095978,
+        "minimal_from_arrival": 0.8770133275538683,
+        "minimal_restore": 0.002762763760983944,
+        "minimal_suffix": 0.8742505637928843,
+        "prearrival_nfe1": 0.30289541091769934,
+        "prearrival_nfe2": 0.29281431436538696,
+        "prearrival_total": 0.5957097252830863
+      },
+      "minimal_added_vs_direct": 0.2960258396342397,
+      "minimal_saved_vs_full": 0.29533874336630106,
+      "minimal_temporal_minus_new": -0.0023230263924915173,
+      "minimal_vs_new_future_ssim": 0.7975009561217513,
+      "peak_allocated_bytes": 10732164096,
+      "response": {
+        "direct_late_bind": 0.13593058669224864,
+        "full_restart": 1.0,
+        "minimal_rollback": 1.0097426584380296,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.009742658438029572,
+      "rollback_minus_direct": 0.8738120717457809,
+      "scene": "0002",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.49157939296238684,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5859396615996957,
+        "full_from_arrival": 1.1764123244211078,
+        "full_reset": 0.0008481433615088463,
+        "full_suffix": 1.175564181059599,
+        "minimal_from_arrival": 0.8811261812224984,
+        "minimal_restore": 0.00260818749666214,
+        "minimal_suffix": 0.8785179937258363,
+        "prearrival_nfe1": 0.2948019988834858,
+        "prearrival_nfe2": 0.29426427744328976,
+        "prearrival_total": 0.5890662763267756
+      },
+      "minimal_added_vs_direct": 0.29518651962280273,
+      "minimal_saved_vs_full": 0.29528614319860935,
+      "minimal_temporal_minus_new": 0.015130068214298964,
+      "minimal_vs_new_future_ssim": 0.9142864393396871,
+      "peak_allocated_bytes": 10732950528,
+      "response": {
+        "direct_late_bind": 0.061449796334453424,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9965805411288592,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.0034194588711408125,
+      "rollback_minus_direct": 0.9351307447944057,
+      "scene": "0003",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.4836319819698229,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.58473717328161,
+        "full_from_arrival": 1.1784959258511662,
+        "full_reset": 0.000876767560839653,
+        "full_suffix": 1.1776191582903266,
+        "minimal_from_arrival": 0.8824431393295527,
+        "minimal_restore": 0.0028047915548086166,
+        "minimal_suffix": 0.879638347774744,
+        "prearrival_nfe1": 0.30133183021098375,
+        "prearrival_nfe2": 0.29575780127197504,
+        "prearrival_total": 0.5970896314829588
+      },
+      "minimal_added_vs_direct": 0.29770596604794264,
+      "minimal_saved_vs_full": 0.2960527865216136,
+      "minimal_temporal_minus_new": 0.003867131253593614,
+      "minimal_vs_new_future_ssim": 0.8837692749541944,
+      "peak_allocated_bytes": 10732164096,
+      "response": {
+        "direct_late_bind": 0.038087716377235264,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9943246397658553,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.005675360234144722,
+      "rollback_minus_direct": 0.95623692338862,
+      "scene": "0003",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.42242668543234513,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5845311312004924,
+        "full_from_arrival": 1.1788205299526453,
+        "full_reset": 0.0008069556206464767,
+        "full_suffix": 1.1780135743319988,
+        "minimal_from_arrival": 0.8804530035704374,
+        "minimal_restore": 0.0025163833051919937,
+        "minimal_suffix": 0.8779366202652454,
+        "prearrival_nfe1": 0.29409140814095736,
+        "prearrival_nfe2": 0.29275703988969326,
+        "prearrival_total": 0.5868484480306506
+      },
+      "minimal_added_vs_direct": 0.29592187236994505,
+      "minimal_saved_vs_full": 0.29836752638220787,
+      "minimal_temporal_minus_new": 0.006626041569720353,
+      "minimal_vs_new_future_ssim": 0.9459544275808498,
+      "peak_allocated_bytes": 10731680768,
+      "response": {
+        "direct_late_bind": 0.4966599854701105,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.997409467156963,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.002590532843037008,
+      "rollback_minus_direct": 0.5007494816868525,
+      "scene": "0004",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.44457440132277254,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5834614699706435,
+        "full_from_arrival": 1.1727709313854575,
+        "full_reset": 0.0008149063214659691,
+        "full_suffix": 1.1719560250639915,
+        "minimal_from_arrival": 0.8796720113605261,
+        "minimal_restore": 0.0026299823075532913,
+        "minimal_suffix": 0.8770420290529728,
+        "prearrival_nfe1": 0.2993631483986974,
+        "prearrival_nfe2": 0.29370469506829977,
+        "prearrival_total": 0.5930678434669971
+      },
+      "minimal_added_vs_direct": 0.29621054138988256,
+      "minimal_saved_vs_full": 0.29309892002493143,
+      "minimal_temporal_minus_new": -0.009849847437433557,
+      "minimal_vs_new_future_ssim": 0.9474973103759957,
+      "peak_allocated_bytes": 10731680768,
+      "response": {
+        "direct_late_bind": 0.5074221657206857,
+        "full_restart": 1.0,
+        "minimal_rollback": 1.005670309023094,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.005670309023094067,
+      "rollback_minus_direct": 0.4982481433024084,
+      "scene": "0004",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.4479036896414493,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5882923435419798,
+        "full_from_arrival": 1.1877426430583,
+        "full_reset": 0.0008445540443062782,
+        "full_suffix": 1.1868980890139937,
+        "minimal_from_arrival": 0.8868760280311108,
+        "minimal_restore": 0.0024927500635385513,
+        "minimal_suffix": 0.8843832779675722,
+        "prearrival_nfe1": 0.2957041384652257,
+        "prearrival_nfe2": 0.2950930017977953,
+        "prearrival_total": 0.590797140263021
+      },
+      "minimal_added_vs_direct": 0.298583684489131,
+      "minimal_saved_vs_full": 0.30086661502718925,
+      "minimal_temporal_minus_new": 0.00794058882579296,
+      "minimal_vs_new_future_ssim": 0.9119262015477153,
+      "peak_allocated_bytes": 10731680768,
+      "response": {
+        "direct_late_bind": 0.2449835382398982,
+        "full_restart": 1.0,
+        "minimal_rollback": 1.003258278423446,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.0032582784234460593,
+      "rollback_minus_direct": 0.7582747401835479,
+      "scene": "0005",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.45616474243387345,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5898386351764202,
+        "full_from_arrival": 1.2086978610605001,
+        "full_reset": 0.0008513573557138443,
+        "full_suffix": 1.2078465037047863,
+        "minimal_from_arrival": 0.8906851280480623,
+        "minimal_restore": 0.002570219337940216,
+        "minimal_suffix": 0.8881149087101221,
+        "prearrival_nfe1": 0.30169083178043365,
+        "prearrival_nfe2": 0.29749264009296894,
+        "prearrival_total": 0.5991834718734026
+      },
+      "minimal_added_vs_direct": 0.3008464928716421,
+      "minimal_saved_vs_full": 0.3180127330124378,
+      "minimal_temporal_minus_new": 0.006712958264663005,
+      "minimal_vs_new_future_ssim": 0.9209651572282391,
+      "peak_allocated_bytes": 10731680768,
+      "response": {
+        "direct_late_bind": 0.19148850302949214,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.996577090493037,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.003422909506963001,
+      "rollback_minus_direct": 0.8050885874635448,
+      "scene": "0005",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.263860085104658,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5848762504756451,
+        "full_from_arrival": 1.1747839385643601,
+        "full_reset": 0.0008412161841988564,
+        "full_suffix": 1.1739427223801613,
+        "minimal_from_arrival": 0.8797608157619834,
+        "minimal_restore": 0.0024491269141435623,
+        "minimal_suffix": 0.8773116888478398,
+        "prearrival_nfe1": 0.2939316248521209,
+        "prearrival_nfe2": 0.2934168064966798,
+        "prearrival_total": 0.5873484313488007
+      },
+      "minimal_added_vs_direct": 0.29488456528633833,
+      "minimal_saved_vs_full": 0.29502312280237675,
+      "minimal_temporal_minus_new": 0.0010382203766455822,
+      "minimal_vs_new_future_ssim": 0.9088599657097118,
+      "peak_allocated_bytes": 10732278784,
+      "response": {
+        "direct_late_bind": 0.9320572359349516,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9942984658671281,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.005701534132871888,
+      "rollback_minus_direct": 0.06224122993217651,
+      "scene": "0006",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.27858390258519455,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.5832737106829882,
+        "full_from_arrival": 1.1751017989590764,
+        "full_reset": 0.0007993355393409729,
+        "full_suffix": 1.1743024634197354,
+        "minimal_from_arrival": 0.8789127748459578,
+        "minimal_restore": 0.0025705471634864807,
+        "minimal_suffix": 0.8763422276824713,
+        "prearrival_nfe1": 0.30559322889894247,
+        "prearrival_nfe2": 0.293853547424078,
+        "prearrival_total": 0.5994467763230205
+      },
+      "minimal_added_vs_direct": 0.2956390641629696,
+      "minimal_saved_vs_full": 0.29618902411311865,
+      "minimal_temporal_minus_new": 0.0014537445267883142,
+      "minimal_vs_new_future_ssim": 0.8734934489389569,
+      "peak_allocated_bytes": 10731230208,
+      "response": {
+        "direct_late_bind": 0.8225276935030003,
+        "full_restart": 1.0,
+        "minimal_rollback": 1.00585051577057,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.005850515770569942,
+      "rollback_minus_direct": 0.18332282226756969,
+      "scene": "0006",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.19618136692136293,
+      "direction": "left_to_right",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.6009456440806389,
+        "full_from_arrival": 1.2257150737568736,
+        "full_reset": 0.0008580721914768219,
+        "full_suffix": 1.2248570015653968,
+        "minimal_from_arrival": 0.9014016017317772,
+        "minimal_restore": 0.002628883346915245,
+        "minimal_suffix": 0.898772718384862,
+        "prearrival_nfe1": 0.29750197753310204,
+        "prearrival_nfe2": 0.2967958049848676,
+        "prearrival_total": 0.5942977825179696
+      },
+      "minimal_added_vs_direct": 0.3004559576511383,
+      "minimal_saved_vs_full": 0.3243134720250964,
+      "minimal_temporal_minus_new": 0.0032639291102419254,
+      "minimal_vs_new_future_ssim": 0.9434111817850929,
+      "peak_allocated_bytes": 10732278784,
+      "response": {
+        "direct_late_bind": 0.12652050306532672,
+        "full_restart": 1.0,
+        "minimal_rollback": 0.9966979802964189,
+        "new_oracle": 1.0,
+        "old": -0.0
+      },
+      "rollback_abs_gap_full": 0.003302019703581127,
+      "rollback_minus_direct": 0.8701774772310922,
+      "scene": "0007",
+      "state_audit_pass": true
+    },
+    {
+      "checkpoint_bytes": {
+        "entering_latent": 337920,
+        "index_metadata_estimate": 1440,
+        "keyboard_current_slice": 184320,
+        "mouse_current_slice": 162201600,
+        "tensor_total": 649328640,
+        "total": 649330080,
+        "visual_current_slice": 486604800
+      },
+      "decodes_valid": true,
+      "direct_vs_new_future_ssim": 0.20145847149642518,
+      "direction": "right_to_left",
+      "full_vs_new_future_ssim": 1.0,
+      "latency_seconds": {
+        "direct_from_arrival": 0.6019139569252729,
+        "full_from_arrival": 1.2355857649818063,
+        "full_reset": 0.0008553722873330116,
+        "full_suffix": 1.2347303926944733,
+        "minimal_from_arrival": 0.9010029742494226,
+        "minimal_restore": 0.0025896690785884857,
+        "minimal_suffix": 0.8984133051708341,
+        "prearrival_nfe1": 0.30432066041976213,
+        "prearrival_nfe2": 0.2993979677557945,
+        "prearrival_total": 0.6037186281755567
+      },
+      "minimal_added_vs_direct": 0.2990890173241496,
+      "minimal_saved_vs_full": 0.33458279073238373,
+      "minimal_temporal_minus_new": -0.0006693596971020233,
+      "minimal_vs_new_future_ssim": 0.9000078360375037,
+      "peak_allocated_bytes": 10731230208,
+      "response": {
+        "direct_late_bind": 0.07697027028027642,
+        "full_restart": 1.0,
+        "minimal_rollback": 1.0011158562662206,
+        "new_oracle": 1.0,
+        "old": 0.0
+      },
+      "rollback_abs_gap_full": 0.0011158562662205718,
+      "rollback_minus_direct": 0.9241455859859442,
+      "scene": "0007",
+      "state_audit_pass": true
+    }
+  ],
+  "quality": {
+    "minimal_vs_new_future_ssim_mean": 0.8489255166658181,
+    "minimal_vs_new_future_ssim_median": 0.9026105351134381,
+    "minimal_vs_new_future_ssim_min": 0.5157751429816326,
+    "quality_pass": true,
+    "temporal_minus_new_median": 0.0014182742176484797,
+    "temporal_within_0_05_count": 16
+  },
+  "response": {
+    "direct": {
+      "max": 0.9320572359349516,
+      "mean": 0.3103581022730066,
+      "median": 0.21823602063469516,
+      "min": 0.038087716377235264
+    },
+    "direction_median_improvement": {
+      "left_to_right": 0.7739791787449718,
+      "right_to_left": 0.7485232359578512
+    },
+    "full_restart": {
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0
+    },
+    "improved_pair_count": 16,
+    "minimal_rollback": {
+      "max": 1.0097426584380296,
+      "mean": 0.9971047720974278,
+      "median": 0.997053723726691,
+      "min": 0.9680285293625381
+    },
+    "near_full_restart_count": 16
+  },
+  "scene_count": 8,
+  "verdict": "A. MINIMAL-ROLLBACK STRONG GO"
+}

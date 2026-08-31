@@ -1,0 +1,531 @@
+{
+  "analysis": "Gate 2 Matrix-Game mouse clustered robustness and SSIM tails",
+  "bootstrap": {
+    "interval": "percentile 2.5%--97.5%",
+    "primary_cluster_aggregation": "Equal-weight base images; within each base, equal-weight direction cells after averaging that cell's unchanged late arrivals.",
+    "replicates": 200000,
+    "seed": 20260829
+  },
+  "conclusion": {
+    "latency_positive_in_all_base_images": true,
+    "main_latency_conclusion_changes": false,
+    "main_response_conclusion_changes": false,
+    "quality_interpretation": "Mouse-yaw quality is broadly stable but not uniformly >=0.90: the median gate passes, 60/64 are >=0.85 and 63/64 are >=0.80, while 15/64 are below 0.90 and one direction is 0.7184.",
+    "response_positive_in_all_base_images": true
+  },
+  "hierarchy": {
+    "arrival_class_counts": {
+      "1": 348,
+      "2": 338,
+      "3": 338
+    },
+    "arrivals_per_direction": 16,
+    "base_image_ids": [
+      "0008",
+      "0009",
+      "0010",
+      "0011",
+      "0012",
+      "0013",
+      "0014",
+      "0015"
+    ],
+    "base_images": 8,
+    "base_rows": [
+      {
+        "arrival_class_1": 43,
+        "arrival_class_2": 42,
+        "arrival_class_3": 43,
+        "arrival_count": 128,
+        "base_image": "0008",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 0,
+        "future_ssim_below_0_85": 0,
+        "future_ssim_below_0_90": 0,
+        "future_ssim_mean": 0.9327217628965618,
+        "future_ssim_median": 0.9294143614442725,
+        "future_ssim_minimum": 0.9195597222630286,
+        "late_arrival_count": 85,
+        "late_latency_saving_arrival_weighted_seconds": 0.2969229114077547,
+        "late_latency_saving_equal_direction_mean_seconds": 0.29687218414619565,
+        "original_fixed_branch_response_improvement": 0.7436885727221161,
+        "raw_late_response_improvement_arrival_weighted": 0.8744487225132711,
+        "raw_late_response_improvement_equal_direction_mean": 0.8743009850531498,
+        "variant_count": 4
+      },
+      {
+        "arrival_class_1": 45,
+        "arrival_class_2": 40,
+        "arrival_class_3": 43,
+        "arrival_count": 128,
+        "base_image": "0009",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 0,
+        "future_ssim_below_0_85": 1,
+        "future_ssim_below_0_90": 3,
+        "future_ssim_mean": 0.9075945772064169,
+        "future_ssim_median": 0.904617448468059,
+        "future_ssim_minimum": 0.8360612091268407,
+        "late_arrival_count": 83,
+        "late_latency_saving_arrival_weighted_seconds": 0.30014662116945506,
+        "late_latency_saving_equal_direction_mean_seconds": 0.30005963530857116,
+        "original_fixed_branch_response_improvement": 0.9596112950942783,
+        "raw_late_response_improvement_arrival_weighted": 0.9796564683389158,
+        "raw_late_response_improvement_equal_direction_mean": 0.9796543018975474,
+        "variant_count": 4
+      },
+      {
+        "arrival_class_1": 46,
+        "arrival_class_2": 40,
+        "arrival_class_3": 42,
+        "arrival_count": 128,
+        "base_image": "0010",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 0,
+        "future_ssim_below_0_85": 0,
+        "future_ssim_below_0_90": 0,
+        "future_ssim_mean": 0.9533100385355884,
+        "future_ssim_median": 0.9607221808423891,
+        "future_ssim_minimum": 0.9186492983400508,
+        "late_arrival_count": 82,
+        "late_latency_saving_arrival_weighted_seconds": 0.32404007332217766,
+        "late_latency_saving_equal_direction_mean_seconds": 0.32382930628955364,
+        "original_fixed_branch_response_improvement": 0.6220736637393565,
+        "raw_late_response_improvement_arrival_weighted": 0.8152747482837733,
+        "raw_late_response_improvement_equal_direction_mean": 0.8124224394522862,
+        "variant_count": 4
+      },
+      {
+        "arrival_class_1": 45,
+        "arrival_class_2": 42,
+        "arrival_class_3": 41,
+        "arrival_count": 128,
+        "base_image": "0011",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 0,
+        "future_ssim_below_0_85": 0,
+        "future_ssim_below_0_90": 0,
+        "future_ssim_mean": 0.9344474903234125,
+        "future_ssim_median": 0.9353869726630648,
+        "future_ssim_minimum": 0.900378922137123,
+        "late_arrival_count": 83,
+        "late_latency_saving_arrival_weighted_seconds": 0.31659812463380127,
+        "late_latency_saving_equal_direction_mean_seconds": 0.31706522055901587,
+        "original_fixed_branch_response_improvement": 0.8330068973528788,
+        "raw_late_response_improvement_arrival_weighted": 0.9172455368740278,
+        "raw_late_response_improvement_equal_direction_mean": 0.9178934927367728,
+        "variant_count": 4
+      },
+      {
+        "arrival_class_1": 44,
+        "arrival_class_2": 41,
+        "arrival_class_3": 43,
+        "arrival_count": 128,
+        "base_image": "0012",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 0,
+        "future_ssim_below_0_85": 0,
+        "future_ssim_below_0_90": 0,
+        "future_ssim_mean": 0.9321607234852539,
+        "future_ssim_median": 0.9334127120010984,
+        "future_ssim_minimum": 0.9150101232462337,
+        "late_arrival_count": 84,
+        "late_latency_saving_arrival_weighted_seconds": 0.30931081537467736,
+        "late_latency_saving_equal_direction_mean_seconds": 0.3096397732151672,
+        "original_fixed_branch_response_improvement": 0.5833280409575359,
+        "raw_late_response_improvement_arrival_weighted": 0.7969469389661852,
+        "raw_late_response_improvement_equal_direction_mean": 0.7978869236600185,
+        "variant_count": 4
+      },
+      {
+        "arrival_class_1": 40,
+        "arrival_class_2": 46,
+        "arrival_class_3": 42,
+        "arrival_count": 128,
+        "base_image": "0013",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 1,
+        "future_ssim_below_0_85": 2,
+        "future_ssim_below_0_90": 6,
+        "future_ssim_mean": 0.8574001590294262,
+        "future_ssim_median": 0.8754723615312233,
+        "future_ssim_minimum": 0.718374835337597,
+        "late_arrival_count": 88,
+        "late_latency_saving_arrival_weighted_seconds": 0.3125227860873565,
+        "late_latency_saving_equal_direction_mean_seconds": 0.3125227860873565,
+        "original_fixed_branch_response_improvement": 0.9706045288917521,
+        "raw_late_response_improvement_arrival_weighted": 0.9843403757316523,
+        "raw_late_response_improvement_equal_direction_mean": 0.9843403757316525,
+        "variant_count": 4
+      },
+      {
+        "arrival_class_1": 42,
+        "arrival_class_2": 44,
+        "arrival_class_3": 42,
+        "arrival_count": 128,
+        "base_image": "0014",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 0,
+        "future_ssim_below_0_85": 0,
+        "future_ssim_below_0_90": 4,
+        "future_ssim_mean": 0.896728636768662,
+        "future_ssim_median": 0.8955599146643103,
+        "future_ssim_minimum": 0.8601775751427873,
+        "late_arrival_count": 86,
+        "late_latency_saving_arrival_weighted_seconds": 0.31411028354493686,
+        "late_latency_saving_equal_direction_mean_seconds": 0.31478439876809716,
+        "original_fixed_branch_response_improvement": 0.88222798255871,
+        "raw_late_response_improvement_arrival_weighted": 0.9436536280291405,
+        "raw_late_response_improvement_equal_direction_mean": 0.9428765528651593,
+        "variant_count": 4
+      },
+      {
+        "arrival_class_1": 43,
+        "arrival_class_2": 43,
+        "arrival_class_3": 42,
+        "arrival_count": 128,
+        "base_image": "0015",
+        "direction_count": 8,
+        "future_ssim_below_0_80": 0,
+        "future_ssim_below_0_85": 1,
+        "future_ssim_below_0_90": 2,
+        "future_ssim_mean": 0.9109167432294156,
+        "future_ssim_median": 0.9267895133102875,
+        "future_ssim_minimum": 0.8079839907999283,
+        "late_arrival_count": 85,
+        "late_latency_saving_arrival_weighted_seconds": 0.31977334447643335,
+        "late_latency_saving_equal_direction_mean_seconds": 0.31953522039111704,
+        "original_fixed_branch_response_improvement": 0.932813231088055,
+        "raw_late_response_improvement_arrival_weighted": 0.9637282413060572,
+        "raw_late_response_improvement_equal_direction_mean": 0.9637133670265039,
+        "variant_count": 4
+      }
+    ],
+    "directions_per_variant": 2,
+    "late_arrivals": 676,
+    "late_arrivals_per_direction_range": [
+      10,
+      11
+    ],
+    "late_definition": "inflight_nfe >= 2 (unchanged frozen definition)",
+    "total_arrivals": 1024,
+    "total_directions": 64,
+    "total_scene_variants": 32,
+    "variants_per_base_image": 4
+  },
+  "latency": {
+    "base_image_cluster_inference_primary": {
+      "definition": "Mean late-row latency saving within each direction, then equal mean over four variants x two directions within each base image; n=8 bases.",
+      "exact_wilcoxon_signed_rank": {
+        "all_effects_positive": true,
+        "n": 8,
+        "one_sided_exact_p_greater": 0.00390625,
+        "two_sided_exact_p": 0.0078125,
+        "w_plus": 36.0
+      },
+      "maximum": 0.32382930628955364,
+      "mean": 0.3117885655956343,
+      "mean_percentile_95_ci": [
+        0.3055191419989569,
+        0.31752334906195756
+      ],
+      "median": 0.31365359242772684,
+      "median_percentile_95_ci": [
+        0.30005963530857116,
+        0.31953522039111704
+      ],
+      "minimum": 0.29687218414619565,
+      "n": 8,
+      "p05": 0.29798779205302706,
+      "p10": 0.2991033999598585,
+      "p25": 0.3072447387385182,
+      "p75": 0.31768272051704116,
+      "p90": 0.320823446160648,
+      "p95": 0.32232637622510085,
+      "positive_base_images": 8,
+      "sample_standard_deviation": 0.009312287049355444
+    },
+    "hierarchical_top_cluster_bootstrap_arrival_weighted": {
+      "definition": "Resample eight base images with replacement; retain every selected base's variants, directions, and late arrivals; compute the pooled mean.",
+      "mean_percentile_95_ci": [
+        0.30545324648405386,
+        0.31734704472174174
+      ],
+      "point_estimate": 0.3116536682193338
+    },
+    "original_direction_level_reference": {
+      "direction_bootstrap_mean_95_ci_10000_seed_20260824": [
+        0.3071068304310757,
+        0.3166120700760075
+      ],
+      "inferential_caveat": "Descriptive reference only: variants and opposite directions share base images.",
+      "mean": 0.3117885655956343,
+      "median": 0.307275066152215,
+      "n": 64,
+      "one_sided_wilcoxon_normal_approximation_p": 1.7627490366353699e-12,
+      "unit": "scene_variant_x_direction"
+    }
+  },
+  "model_generation_performed": false,
+  "quality": {
+    "boundary_jump_minus_new": {
+      "maximum": 0.29175281524658203,
+      "mean": -0.0010407567024230957,
+      "median": 0.0036658048629760742,
+      "minimum": -0.6614851951599121,
+      "n": 64,
+      "p05": -0.15705652236938475,
+      "p10": -0.12729029655456542,
+      "p25": -0.04911196231842041,
+      "p75": 0.0807262659072876,
+      "p90": 0.10296125411987306,
+      "p95": 0.13468685150146478,
+      "sample_standard_deviation": 0.12407222185041138
+    },
+    "finite_nonconstant_decode_checks": {
+      "pass_count": 64,
+      "total": 64
+    },
+    "future_ssim": {
+      "maximum": 0.973400099253866,
+      "mean": 0.9156600164343422,
+      "median": 0.9223045246171051,
+      "minimum": 0.718374835337597,
+      "n": 64,
+      "p05": 0.8396786640292326,
+      "p10": 0.8743911709781959,
+      "p25": 0.900347153487829,
+      "p75": 0.9463006836051326,
+      "p90": 0.9583832708141251,
+      "p95": 0.9609358330143065,
+      "sample_standard_deviation": 0.04241979089859659
+    },
+    "temporal_minus_new": {
+      "maximum": 0.018057493172331185,
+      "maximum_observed_deficit": 0.007877614806902355,
+      "mean": 0.0018041616243418268,
+      "median": 0.0016908537527536849,
+      "minimum": -0.007877614806902355,
+      "n": 64,
+      "p05": -0.005198412264621435,
+      "p10": -0.004701461185151856,
+      "p25": -0.0025169419888609046,
+      "p75": 0.00507768614304592,
+      "p90": 0.00739792925113544,
+      "p95": 0.011707766040551484,
+      "pass_count": 64,
+      "pass_percent": 100.0,
+      "pass_rule": "lateact_temporal_minus_new >= -0.05",
+      "sample_standard_deviation": 0.005414800305239538
+    },
+    "threshold_counts": {
+      "0.80": {
+        "at_least_count": 63,
+        "at_least_percent": 98.4375,
+        "below_count": 1,
+        "below_percent": 1.5625
+      },
+      "0.85": {
+        "at_least_count": 60,
+        "at_least_percent": 93.75,
+        "below_count": 4,
+        "below_percent": 6.25
+      },
+      "0.90": {
+        "at_least_count": 49,
+        "at_least_percent": 76.5625,
+        "below_count": 15,
+        "below_percent": 23.4375
+      }
+    },
+    "unit": "One frozen lateact-vs-new decoded future comparison per evaluator-valid scene-variant/direction; n=64. Not arrival-level.",
+    "worst_eight": [
+      {
+        "all_decodes_valid": true,
+        "base_image": "0013",
+        "boundary_jump_minus_new": 0.09281063079833984,
+        "direction": "left_to_right",
+        "future_ssim": 0.718374835337597,
+        "scene": "0013_v0",
+        "temporal_minus_new": 0.006549312646193961,
+        "variant": 0
+      },
+      {
+        "all_decodes_valid": true,
+        "base_image": "0015",
+        "boundary_jump_minus_new": -0.054708242416381836,
+        "direction": "left_to_right",
+        "future_ssim": 0.8079839907999283,
+        "scene": "0015_v0",
+        "temporal_minus_new": 0.0020761997461853365,
+        "variant": 0
+      },
+      {
+        "all_decodes_valid": true,
+        "base_image": "0013",
+        "boundary_jump_minus_new": -0.061693668365478516,
+        "direction": "right_to_left",
+        "future_ssim": 0.8228486357301534,
+        "scene": "0013_v2",
+        "temporal_minus_new": 0.0019851531348351603,
+        "variant": 2
+      },
+      {
+        "all_decodes_valid": true,
+        "base_image": "0009",
+        "boundary_jump_minus_new": -0.14696264266967773,
+        "direction": "left_to_right",
+        "future_ssim": 0.8360612091268407,
+        "scene": "0009_v0",
+        "temporal_minus_new": 0.004054149027075793,
+        "variant": 0
+      },
+      {
+        "all_decodes_valid": true,
+        "base_image": "0014",
+        "boundary_jump_minus_new": -0.06420326232910156,
+        "direction": "left_to_right",
+        "future_ssim": 0.8601775751427873,
+        "scene": "0014_v1",
+        "temporal_minus_new": 0.0025056435589715376,
+        "variant": 1
+      },
+      {
+        "all_decodes_valid": true,
+        "base_image": "0013",
+        "boundary_jump_minus_new": -0.6614851951599121,
+        "direction": "right_to_left",
+        "future_ssim": 0.8631907164678467,
+        "scene": "0013_v0",
+        "temporal_minus_new": -0.0068912655065875295,
+        "variant": 0
+      },
+      {
+        "all_decodes_valid": true,
+        "base_image": "0013",
+        "boundary_jump_minus_new": -0.1736593246459961,
+        "direction": "right_to_left",
+        "future_ssim": 0.8727693851486548,
+        "scene": "0013_v3",
+        "temporal_minus_new": -0.005256932028856076,
+        "variant": 3
+      },
+      {
+        "all_decodes_valid": true,
+        "base_image": "0013",
+        "boundary_jump_minus_new": 0.29175281524658203,
+        "direction": "right_to_left",
+        "future_ssim": 0.8781753379137919,
+        "scene": "0013_v1",
+        "temporal_minus_new": -0.004276425955779095,
+        "variant": 1
+      }
+    ]
+  },
+  "read_only": true,
+  "response": {
+    "base_image_cluster_inference_paper_compatible_fixed_branch": {
+      "definition": "Mean of the eight fixed per-direction direct_late contrasts within each base image; preserves the published 0.8159 estimand but uses n=8.",
+      "exact_wilcoxon_signed_rank": {
+        "all_effects_positive": true,
+        "n": 8,
+        "one_sided_exact_p_greater": 0.00390625,
+        "two_sided_exact_p": 0.0078125,
+        "w_plus": 36.0
+      },
+      "maximum": 0.9706045288917521,
+      "mean": 0.8159192765505854,
+      "mean_percentile_95_ci": [
+        0.7141527210605978,
+        0.9081834383890661
+      ],
+      "median": 0.8576174399557944,
+      "median_percentile_95_ci": [
+        0.6220736637393565,
+        0.9596112950942783
+      ],
+      "minimum": 0.5833280409575359,
+      "n": 8,
+      "p05": 0.5968890089311731,
+      "p10": 0.6104499769048103,
+      "p25": 0.7132848454764262,
+      "p75": 0.9395127470896109,
+      "p90": 0.9629092652335205,
+      "p95": 0.9667568970626362,
+      "positive_base_images": 8,
+      "sample_standard_deviation": 0.15110073764875853
+    },
+    "base_image_cluster_inference_primary": {
+      "definition": "Mean late-row response effect within each direction, then equal mean over four variants x two directions within each base image; n=8 bases.",
+      "exact_wilcoxon_signed_rank": {
+        "all_effects_positive": true,
+        "n": 8,
+        "one_sided_exact_p_greater": 0.00390625,
+        "two_sided_exact_p": 0.0078125,
+        "w_plus": 36.0
+      },
+      "maximum": 0.9843403757316525,
+      "mean": 0.9091360548028863,
+      "mean_percentile_95_ci": [
+        0.85976894837631,
+        0.9540934386765971
+      ],
+      "median": 0.930385022800966,
+      "median_percentile_95_ci": [
+        0.8124224394522862,
+        0.9796543018975474
+      ],
+      "minimum": 0.7978869236600185,
+      "n": 8,
+      "p05": 0.8029743541873122,
+      "p10": 0.8080617847146059,
+      "p25": 0.8588313486529339,
+      "p75": 0.9676986007442647,
+      "p90": 0.981060124047779,
+      "p95": 0.9827002498897157,
+      "positive_base_images": 8,
+      "sample_standard_deviation": 0.07345132951881105
+    },
+    "hierarchical_top_cluster_bootstrap_arrival_weighted": {
+      "definition": "Resample eight base images with replacement; retain every selected base's variants, directions, and late arrivals; compute the pooled mean.",
+      "mean_percentile_95_ci": [
+        0.8608016936309583,
+        0.9544627740749805
+      ],
+      "point_estimate": 0.9101481444743159
+    },
+    "original_direction_level_reference": {
+      "direction_bootstrap_mean_95_ci_10000_seed_20260824": [
+        0.7689917170671242,
+        0.8585292347246017
+      ],
+      "inferential_caveat": "Descriptive reference only: variants and opposite directions share base images.",
+      "mean": 0.8159192765505854,
+      "median": 0.8388605942002255,
+      "n": 64,
+      "one_sided_wilcoxon_normal_approximation_p": 1.7627490366353699e-12,
+      "unit": "scene_variant_x_direction"
+    },
+    "original_reference_definition": "Per-direction fixed branch: response(lateact) - response(direct_late). This is the reported 0.8159 estimate and is not an average over all 676 raw late-arrival rows.",
+    "raw_late_direction_level_descriptive": {
+      "definition": "Within each scene-variant/direction, mean over every frozen arrival with inflight_nfe >= 2.",
+      "maximum": 1.0019983589962307,
+      "mean": 0.9091360548028862,
+      "median": 0.9310324785953967,
+      "minimum": 0.572656221108351,
+      "n": 64,
+      "p05": 0.734221925005964,
+      "p10": 0.8105574616541553,
+      "p25": 0.8873275276610328,
+      "p75": 0.9717347348829927,
+      "p90": 0.9843306167061214,
+      "p95": 0.9968004095828902,
+      "sample_standard_deviation": 0.09131618309918293
+    }
+  },
+  "source_artifact_sha256": {
+    "mouse_shard_0.json": "0afc641acc0ee72d3e9a19e08cca4ab88c6f5636eefdec5be96b577027df3044",
+    "mouse_shard_1.json": "e0d0fd5054b6e89171d22231b32d2cb43892fd3000f50b9055b4e19579eca09f",
+    "mouse_summary.json": "30ddf26c2eb75cc20a5e20525f34437041d2afa3e6bce7bbcb6103950cabdfc0"
+  }
+}

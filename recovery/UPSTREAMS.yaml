@@ -1,0 +1,49 @@
+schema_version: 1
+
+matrix_game:
+  source_repository: https://github.com/SkyworkAI/Matrix-Game.git
+  source_commit: 71c3cd7f741311f8100f6cf9cde942b6c1378d11
+  model_repository: Skywork/Matrix-Game-2.0
+  model_hub_revision: unknown
+  local_model_file_sha256: unknown
+  required_model_files:
+    - base_distill.safetensors
+    - models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+    - Wan2.1_VAE.pth
+    - xlm-roberta-large/
+  input_assets:
+    source: Matrix-Game-2/demo_images/universal
+    indices: 0000-0016
+    provenance: bundled_with_pinned_source_repository
+  local_patch: recovery/patches/matrix_game_cache_hook.patch
+  local_patch_sha256: 154bb3cf1cd0373ea2cfb714fd2d7dfd86c2a7850c9012e10b618aa1f26e2109
+  patched_causal_model_sha256: 01fbc24051a4e7b2602c823bdb6bad69ae9d48f3849a930b91cf752cea7f926a
+  vendored_dependency: recovery/vendor/branchsafe
+  vendored_dependency_source_commit: 6757e11
+  vendored_cache_ops_sha256: af30ac8f5d58c1b310cfce74e1a4d381dcfdfe7a0acfbf08db9920ec929f5e12
+  notes:
+    - The exact source commit is known.
+    - The exact Hugging Face model revision and Matrix-Game model-file hashes were not recorded historically and remain unknown.
+    - Apply the local patch only to the pinned source commit.
+
+minwm:
+  source_repository: https://github.com/shengshu-ai/minWM.git
+  source_commit: df522a26cd4409d3e3e8f269cc98eac069b5df47
+  backbone_repository: Wan-AI/Wan2.1-T2V-1.3B
+  backbone_revision: 37ec512624d61f7aa208f7ea8140a131f93afc9a
+  checkpoint_repository: MIN-Lab/minWM
+  checkpoint_path: Wan21/Action2V/dmd/model.pt
+  checkpoint_revision: 21bd74da43b5a061c0b8ff277515088ccd2c798b
+  checkpoint_etag_sha256: bdb947d45fb04513305492c2ee393d51d0621ec0e99fd312224f5d61a330aa77
+  input_assets:
+    prompt_file: Wan21/prompts/demos.txt
+    prompt_file_sha256: 847f82434bf4173dd9a46c2cb05db282876190dfec5b2653a9290ee9c060f5b7
+    original_ad_prompt_indices: [0, 1, 2, 3, 4, 5, 6, 7]
+    original_ad_seeds: [41000, 41001, 41002, 41003, 41004, 41005, 41006, 41007]
+    confirmatory_yaw_prompt_indices: [8, 9, 10, 11, 12, 13, 14, 15]
+    confirmatory_yaw_seeds: [41008, 41009, 41010, 41011, 41012, 41013, 41014, 41015]
+    selected_confirmatory_prompts_sha256: 2e72cbfdbedbec3e7ebfc9f098ec9a4c6e49bc907df867ad602f78f60a75c82b
+  notes:
+    - The original native a/d gate failed at 6/16 oracle-valid pairs.
+    - The single frozen j/l yaw confirmation passed 16/16 commitment gates.
+    - minWM validates mechanism replication only; rollback and latency were not tested.

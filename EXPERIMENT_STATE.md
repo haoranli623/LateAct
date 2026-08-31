@@ -2,15 +2,16 @@
 
 - Project: LateAct — Asynchronous Action Binding in Interactive Video World Models
 - Date: 2026-08-24
-- Current phase: Phase 4 independent-model replication complete; project stopped
+- Current phase: Phase 4 independent-model commitment replication complete;
+  project stopped after one frozen confirmatory yaw follow-up
 - Static verdict: PASS
 - Foundation model edits by LateAct: none
 - Training: forbidden before Gate 0 review
-- Upstream repository: `/mnt/NAS/data/hl5757/third_party/Matrix-Game`
+- Upstream repository: `${LATEACT_UPSTREAM}`
 - Upstream commit: `71c3cd7f741311f8100f6cf9cde942b6c1378d11`
-- Model root: `/mnt/NAS/data/hl5757/models/matrix-game-2`
-- Environment: `/mnt/NAS/data/hl5757/conda_envs/branch-safe-kv`
-- Artifact root: `/mnt/NAS/data/hl5757/generated_artifacts/lateact`
+- Model root: `${LATEACT_MODEL_ROOT}`
+- Environment: user-managed Python environment
+- Artifact root: `${LATEACT_ARTIFACT_ROOT}`
 - Official sampler NFE/block: 3, plus one non-output context-cache write
 - Actual denoising timesteps: 1000.0, 908.8427124023438, 713.9794311523438
 - Prefix/future design: one 3-latent block each; no cache eviction
@@ -19,7 +20,7 @@
 
 ## Engineering smoke result
 
-- Artifact directory: `/mnt/NAS/data/hl5757/generated_artifacts/lateact/smoke-20260823`
+- Artifact directory: `artifacts/lateact/smoke-20260823`
 - Scenes/runs: 2 scenes, 10 unique runs per scene
 - Engineering verdict: PASS
 - Exact same-action repeatability: PASS (latent hashes identical; motion range 0)
@@ -36,7 +37,7 @@
 
 ## Gate 0 result
 
-- Artifact directory: `/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate0-20260823`
+- Artifact directory: `artifacts/lateact/gate0-20260823`
 - Scope complete: 8/8 frozen scenes, 16/16 direction-scene curves
 - Evaluator-valid: 16/16
 - Monotone: 16/16
@@ -60,7 +61,7 @@
 
 ## Gate 1 result
 
-- Artifact directory: `/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate1`
+- Artifact directory: `artifacts/lateact/gate1`
 - Scope: 8/8 scenes, both directions, 16/16 paired conditions
 - State/leakage/Gate 0 reproduction audits: PASS 16/16
 - Same-action rollback controls: exact on scenes 0000 and 0001
@@ -92,7 +93,7 @@
 
 ## Gate 2 result
 
-- Artifact directory: `/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate2`
+- Artifact directory: `artifacts/lateact/gate2`
 - Primary scope: 32/32 fresh contexts, 64/64 valid mouse-yaw directions,
   1,024 paired arrivals
 - Primary LATEACT response: mean 0.9995, median 0.9999
@@ -133,7 +134,7 @@
 ## Phase 3A frozen result
 
 - Artifact directory:
-  `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/calibration`
+  `artifacts/lateact/phase3/calibration`
 - Scope: 10/10 fresh stochastic contexts, 20/20 evaluator-valid directions
 - State/noise/condition audits: PASS 10/10 contexts and 60/60 runs
 - Median keyboard response after 0/1/2/3 OLD NFEs:
@@ -166,7 +167,7 @@
 ## Phase 3B frozen result and final Phase 3 decision
 
 - Artifact directory:
-  `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/confirmation`
+  `artifacts/lateact/phase3/confirmation`
 - Scope: 24/24 fresh stochastic contexts, 48/48 valid directions, 768 arrivals
 - Mouse-boundary and action-specific LateAct: bit-exact 768/768; response
   difference exactly 0 because both frozen boundaries are after NFE1
@@ -221,3 +222,23 @@
   frozen oracle-valid coverage for a cross-model claim
 - Training, rollback, weight edits, Hunyuan, ForgeWM, and additional substrates:
   not started
+
+## Phase 4 minWM frozen yaw confirmation
+
+- The original native `a/d` result above remains a formal failed replication:
+  only 6/16 direction-scene pairs passed the frozen oracle-separation gate.
+- Exactly one confirmatory follow-up was frozen at commit `f1e2bbc` before its
+  outputs were generated.
+- Native action pair: yaw `j` / `l`; official prompt indices 8-15; seeds
+  41008-41015; both directions; switch positions 0/1/2/3/4.
+- Upstream source, Wan2.1 backbone, Action2V checkpoint, evaluator, thresholds,
+  and success gate were unchanged from the original Phase 4 protocol.
+- Oracle-valid, monotone, and bounded direction-scene pairs: 16/16.
+- Median response for switch positions 0/1/2/3/4:
+  `1.000000 / 0.145027 / 0.011482 / 0.003144 / 0.000000`.
+- Same-action latent equality and stochastic/noise/cache isolation: PASS.
+- Frozen interpretation: independent cross-model replication of the
+  denoising-time commitment mechanism only.
+- minWM rollback efficacy, checkpoint savings, and latency were not tested.
+- Full LateAct rollback efficacy remains validated only on Matrix-Game
+  mouse-yaw.

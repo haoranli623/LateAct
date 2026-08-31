@@ -1,0 +1,68 @@
+diff --git a/Matrix-Game-2/wan/modules/causal_model.py b/Matrix-Game-2/wan/modules/causal_model.py
+index 211041ef145448d2323e884512373c6c9f0636c6..27b9c5c7e33d81852f77a762f6754ad5b414101c 100644
+--- a/Matrix-Game-2/wan/modules/causal_model.py
++++ b/Matrix-Game-2/wan/modules/causal_model.py
+@@ -18,6 +18,7 @@ import torch
+ import math
+ import torch.distributed as dist
+ from .action_module import ActionModule
++from branchsafe.cache_ops import append_and_read
+ 
+ # wan 1.3B model has a weird channel / head configurations and require max-autotune to work with flexattention
+ # see https://github.com/pytorch/pytorch/issues/133254
+@@ -159,38 +160,19 @@ class CausalWanSelfAttention(nn.Module):
+             current_end = current_start + roped_query.shape[1]
+             sink_tokens = self.sink_size * frame_seqlen
+            
+-            kv_cache_size = kv_cache["k"].shape[1]
+-            num_new_tokens = roped_query.shape[1]
+-            
+-            if (current_end > kv_cache["global_end_index"].item()) and (
+-                    num_new_tokens + kv_cache["local_end_index"].item() > kv_cache_size):
+-                    
+-                num_evicted_tokens = num_new_tokens + kv_cache["local_end_index"].item() - kv_cache_size
+-                num_rolled_tokens = kv_cache["local_end_index"].item() - num_evicted_tokens - sink_tokens
+-                kv_cache["k"][:, sink_tokens:sink_tokens + num_rolled_tokens] = \
+-                    kv_cache["k"][:, sink_tokens + num_evicted_tokens:sink_tokens + num_evicted_tokens + num_rolled_tokens].clone()
+-                kv_cache["v"][:, sink_tokens:sink_tokens + num_rolled_tokens] = \
+-                    kv_cache["v"][:, sink_tokens + num_evicted_tokens:sink_tokens + num_evicted_tokens + num_rolled_tokens].clone()
+-                # Insert the new keys/values at the end
+-                local_end_index = kv_cache["local_end_index"].item() + current_end - \
+-                    kv_cache["global_end_index"].item() - num_evicted_tokens
+-                local_start_index = local_end_index - num_new_tokens
+-                kv_cache["k"][:, local_start_index:local_end_index] = roped_key
+-                kv_cache["v"][:, local_start_index:local_end_index] = v
+-            else:
+-                # Assign new keys/values directly up to current_end
+-                local_end_index = kv_cache["local_end_index"].item() + current_end - kv_cache["global_end_index"].item()
+-                local_start_index = local_end_index - num_new_tokens
+-                
+-                kv_cache["k"][:, local_start_index:local_end_index] = roped_key
+-                kv_cache["v"][:, local_start_index:local_end_index] = v
++            attention_key, attention_value = append_and_read(
++                kv_cache,
++                roped_key,
++                v,
++                current_start=current_start,
++                sink_tokens=sink_tokens,
++                max_attention_size=self.max_attention_size,
++            )
+             x = attention(
+                 roped_query,
+-                kv_cache["k"][:, max(0, local_end_index - self.max_attention_size):local_end_index],
+-                kv_cache["v"][:, max(0, local_end_index - self.max_attention_size):local_end_index]
++                attention_key,
++                attention_value,
+             )
+-            kv_cache["global_end_index"].fill_(current_end)
+-            kv_cache["local_end_index"].fill_(local_end_index)
+ 
+         # output
+         x = x.flatten(2)
+@@ -913,4 +895,4 @@ class CausalWanModel(ModelMixin, ConfigMixin, FromOriginalModelMixin, PeftAdapte
+                     if m.action_model.proj_keyboard.bias is not None:
+                         nn.init.zeros_(m.action_model.proj_keyboard.bias)
+                 except:
+-                    pass
+\ No newline at end of file
++                    pass

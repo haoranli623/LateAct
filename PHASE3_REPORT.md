@@ -211,17 +211,17 @@ was frozen before confirmation and is not weakened: **Phase 3B fails**.
 
 Calibration:
 
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/calibration/phase3a_summary.json`
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/calibration/phase3a_shard_0.json`
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/calibration/phase3a_shard_1.json`
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/calibration/phase3a_keyboard_curve_montage.png`
+- `artifacts/lateact/phase3/calibration/phase3a_summary.json`
+- `artifacts/lateact/phase3/calibration/phase3a_shard_0.json`
+- `artifacts/lateact/phase3/calibration/phase3a_shard_1.json`
+- `artifacts/lateact/phase3/calibration/phase3a_keyboard_curve_montage.png`
 
 Confirmation:
 
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/confirmation/phase3b_summary.json`
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/confirmation/phase3b_shard_0.json`
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/confirmation/phase3b_shard_1.json`
-- `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase3/confirmation/phase3b_keyboard_serving_montage.png`
+- `artifacts/lateact/phase3/confirmation/phase3b_summary.json`
+- `artifacts/lateact/phase3/confirmation/phase3b_shard_0.json`
+- `artifacts/lateact/phase3/confirmation/phase3b_shard_1.json`
+- `artifacts/lateact/phase3/confirmation/phase3b_keyboard_serving_montage.png`
 
 The Phase 3 artifact tree contains 348 videos, 358 latent/prefix tensors, all
 per-run audits and all 768 paired arrival rows (612 MiB at report time).

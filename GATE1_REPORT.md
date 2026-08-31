@@ -238,7 +238,7 @@ Pareto frontier. Gate 2 must not be run without separate review and approval.
 
 Machine-readable results and all 80 condition videos/latents:
 
-`/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate1`
+`artifacts/lateact/gate1`
 
 - `gate1_summary.json`
 - `gate1_shard_0.json`

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lateact-vendored-branchsafe"
+version = "0.0.0"
+description = "Frozen cache hook dependency used by LateAct's Matrix-Game runtime"
+requires-python = ">=3.10"
+dependencies = ["torch"]
+
+[tool.setuptools]
+packages = ["branchsafe"]

@@ -1,0 +1,871 @@
+{
+  "cuda_runtime": "12.1",
+  "denoising_timesteps": [
+    1000.0,
+    908.8427124023438,
+    713.9794311523438
+  ],
+  "device": "cuda:0",
+  "finished_unix": 1787537953.9767127,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "phase": "gate1",
+  "scenes": {
+    "0000": {
+      "condition_hashes": {
+        "mouse_left": {
+          "cond_concat": "52140ca7bda4da185aab2243c488a39147f7df6295af77e6f96d4c71984f434d",
+          "keyboard_cond": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "mouse_cond": "8fbcda7a83d55e8a04d8a1164502b994742ecd54630adc74b5d720508b395264",
+          "visual_context": "903711aacc23fc05ac1efaf2994193500b87e347f3d50f6328fcc60ee7e57beb"
+        },
+        "mouse_right": {
+          "cond_concat": "52140ca7bda4da185aab2243c488a39147f7df6295af77e6f96d4c71984f434d",
+          "keyboard_cond": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "mouse_cond": "fb6857e0f277315106ea2de7c4460764fb7cd6eac11a4261d9e2f82218cf77cf",
+          "visual_context": "903711aacc23fc05ac1efaf2994193500b87e347f3d50f6328fcc60ee7e57beb"
+        }
+      },
+      "directions": {
+        "left_to_right": {
+          "audit": {
+            "all_outputs_reproduce_gate0": true,
+            "checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata_estimate": 1440,
+              "keyboard_current_slice": 184320,
+              "mouse_current_slice": 162201600,
+              "tensor_total": 649328640,
+              "total": 649330080,
+              "visual_current_slice": 486604800
+            },
+            "checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "1de18aa395e16db9c49b738380327be92955038fda525134befa2ea142bf22d4",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "aa19737a1bbb63a25b4f753641e13954235e626ee0c312684d9f3bb465380d71",
+              "keyboard_current_slices": "fbb3f7cbe0642528b90ef8927e7138e257c14ed27f8abe26c8a77dd8ca9865a2",
+              "mouse_current_slices": "dd850c688a5f498d63ecc0a62001864498b912c7fe6b2ed0fda9e40268dd6442",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_current_slices": "cc9c781f3a3f47ed386b48ffe40ea3ba6258a46d4123c1c119a55ab04fd737a1"
+            },
+            "checkpoint_live_exact_before_recompute": true,
+            "compute": {
+              "direct": {
+                "before_arrival": 2,
+                "block_equivalent": 1.0,
+                "discarded": 0,
+                "post_arrival": 1,
+                "redone": 0,
+                "total_nfe": 3
+              },
+              "full_restart": {
+                "before_arrival": 2,
+                "block_equivalent": 1.6666666666666667,
+                "discarded": 2,
+                "post_arrival": 3,
+                "redone": 2,
+                "total_nfe": 5
+              },
+              "minimal": {
+                "before_arrival": 2,
+                "block_equivalent": 1.3333333333333333,
+                "discarded": 1,
+                "post_arrival": 2,
+                "redone": 1,
+                "total_nfe": 4
+              }
+            },
+            "cross_attention_exact": true,
+            "gate0_hashes_expected": {
+              "direct_late_bind": "4a7467904cb577aaff2895a49d846694b4ffcd6816f7f01a0a89b45972fe95e6",
+              "full_restart": "4fceea645daec27f278c8f9a004b394bb0336058cc786c3c958adc889ceaa5ce",
+              "minimal_rollback": "6e00ae68a83de2898a441a58bfd24db56a79be5be52d0e56bd37763f754dd934",
+              "new_oracle": "4fceea645daec27f278c8f9a004b394bb0336058cc786c3c958adc889ceaa5ce",
+              "old": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b"
+            },
+            "gate0_hashes_observed": {
+              "direct_late_bind": "4a7467904cb577aaff2895a49d846694b4ffcd6816f7f01a0a89b45972fe95e6",
+              "full_restart": "4fceea645daec27f278c8f9a004b394bb0336058cc786c3c958adc889ceaa5ce",
+              "minimal_rollback": "6e00ae68a83de2898a441a58bfd24db56a79be5be52d0e56bd37763f754dd934",
+              "new_oracle": "4fceea645daec27f278c8f9a004b394bb0336058cc786c3c958adc889ceaa5ce",
+              "old": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b"
+            },
+            "historical_prefix_exact": true,
+            "latency_seconds": {
+              "direct_from_arrival": 0.5764378402382135,
+              "full_from_arrival": 1.1620640326291323,
+              "full_reset": 0.0007811253890395164,
+              "full_suffix": 1.1612829072400928,
+              "minimal_from_arrival": 0.8674130151048303,
+              "minimal_restore": 0.002424107864499092,
+              "minimal_suffix": 0.8649889072403312,
+              "prearrival_nfe1": 0.2894057258963585,
+              "prearrival_nfe2": 0.28860488440841436,
+              "prearrival_total": 0.5780106103047729
+            },
+            "latent_restore_exact": true,
+            "no_old_nfe2_state_leak": true,
+            "peak_allocated_bytes": 10733220864,
+            "peak_reserved_bytes": 13168017408,
+            "rng_hashes_before_after": [
+              {
+                "cpu": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+                "cuda": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+              },
+              {
+                "cpu": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+                "cuda": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+              }
+            ],
+            "scheduler_hash_before_after": [
+              "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a"
+            ]
+          },
+          "metrics": {
+            "direct_late_bind": {
+              "frames_sha256": "5739eae9c84a68479664efaed6e964ff689aaf5f7935971ea5c840e312e7b537",
+              "motion": {
+                "dense_per_transition": [
+                  0.023728515952825546,
+                  3.279435873031616,
+                  2.620466709136963,
+                  3.2295732498168945,
+                  1.0324838161468506,
+                  10.08989143371582,
+                  1.665984869003296,
+                  2.917396068572998,
+                  1.7112984657287598,
+                  4.231579780578613,
+                  0.3013369143009186,
+                  1.4751427173614502
+                ],
+                "dense_signed_sum": 32.578318413347006,
+                "lk_per_transition": [
+                  0.06543636322021484,
+                  3.641632080078125,
+                  3.2167892456054688,
+                  3.7093963623046875,
+                  1.373779296875,
+                  11.200889587402344,
+                  2.2955322265625,
+                  3.2918701171875,
+                  1.994873046875,
+                  5.11871337890625,
+                  1.158203125,
+                  2.634857177734375
+                ],
+                "lk_signed_sum": 39.701972007751465,
+                "median_track_count": 558.5,
+                "track_counts": [
+                  600,
+                  591,
+                  546,
+                  574,
+                  595,
+                  522,
+                  535,
+                  544,
+                  598,
+                  571,
+                  502,
+                  543
+                ]
+              },
+              "temporal_consistency_ssim": 0.41914061419477533
+            },
+            "full_restart": {
+              "frames_sha256": "fcc450d4a3ac9da5ed1484e01bfb984e75995a40abede8271efe4dc4966d897c",
+              "motion": {
+                "dense_per_transition": [
+                  -0.38627108931541443,
+                  -4.6826629638671875,
+                  -4.65638542175293,
+                  -4.634953498840332,
+                  -4.794572353363037,
+                  -4.771807670593262,
+                  -4.710531234741211,
+                  -4.755871295928955,
+                  -4.320166110992432,
+                  -4.6487274169921875,
+                  -4.549351692199707,
+                  -4.630406856536865
+                ],
+                "dense_signed_sum": -51.54170760512352,
+                "lk_per_transition": [
+                  -0.4111480712890625,
+                  -4.9996185302734375,
+                  -4.8002166748046875,
+                  -4.7817230224609375,
+                  -4.8775482177734375,
+                  -4.959606170654297,
+                  -4.809593200683594,
+                  -4.9024505615234375,
+                  -4.235496520996094,
+                  -4.4963531494140625,
+                  -4.620704650878906,
+                  -4.7925567626953125
+                ],
+                "lk_signed_sum": -52.687015533447266,
+                "median_track_count": 593.0,
+                "track_counts": [
+                  593,
+                  597,
+                  597,
+                  597,
+                  591,
+                  593,
+                  583,
+                  595,
+                  561,
+                  558,
+                  588,
+                  598
+                ]
+              },
+              "temporal_consistency_ssim": 0.32114486683805127
+            },
+            "minimal_rollback": {
+              "frames_sha256": "82449dc3249c6fbeb04744b6fb42efcf666de4f5661421f777b755c4e93e9278",
+              "motion": {
+                "dense_per_transition": [
+                  -0.25604167580604553,
+                  -4.22395133972168,
+                  -4.3336992263793945,
+                  -4.28831672668457,
+                  -4.465478897094727,
+                  -4.439844131469727,
+                  -4.4055891036987305,
+                  -4.494512557983398,
+                  -4.034176826477051,
+                  -4.430528163909912,
+                  -4.323740005493164,
+                  -4.426460266113281
+                ],
+                "dense_signed_sum": -48.12233892083168,
+                "lk_per_transition": [
+                  -0.314483642578125,
+                  -4.404396057128906,
+                  -4.4188079833984375,
+                  -4.470062255859375,
+                  -4.558734893798828,
+                  -4.5004730224609375,
+                  -4.502262115478516,
+                  -4.656671524047852,
+                  -4.006008148193359,
+                  -4.3859405517578125,
+                  -4.342411041259766,
+                  -4.5277557373046875
+                ],
+                "lk_signed_sum": -49.0880069732666,
+                "median_track_count": 593.0,
+                "track_counts": [
+                  592,
+                  598,
+                  597,
+                  597,
+                  580,
+                  596,
+                  600,
+                  594,
+                  584,
+                  585,
+                  580,
+                  585
+                ]
+              },
+              "temporal_consistency_ssim": 0.3241094646055037
+            },
+            "new_oracle": {
+              "frames_sha256": "fcc450d4a3ac9da5ed1484e01bfb984e75995a40abede8271efe4dc4966d897c",
+              "motion": {
+                "dense_per_transition": [
+                  -0.38627108931541443,
+                  -4.6826629638671875,
+                  -4.65638542175293,
+                  -4.634953498840332,
+                  -4.794572353363037,
+                  -4.771807670593262,
+                  -4.710531234741211,
+                  -4.755871295928955,
+                  -4.320166110992432,
+                  -4.6487274169921875,
+                  -4.549351692199707,
+                  -4.630406856536865
+                ],
+                "dense_signed_sum": -51.54170760512352,
+                "lk_per_transition": [
+                  -0.4111480712890625,
+                  -4.9996185302734375,
+                  -4.8002166748046875,
+                  -4.7817230224609375,
+                  -4.8775482177734375,
+                  -4.959606170654297,
+                  -4.809593200683594,
+                  -4.9024505615234375,
+                  -4.235496520996094,
+                  -4.4963531494140625,
+                  -4.620704650878906,
+                  -4.7925567626953125
+                ],
+                "lk_signed_sum": -52.687015533447266,
+                "median_track_count": 593.0,
+                "track_counts": [
+                  593,
+                  597,
+                  597,
+                  597,
+                  591,
+                  593,
+                  583,
+                  595,
+                  561,
+                  558,
+                  588,
+                  598
+                ]
+              },
+              "temporal_consistency_ssim": 0.32114486683805127
+            },
+            "old": {
+              "frames_sha256": "48cdf26cc1ccd1e9a3283f6b4c12575841c7e61e35a71dea942d2e6a83b1758c",
+              "motion": {
+                "dense_per_transition": [
+                  0.14045128226280212,
+                  5.619784355163574,
+                  5.200850486755371,
+                  5.135202407836914,
+                  5.582423210144043,
+                  5.3447160720825195,
+                  5.279426574707031,
+                  5.151523113250732,
+                  5.353641510009766,
+                  5.399896621704102,
+                  5.21521520614624,
+                  5.286964416503906
+                ],
+                "dense_signed_sum": 58.710095256567,
+                "lk_per_transition": [
+                  0.14737701416015625,
+                  5.838459014892578,
+                  5.324676513671875,
+                  5.253959655761719,
+                  5.594444274902344,
+                  5.4777984619140625,
+                  5.37481689453125,
+                  5.358283996582031,
+                  5.354499816894531,
+                  5.554771423339844,
+                  5.2834930419921875,
+                  5.319782257080078
+                ],
+                "lk_signed_sum": 59.882362365722656,
+                "median_track_count": 587.0,
+                "track_counts": [
+                  600,
+                  596,
+                  581,
+                  593,
+                  581,
+                  587,
+                  595,
+                  586,
+                  568,
+                  597,
+                  587,
+                  580
+                ]
+              },
+              "temporal_consistency_ssim": 0.3316432160643481
+            }
+          },
+          "new_action": "mouse_right",
+          "old_action": "mouse_left",
+          "quality": {
+            "all_decodes_finite_and_nonconstant": true,
+            "direct_vs_new_future_ssim": 0.25658984744474367,
+            "full_vs_new_future_ssim": 1.0,
+            "minimal_temporal_minus_new": 0.002964597767452448,
+            "minimal_vs_new_future_ssim": 0.5157751429816326
+          }
+        },
+        "right_to_left": {
+          "audit": {
+            "all_outputs_reproduce_gate0": true,
+            "checkpoint_bytes": {
+              "entering_latent": 337920,
+              "index_metadata_estimate": 1440,
+              "keyboard_current_slice": 184320,
+              "mouse_current_slice": 162201600,
+              "tensor_total": 649328640,
+              "total": 649330080,
+              "visual_current_slice": 486604800
+            },
+            "checkpoint_hashes": {
+              "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cross": "1de18aa395e16db9c49b738380327be92955038fda525134befa2ea142bf22d4",
+              "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+              "entering_latent": "951e118aa915d83b7648cfa1a798742c0313028c1d5804bef5d1a0e3aa1f7a35",
+              "keyboard_current_slices": "fbb3f7cbe0642528b90ef8927e7138e257c14ed27f8abe26c8a77dd8ca9865a2",
+              "mouse_current_slices": "647819abe06b344c336c731e254fff7d5dc87019426f5faf83de032ab0d176e9",
+              "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "visual_current_slices": "d39fc90983d642b7cb029f46e7da37e32da8da71f1e932b2010d882c07483f1e"
+            },
+            "checkpoint_live_exact_before_recompute": true,
+            "compute": {
+              "direct": {
+                "before_arrival": 2,
+                "block_equivalent": 1.0,
+                "discarded": 0,
+                "post_arrival": 1,
+                "redone": 0,
+                "total_nfe": 3
+              },
+              "full_restart": {
+                "before_arrival": 2,
+                "block_equivalent": 1.6666666666666667,
+                "discarded": 2,
+                "post_arrival": 3,
+                "redone": 2,
+                "total_nfe": 5
+              },
+              "minimal": {
+                "before_arrival": 2,
+                "block_equivalent": 1.3333333333333333,
+                "discarded": 1,
+                "post_arrival": 2,
+                "redone": 1,
+                "total_nfe": 4
+              }
+            },
+            "cross_attention_exact": true,
+            "gate0_hashes_expected": {
+              "direct_late_bind": "6697f67cdec52581bf8f6e6d7cd119a7b9ee148ceb7c3da09f7ead5b45333edc",
+              "full_restart": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+              "minimal_rollback": "5d208c004ebefde345c91e2466326082e87e5c0d8fdde64d0b18fb609feaae9b",
+              "new_oracle": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+              "old": "4fceea645daec27f278c8f9a004b394bb0336058cc786c3c958adc889ceaa5ce"
+            },
+            "gate0_hashes_observed": {
+              "direct_late_bind": "6697f67cdec52581bf8f6e6d7cd119a7b9ee148ceb7c3da09f7ead5b45333edc",
+              "full_restart": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+              "minimal_rollback": "5d208c004ebefde345c91e2466326082e87e5c0d8fdde64d0b18fb609feaae9b",
+              "new_oracle": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+              "old": "4fceea645daec27f278c8f9a004b394bb0336058cc786c3c958adc889ceaa5ce"
+            },
+            "historical_prefix_exact": true,
+            "latency_seconds": {
+              "direct_from_arrival": 0.5780083844438195,
+              "full_from_arrival": 1.1640176698565483,
+              "full_reset": 0.0007836678996682167,
+              "full_suffix": 1.16323400195688,
+              "minimal_from_arrival": 0.8720550742000341,
+              "minimal_restore": 0.0024985317140817642,
+              "minimal_suffix": 0.8695565424859524,
+              "prearrival_nfe1": 0.29536905232816935,
+              "prearrival_nfe2": 0.2903671571984887,
+              "prearrival_total": 0.5857362095266581
+            },
+            "latent_restore_exact": true,
+            "no_old_nfe2_state_leak": true,
+            "peak_allocated_bytes": 10732106752,
+            "peak_reserved_bytes": 13073645568,
+            "rng_hashes_before_after": [
+              {
+                "cpu": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+                "cuda": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+              },
+              {
+                "cpu": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+                "cuda": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+              }
+            ],
+            "scheduler_hash_before_after": [
+              "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+              "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a"
+            ]
+          },
+          "metrics": {
+            "direct_late_bind": {
+              "frames_sha256": "5a06d575d047289ea5994a9f44c413c1fe231e8c922b767905e0ac1644f6db18",
+              "motion": {
+                "dense_per_transition": [
+                  -0.26450759172439575,
+                  -2.5952014923095703,
+                  0.17041395604610443,
+                  0.018098466098308563,
+                  0.0370359942317009,
+                  -4.047273635864258,
+                  -1.1693106889724731,
+                  -1.2970885038375854,
+                  -0.19901646673679352,
+                  -1.5348758697509766,
+                  -1.3148927688598633,
+                  -0.9822919368743896
+                ],
+                "dense_signed_sum": -13.178910538554192,
+                "lk_per_transition": [
+                  -0.28092193603515625,
+                  -3.4628067016601562,
+                  -0.7442626953125,
+                  -0.8086395263671875,
+                  -0.78472900390625,
+                  -3.8971519470214844,
+                  -2.40460205078125,
+                  -2.482696533203125,
+                  -1.2957382202148438,
+                  -0.4034881591796875,
+                  -2.17254638671875,
+                  -1.4141845703125
+                ],
+                "lk_signed_sum": -20.15176773071289,
+                "median_track_count": 594.0,
+                "track_counts": [
+                  600,
+                  588,
+                  600,
+                  597,
+                  594,
+                  598,
+                  599,
+                  587,
+                  584,
+                  545,
+                  594,
+                  591
+                ]
+              },
+              "temporal_consistency_ssim": 0.375121531055535
+            },
+            "full_restart": {
+              "frames_sha256": "48cdf26cc1ccd1e9a3283f6b4c12575841c7e61e35a71dea942d2e6a83b1758c",
+              "motion": {
+                "dense_per_transition": [
+                  0.14045128226280212,
+                  5.619784355163574,
+                  5.200850486755371,
+                  5.135202407836914,
+                  5.582423210144043,
+                  5.3447160720825195,
+                  5.279426574707031,
+                  5.151523113250732,
+                  5.353641510009766,
+                  5.399896621704102,
+                  5.21521520614624,
+                  5.286964416503906
+                ],
+                "dense_signed_sum": 58.710095256567,
+                "lk_per_transition": [
+                  0.14737701416015625,
+                  5.838459014892578,
+                  5.324676513671875,
+                  5.253959655761719,
+                  5.594444274902344,
+                  5.4777984619140625,
+                  5.37481689453125,
+                  5.358283996582031,
+                  5.354499816894531,
+                  5.554771423339844,
+                  5.2834930419921875,
+                  5.319782257080078
+                ],
+                "lk_signed_sum": 59.882362365722656,
+                "median_track_count": 587.0,
+                "track_counts": [
+                  600,
+                  596,
+                  581,
+                  593,
+                  581,
+                  587,
+                  595,
+                  586,
+                  568,
+                  597,
+                  587,
+                  580
+                ]
+              },
+              "temporal_consistency_ssim": 0.3316432160643481
+            },
+            "minimal_rollback": {
+              "frames_sha256": "aaf9332b9f0ffed1440214294e95c55b1fb40f865592e6ee090a34f1494b6ef9",
+              "motion": {
+                "dense_per_transition": [
+                  0.16590185463428497,
+                  5.377767562866211,
+                  4.951470375061035,
+                  4.851137161254883,
+                  5.313762664794922,
+                  5.154857635498047,
+                  5.139520645141602,
+                  5.035622596740723,
+                  5.071750640869141,
+                  5.283470630645752,
+                  5.066073417663574,
+                  5.1646728515625
+                ],
+                "dense_signed_sum": 56.576008036732674,
+                "lk_per_transition": [
+                  0.1656646728515625,
+                  5.511077880859375,
+                  5.1572265625,
+                  4.9218292236328125,
+                  5.359584808349609,
+                  5.2226104736328125,
+                  5.185169219970703,
+                  5.230884552001953,
+                  5.079334259033203,
+                  5.4151763916015625,
+                  5.207366943359375,
+                  5.285575866699219
+                ],
+                "lk_signed_sum": 57.74150085449219,
+                "median_track_count": 587.0,
+                "track_counts": [
+                  600,
+                  593,
+                  583,
+                  587,
+                  574,
+                  587,
+                  592,
+                  586,
+                  566,
+                  595,
+                  592,
+                  584
+                ]
+              },
+              "temporal_consistency_ssim": 0.32360420354868774
+            },
+            "new_oracle": {
+              "frames_sha256": "48cdf26cc1ccd1e9a3283f6b4c12575841c7e61e35a71dea942d2e6a83b1758c",
+              "motion": {
+                "dense_per_transition": [
+                  0.14045128226280212,
+                  5.619784355163574,
+                  5.200850486755371,
+                  5.135202407836914,
+                  5.582423210144043,
+                  5.3447160720825195,
+                  5.279426574707031,
+                  5.151523113250732,
+                  5.353641510009766,
+                  5.399896621704102,
+                  5.21521520614624,
+                  5.286964416503906
+                ],
+                "dense_signed_sum": 58.710095256567,
+                "lk_per_transition": [
+                  0.14737701416015625,
+                  5.838459014892578,
+                  5.324676513671875,
+                  5.253959655761719,
+                  5.594444274902344,
+                  5.4777984619140625,
+                  5.37481689453125,
+                  5.358283996582031,
+                  5.354499816894531,
+                  5.554771423339844,
+                  5.2834930419921875,
+                  5.319782257080078
+                ],
+                "lk_signed_sum": 59.882362365722656,
+                "median_track_count": 587.0,
+                "track_counts": [
+                  600,
+                  596,
+                  581,
+                  593,
+                  581,
+                  587,
+                  595,
+                  586,
+                  568,
+                  597,
+                  587,
+                  580
+                ]
+              },
+              "temporal_consistency_ssim": 0.3316432160643481
+            },
+            "old": {
+              "frames_sha256": "fcc450d4a3ac9da5ed1484e01bfb984e75995a40abede8271efe4dc4966d897c",
+              "motion": {
+                "dense_per_transition": [
+                  -0.38627108931541443,
+                  -4.6826629638671875,
+                  -4.65638542175293,
+                  -4.634953498840332,
+                  -4.794572353363037,
+                  -4.771807670593262,
+                  -4.710531234741211,
+                  -4.755871295928955,
+                  -4.320166110992432,
+                  -4.6487274169921875,
+                  -4.549351692199707,
+                  -4.630406856536865
+                ],
+                "dense_signed_sum": -51.54170760512352,
+                "lk_per_transition": [
+                  -0.4111480712890625,
+                  -4.9996185302734375,
+                  -4.8002166748046875,
+                  -4.7817230224609375,
+                  -4.8775482177734375,
+                  -4.959606170654297,
+                  -4.809593200683594,
+                  -4.9024505615234375,
+                  -4.235496520996094,
+                  -4.4963531494140625,
+                  -4.620704650878906,
+                  -4.7925567626953125
+                ],
+                "lk_signed_sum": -52.687015533447266,
+                "median_track_count": 593.0,
+                "track_counts": [
+                  593,
+                  597,
+                  597,
+                  597,
+                  591,
+                  593,
+                  583,
+                  595,
+                  561,
+                  558,
+                  588,
+                  598
+                ]
+              },
+              "temporal_consistency_ssim": 0.32114486683805127
+            }
+          },
+          "new_action": "mouse_left",
+          "old_action": "mouse_right",
+          "quality": {
+            "all_decodes_finite_and_nonconstant": true,
+            "direct_vs_new_future_ssim": 0.2574842747445582,
+            "full_vs_new_future_ssim": 1.0,
+            "minimal_temporal_minus_new": -0.00803901251566036,
+            "minimal_vs_new_future_ssim": 0.6018678513065591
+          }
+        }
+      },
+      "fixed_condition_hashes": {
+        "cond_concat": "52140ca7bda4da185aab2243c488a39147f7df6295af77e6f96d4c71984f434d",
+        "visual_context": "903711aacc23fc05ac1efaf2994193500b87e347f3d50f6328fcc60ee7e57beb"
+      },
+      "future_noise_hashes": {
+        "initial": "af601ae2eda85648327179213b1c403c1f192b81dccd1261a744afe363596a4e",
+        "renoise": [
+          "26ac22b8662576990b5a81a50c4bd701292f642df5ad4af3c8e1973b48556dd4",
+          "87e3dc8702fd866793f9b88c18e941efa9f84c4efd8c8622fe8eab81854eb74f"
+        ]
+      },
+      "prefix_noise_hashes": {
+        "initial": "4571ec0a3d84376943abcee82435dcca77dbbcdffd497ad8b86f9f13fa5e46fc",
+        "renoise": [
+          "aadccf8625a88a75145c93aebe59995ed2955edc8ddd8cbfef87b77f0f56d849",
+          "16b5fa9df900d16f94d5d04e090aa198c707c877f5165270f9f9d2234eab00a9"
+        ]
+      },
+      "prefix_reproduces_gate0": true,
+      "same_action_control": {
+        "action": "mouse_left",
+        "all_exact": true,
+        "checkpoint_audit": {
+          "checkpoint_bytes": {
+            "entering_latent": 337920,
+            "index_metadata_estimate": 1440,
+            "keyboard_current_slice": 184320,
+            "mouse_current_slice": 162201600,
+            "tensor_total": 649328640,
+            "total": 649330080,
+            "visual_current_slice": 486604800
+          },
+          "checkpoint_hashes": {
+            "cpu_rng": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+            "cross": "1de18aa395e16db9c49b738380327be92955038fda525134befa2ea142bf22d4",
+            "cuda_rng": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+            "entering_latent": "aa19737a1bbb63a25b4f753641e13954235e626ee0c312684d9f3bb465380d71",
+            "keyboard_current_slices": "fbb3f7cbe0642528b90ef8927e7138e257c14ed27f8abe26c8a77dd8ca9865a2",
+            "mouse_current_slices": "dd850c688a5f498d63ecc0a62001864498b912c7fe6b2ed0fda9e40268dd6442",
+            "scheduler": "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+            "visual_current_slices": "cc9c781f3a3f47ed386b48ffe40ea3ba6258a46d4123c1c119a55ab04fd737a1"
+          },
+          "checkpoint_live_exact_before_recompute": true,
+          "compute": {
+            "direct": {
+              "before_arrival": 2,
+              "block_equivalent": 1.0,
+              "discarded": 0,
+              "post_arrival": 1,
+              "redone": 0,
+              "total_nfe": 3
+            },
+            "full_restart": {
+              "before_arrival": 2,
+              "block_equivalent": 1.6666666666666667,
+              "discarded": 2,
+              "post_arrival": 3,
+              "redone": 2,
+              "total_nfe": 5
+            },
+            "minimal": {
+              "before_arrival": 2,
+              "block_equivalent": 1.3333333333333333,
+              "discarded": 1,
+              "post_arrival": 2,
+              "redone": 1,
+              "total_nfe": 4
+            }
+          },
+          "cross_attention_exact": true,
+          "historical_prefix_exact": true,
+          "latency_seconds": {
+            "direct_from_arrival": 0.5780312241986394,
+            "full_from_arrival": 1.1656038919463754,
+            "full_reset": 0.0007745018228888512,
+            "full_suffix": 1.1648293901234865,
+            "minimal_from_arrival": 0.873837660998106,
+            "minimal_restore": 0.0028339819982647896,
+            "minimal_suffix": 0.8710036789998412,
+            "prearrival_nfe1": 0.29992755595594645,
+            "prearrival_nfe2": 0.2902313293889165,
+            "prearrival_total": 0.5901588853448629
+          },
+          "latent_restore_exact": true,
+          "no_old_nfe2_state_leak": true,
+          "rng_hashes_before_after": [
+            {
+              "cpu": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cuda": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+            },
+            {
+              "cpu": "29494dd79f5365ff053f8c7deceac6837b717910a79e4346452ba9bfe952560c",
+              "cuda": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+            }
+          ],
+          "scheduler_hash_before_after": [
+            "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a",
+            "8808461c724915c2fae541f3b0ca5f93e93edd3b2335af9f3b2505d47a272a0a"
+          ]
+        },
+        "expected_gate0_hash": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+        "hashes": {
+          "direct_late_bind": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "full_restart": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "minimal_rollback": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "new_oracle": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b",
+          "old": "b5dd378feab7bf2de64763af2a7ac6872bfaff852c950d694456fada7eaa099b"
+        }
+      }
+    }
+  },
+  "shard_count": 8,
+  "shard_index": 0,
+  "status": "complete",
+  "torch": "2.5.1+cu121"
+}

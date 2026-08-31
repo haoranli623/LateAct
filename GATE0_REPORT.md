@@ -163,7 +163,7 @@ and both directional sequences. Visually, `s=1` remains near the NEW endpoint,
 whereas `s=2` is generally much nearer OLD, matching the signed motion scores.
 All 48 videos, future latents, cache/noise traces, and per-scene metrics are in:
 
-`/mnt/NAS/data/hl5757/generated_artifacts/lateact/gate0-20260823`
+`artifacts/lateact/gate0-20260823`
 
 Primary machine-readable files:
 
@@ -174,7 +174,7 @@ Primary machine-readable files:
 
 Smoke artifacts and the exact negative-control floor are in:
 
-`/mnt/NAS/data/hl5757/generated_artifacts/lateact/smoke-20260823`
+`artifacts/lateact/smoke-20260823`
 
 ## Recommendation and bounded next step
 

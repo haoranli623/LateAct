@@ -26,7 +26,7 @@ was performed.
 - Checkpoint LFS SHA-256/etag:
   `bdb947d45fb04513305492c2ee393d51d0621ec0e99fd312224f5d61a330aa77`
 - Checkpoint path:
-  `/mnt/NAS/data/hl5757/models/minwm/checkpoints/Wan21/Action2V/dmd/model.pt`
+  `${LATEACT_MINWM_MODEL_ROOT}/checkpoints/Wan21/Action2V/dmd/model.pt`
 - Runtime: PyTorch `2.5.1+cu121`, CUDA runtime `12.1`, BF16, one RTX 3090.
   The dedicated NAS wrapper environment pins the two missing official runtime
   dependencies `lmdb==1.7.5` and `av==13.1.0`.
@@ -219,7 +219,7 @@ oracle action effect failed the frozen validity count.
   without branch-specific corruption.
 
 Representative montage:
-`/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase4_minwm/phase4_minwm_curve_montage.png`.
+`artifacts/lateact/phase4_minwm/phase4_minwm_curve_montage.png`.
 
 ## 6. Runtime
 
@@ -258,7 +258,7 @@ validation or universal minimal rollback from Phase 4.
 - Raw metadata: `curve_scenes_00_01.json`, `curve_scenes_01_08.json`
 - Analysis: `phase4_minwm_curve_summary.json`
 - Videos/latents/montage:
-  `/mnt/NAS/data/hl5757/generated_artifacts/lateact/phase4_minwm/`
+  `artifacts/lateact/phase4_minwm/`
 
 Phase 4 scientific result commit: `d4b3e8e` (`freeze Phase 4 minWM
 replication`).  The final documentation handoff is repository `HEAD`; its exact

@@ -1,0 +1,449 @@
+\documentclass{article}
+
+\usepackage[dblblindworkshop]{neurips_2026}
+\workshoptitle{World Models in Physical AI}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+
+\title{LateAct: Commitment-Aware Rollback for Asynchronous Control\\
+in Interactive Video World Models}
+
+\author{Anonymous Authors}
+
+\newcommand{\method}{\textsc{LateAct}}
+\newcommand{\old}{\textsc{Old}}
+\newcommand{\new}{\textsc{New}}
+\newcommand{\direct}{\textsc{Direct}}
+\newcommand{\restart}{\textsc{Restart}}
+\newcommand{\nfe}{\textsc{NFE}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Interactive video world models are usually evaluated with an action fixed
+before generation, yet deployed controllers can change actions while a
+few-step diffusion block is already being denoised. We show that this timing
+matters: action-conditioned generation can cross an \emph{operational
+denoising-time commitment boundary}, after which direct late binding retains
+the old action despite using the new action in remaining evaluations. The
+observed transition is steep at the few-step sampler's granularity; we do not
+assume a universal discrete boundary.
+We introduce \method{}, a training-free serving policy that checkpoints the
+latest pre-commitment runtime state and recomputes only the necessary denoising
+suffix. On Matrix-Game 2.0 mouse-yaw, rollback raises median normalized
+new-action response from 0.218 to 0.997. In a frozen asynchronous evaluation on
+32 fresh contexts and 1,024 paired arrivals, \method{} matches full restart
+within 0.10 response on all 676 late arrivals, uses zero rollback on all 348
+early arrivals, and reduces mean late-arrival action-to-pixel latency by
+11.93\% with a compact 339,360-byte exact checkpoint. A frozen confirmatory yaw
+study on minWM Wan2.1 Action2V passes 16/16 direction-scene gates,
+independently replicating the commitment mechanism; we do not test rollback or latency on
+minWM. Keyboard controls share the same boundary and recover directional
+response, but fail a pre-specified trajectory-fidelity safeguard
+(future-SSIM $0.6726<0.90$). Thus \method{} validates commitment-aware rollback
+for Matrix-Game mouse-yaw, while cross-model evidence supports the underlying
+mechanism rather than universal policy efficacy.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+World models promise inexpensive, inspectable rollouts for planning and
+control \citep{ha2018worldmodels,hafner2023dreamerv3}. Recent generative
+interactive environments can produce action-conditioned pixels
+\citep{bruce2024genie,valevski2025gamengen,alonso2024diamond}; few-step causal
+video diffusion further moves these systems toward real-time streaming
+\citep{he2025matrixgame2,zhao2026minwm}. This progress exposes a serving
+question that standard offline evaluations omit: \emph{what happens when a new
+action arrives while the current video block is still being denoised?}
+
+A server has three unsatisfactory default choices. It can finish the current
+block under the old action, producing stale control feedback; inject the new
+action into the remaining denoising evaluations, which is cheap but may be too
+late; or restart the block, which recovers control but discards all completed
+work. The middle option implicitly assumes that action conditioning remains
+equally effective throughout the sampler. Our controlled interventions show
+that this assumption is false in two open few-step autoregressive video world
+models. The generated branch can become committed to the old action well
+before the final denoising evaluation.
+
+This is not the claim that early diffusion steps matter in general. Prior
+editing and sampling work already shows that the effect of conditioning can
+depend on denoising time. Our question is operational: under identical rollout
+state and noise, after how many evaluations does substituting a newly arriving
+action cease to recover the new-action outcome? The contribution is the chain
+\emph{measurement $\rightarrow$ serving boundary $\rightarrow$ exact suffix
+rollback}: we measure action recoverability, turn it into a rollback decision,
+and audit the dependencies needed to restore the corresponding runtime state.
+
+We turn this observation into \method{}, a commitment-aware rollback policy.
+\method{} measures the latest sampler state from which changing the action
+still recovers the new-action oracle, checkpoints exactly that state, and, for
+late arrivals, restores it and recomputes only the committed suffix. Early
+arrivals bind directly and pay no rollback. The key systems result is that the
+necessary Matrix-Game state is not the full live KV allocation: because
+current-block cache slices are overwritten before use, an exact checkpoint
+contains only the entering-\nfe{}2 latent and defensive cache indices
+(339,360 bytes).
+
+Our contributions are:
+\begin{itemize}
+  \item a controlled, noise-coupled action-switch intervention that identifies
+  an operational recoverability boundary separately from ordinary video
+  quality;
+  \item \method{}, an asynchronous serving policy whose Matrix-Game
+  mouse-yaw response is near full restart with less recomputation and
+  11.93\% lower mean late-arrival latency;
+  \item a failure-preserving scope analysis: minWM yaw independently
+  replicates the commitment mechanism, whereas minWM lateral control fails its original
+  oracle-identifiability gate and keyboard rollback fails trajectory fidelity.
+\end{itemize}
+
+The defensible claim is intentionally asymmetric: \method{}'s rollback
+efficacy is validated on Matrix-Game, while denoising-time commitment
+independently replicates on minWM under a frozen confirmatory yaw protocol.
+
+\section{Related work}
+
+\paragraph{Interactive video world models.}
+Learned world models range from compact latent dynamics for control
+\citep{ha2018worldmodels,hafner2023dreamerv3} to pixel-generative simulators.
+Genie learns controllable environments from videos
+\citep{bruce2024genie}; GameNGen and DIAMOND demonstrate diffusion-based
+interactive game simulation \citep{valevski2025gamengen,alonso2024diamond}.
+Interactive video generation has also been studied through action
+conditioning, autoregression, and explicit long-term memory
+\citep{chen2025interactive}. These works primarily ask whether a fixed action
+sequence controls a rollout. We instead intervene on \emph{when} within a
+single denoising block the action becomes available.
+
+\paragraph{Time-varying conditioning and editing.}
+Diffusion models iteratively refine noise \citep{ho2020ddpm}; distribution
+matching distillation can compress this process to few steps
+\citep{yin2024dmd}. Diffusion editing changes a source at an intermediate
+noise level \citep{meng2022sdedit}, while Prompt-to-Prompt injects attention
+maps over selected denoising steps \citep{hertz2023prompt}. Conditioning can
+also be scheduled during sampling, as in condition-annealed sampling
+\citep{sadat2024cads}. These works establish that \emph{when} and \emph{how}
+conditioning enters diffusion can affect the result; they target editing,
+fidelity--diversity trade-offs, or semantic control rather than an action that
+arrives asynchronously during an already executing world-model block.
+
+\paragraph{Few-step generation and inference reuse.}
+Self Forcing combines few-step generation with causal autoregression and
+rolling KV state \citep{huang2025selfforcing}. Matrix-Game 2.0 uses a
+three-evaluation causal generator with mouse and keyboard control
+\citep{he2025matrixgame2}. minWM provides a four-step Action2V pipeline over
+Wan2.1 \citep{zhao2026minwm,wan2025}. Their speed makes in-flight action
+arrival practically relevant. Feature-caching methods such as DeepCache reuse
+temporally redundant diffusion computation \citep{ma2024deepcache}. In
+contrast, \method{} does not approximate a denoiser or cache features for
+unconditional speedup: it switches an action under coupled state/noise,
+measures when the new branch remains recoverable, and uses that boundary to
+select an exact checkpoint and replay suffix. The logical policy resembles
+checkpoint/replay serving, but checkpoint contents follow an
+architecture-specific dependency audit.
+
+\section{Asynchronous action commitment}
+\label{sec:problem}
+
+Consider one autoregressive video block generated by $K$ denoising network
+evaluations. A prefix state $h$, initial noisy latent $z_K$, materialized future
+noise $\epsilon$, sampler $\mathcal{S}$, and action $a$ define a deterministic
+rollout
+\begin{equation}
+  y = F(h,z_K,\epsilon,\mathcal{S};a).
+\end{equation}
+Let $a_o$ and $a_n$ be opposite old and new actions. The switched rollout
+$y_s$ uses $a_o$ for the first $s$ evaluations and $a_n$ for the remaining
+$K-s$. Thus $y_0=y_n$ is the new-action oracle and $y_K=y_o$ the old-action
+oracle. Given a signed action-response evaluator $g(\cdot)$, we define
+\begin{equation}
+  R(s)=
+  \frac{g(y_s)-g(y_o)}{g(y_n)-g(y_o)} ,
+  \label{eq:response}
+\end{equation}
+without clipping. $R=1$ denotes new-oracle behavior and $R=0$ old-oracle
+behavior. We evaluate both switch directions and require separated oracles,
+metric-sign agreement, adequate tracking support, exact stochastic coupling,
+and valid videos before interpreting $R$.
+
+An \emph{operational commitment boundary} lies between adjacent evaluations
+where $R$ undergoes a materially steep drop at the available sampling
+granularity. The latest safe state is the last state from which applying $a_n$
+retains near-oracle response. This is a controlled causal intervention on the
+model rollout, not a claim of physical causal correctness. The boundary is a
+property of the model, action family, sampler, metric, and evaluation
+granularity; it is not assumed universal or infinitely sharp.
+
+\section{\method{}}
+\label{sec:method}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.84\linewidth]{figures/lateact_mechanism.png}
+  \caption{\textbf{\method{} restores the latest pre-commitment state.}
+  With a new action arriving after \nfe{}2, direct binding changes only
+  \nfe{}3 and remains committed to \old{}. Full restart recomputes all three
+  evaluations. \method{} restores the input to \nfe{}2 and recomputes
+  \nfe{}2--\nfe{}3 under \new{}, preserving reusable \nfe{}1 work.}
+  \label{fig:mechanism}
+\end{figure}
+
+\paragraph{Policies.}
+Figure~\ref{fig:mechanism} contrasts four serving policies.
+\textsc{Next-Block} finishes the current block under \old{} and applies
+\new{} only to the next block. \direct{} uses \new{} at the next available
+evaluation without restoring state. \restart{} discards current progress and
+recomputes all $K$ evaluations under \new{}. \method{} directly binds arrivals
+that occur before commitment; otherwise it restores the latest safe state and
+replays only the necessary suffix.
+
+\paragraph{Compact exact checkpoint.}
+In Matrix-Game, the latest safe point is the input to \nfe{}2. Static and
+runtime tracing show that \nfe{}2 overwrites every current-block visual and
+action KV position before reading it. Historical-prefix and cross-attention KV
+remain immutable. The implemented checkpoint therefore stores the BF16
+entering-\nfe{}2 latent ($337{,}920$ bytes) and defensive visual/mouse/keyboard
+cache indices ($1{,}440$ bytes), totaling $339{,}360$ bytes. Scheduler state is
+stateless for the fixed tensors, and random noise is materialized before
+branching. Independent replay audits require bit-exact equality between
+restored and freshly generated \old{}-\nfe{}1/\new{}-\nfe{}2--\nfe{}3
+trajectories.
+
+\paragraph{Arrival scheduling.}
+An action becomes usable after the currently executing evaluation completes.
+An arrival during \nfe{}1 binds \new{} for \nfe{}2--\nfe{}3 without restore.
+An arrival during \nfe{}2 or \nfe{}3 restores the entering-\nfe{}2 checkpoint
+and replays \nfe{}2--\nfe{}3. This fixed rule is calibrated once on disjoint
+commitment scenes; the asynchronous evaluation never refits the boundary.
+
+\medskip
+\noindent\fbox{\begin{minipage}{0.955\linewidth}
+\small
+\textbf{Algorithm 1: calibrate and serve with \method{}.}
+\textbf{Calibrate:} generate $y_s$ for $s=0{:}K$ with coupled state/noise;
+compute $R(s)$ and retain the state at the latest switch $s^*$ passing the
+frozen gates. \textbf{Serve:} bind $a_n$ directly if actionable by $s^*$;
+otherwise restore $s^*$ and replay only $s^*{+}1{:}K$ under $a_n$.
+\textbf{Audit:} trace mutable dependencies read by the suffix to derive the
+payload, then verify exact replay.
+\end{minipage}}
+\medskip
+
+The policy above is architecture-independent; the dependency audit is not.
+In particular, neither Matrix-Game's payload nor its 339,360-byte size is
+assumed to transfer to another model.
+
+\section{Experimental design}
+\label{sec:setup}
+
+\paragraph{Substrates and actions.}
+The primary substrate is the open Matrix-Game 2.0 causal generator
+\citep{he2025matrixgame2}, evaluated in BF16 with three denoising evaluations
+per block. The primary action is opposite mouse-yaw; keyboard A/D is a
+pre-specified limitation study. Mechanism replication uses the pinned minWM
+Wan2.1 Action2V four-step DMD checkpoint \citep{zhao2026minwm}.
+
+\paragraph{Splits.}
+Matrix-Game commitment calibration uses eight official images and both yaw
+directions (16 pairs). Minimal rollback uses the same frozen pairs only after
+the boundary gate passes. The final serving test uses 32 fresh stochastic
+contexts: eight disjoint base images, four deterministic variants per base,
+two directions per variant, and 16 deterministic stratified arrivals per
+direction (64 direction cells and 1,024 paired arrivals). Statistical
+inference clusters by the eight independent base images; the 64 direction
+cells remain descriptive quality units.
+Keyboard calibration uses 10 fresh stochastic contexts (20 directions), and
+its serving confirmation uses 24 disjoint contexts (48 directions).
+
+The original minWM study fixes official prompts 0--7, seeds 41000--41007, and
+native lateral \texttt{a*3} versus \texttt{d*3}. Its formal gate fails and is
+preserved. After that identifiability audit, exactly one follow-up was frozen
+at commit \texttt{f1e2bbc} before its outputs were generated. It uses the same
+model, evaluator, thresholds, and gate with stronger native yaw
+\texttt{j*3} versus \texttt{l*3}, fresh consecutive official prompts 8--15,
+seeds 41008--41015, both directions, and all switch positions
+$s=0,\ldots,4$. No scene is screened or replaced, and rollback is prohibited.
+
+\paragraph{Coupling and metrics.}
+Every branch shares prefix, initial latent, explicit re-noising tensors,
+sampler, weights, historical state, and non-action conditioning; only the
+action tensor at designated evaluations differs. Same-action controls must
+produce exact latent hashes. Signed horizontal motion is measured with
+forward/backward-consistent Lucas--Kanade tracks \citep{lucas1981iterative}
+and a RANSAC partial-affine fit \citep{fischler1981ransac}; the second estimate
+serves as a complementary sign-consistency check. Keyboard uses the same construction but
+an action-appropriate lateral scene-translation score rather than the
+mouse-yaw score. Quality uses future-frame SSIM \citep{wang2004ssim}, temporal
+consistency, boundary jump, and finite/nonconstant decode checks.
+Action-to-pixel latency includes checkpoint operations and VAE decoding.
+
+\paragraph{Frozen gates.}
+Matrix-Game requires all 16 directions to be evaluator-valid and a steep,
+bounded, monotone response transition. minWM requires an oracle gap of at least
+8 pixels, at least $10\times$ the same-action floor, at least 20 median
+inliers, and affine/LK sign agreement. Confirmation requires at least 12/16
+valid monotone bounded pairs, six per direction, and an adjacent median drop
+of 0.15. The thresholds serve distinct safeguards: the 8-pixel gap enforces
+absolute action distinguishability, the $10\times$ same-action floor bounds
+repeatability noise, the 20-inlier requirement supports estimator stability,
+and the 0.15 adjacent-drop gate requires a materially steep transition.
+Separately, the 0.10 response tolerance defines operational near-restart
+equivalence, while median SSIM $\geq0.90$ serves as the frozen
+trajectory-fidelity safeguard. Appendix~\ref{app:quality} gives the full
+rationale. All precede broad inference.
+Experiments run on two RTX 3090 GPUs for Matrix-Game and one RTX 3090 for
+minWM; no training or weight modification is performed.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Denoising-time commitment}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.92\linewidth]{figures/cross_model_commitment.pdf}
+  \caption{\textbf{Action response shows a steep commitment transition at
+  few-step sampling granularity.}
+  Thin lines are direction-scene curves; bold lines are medians.
+  (a) Matrix-Game mouse-yaw retains \new{} after one old-action evaluation
+  ($0.997$) but falls to $0.218$ after two (16/16 valid).
+  (b) The frozen minWM yaw follow-up passes 16/16 pairs and drops to $0.145$
+  after one of four old-action evaluations. The original minWM lateral curve
+  is descriptively similar but remains a failed replication because only 6/16
+  pairs meet the unchanged oracle-separation gate.}
+  \label{fig:curves}
+\end{figure}
+
+\paragraph{Matrix-Game.}
+All 16 mouse-yaw pairs are valid, monotone, and bounded. Median $R(s)$ for
+$s=0,1,2,3$ is $[1.000,0.997,0.218,0.000]$, with a paired median drop of
+0.774 from one to two old-action evaluations. This descriptive 16/16 result
+places the latest safe checkpoint at the input to \nfe{}2.
+
+\paragraph{Independent minWM mechanism chronology.}
+The original eight-scene lateral \texttt{a/d} study passes oracle separation
+on only 6/16 pairs (three per direction), below the frozen 12/16 requirement.
+Its commitment-like curve is descriptive only; action separation, not the
+implementation audits, causes the identifiability failure.
+
+Following this failed identifiability audit, the single pre-specified frozen
+\texttt{j/l} yaw follow-up uses fresh prompts and unchanged evaluation,
+thresholds, and success gate. It passes 16/16 pairs (8/8 per direction);
+all validity and coupling audits pass, and median $R(s)$ is
+$[1.000,0.145,0.011,0.003,0.000]$. This replicates the \emph{commitment
+mechanism} on a second model, not \method{} rollback or latency; full protocol
+and failure chronology appear in Appendix~\ref{app:minwm}.
+
+\subsection{Rollback recovers the new action}
+
+On the 16 Matrix-Game calibration directions, direct binding from the
+post-\nfe{}2 state has median response 0.218, while restoring the input to
+\nfe{}2 yields 0.997; full restart is 1.000. Minimal rollback improves all
+16/16 pairs and is within 0.10 of restart on all 16. Its median future-SSIM to
+the new oracle is 0.9026, passing the frozen median-level 0.90 safeguard. A
+representative coupled branch is retained in Appendix~\ref{app:quality} rather
+than used as primary evidence.
+
+\subsection{Frozen asynchronous serving evaluation}
+
+\begin{table}[t]
+  \centering
+  \caption{\textbf{Matrix-Game mouse-yaw serving results over 1,024 paired
+  arrivals.} Response and latency are descriptive medians. For
+  \textsc{Next-Block}, response is for the current block, while latency ends
+  when \new{} first affects pixels in the following block. \method{} reaches
+  near-restart normalized response with two post-arrival evaluations rather
+  than three.}
+  \label{tab:serving}
+  \small
+  \begin{tabular}{lrrrr}
+    \toprule
+    Policy & Response & Latency (s) & Post-arrival NFEs & Redone NFEs \\
+    \midrule
+    \textsc{Next-Block} & 0.0000 & 5.1554 & 4 & 0 \\
+    \direct{}            & 0.1605 & 2.2925 & 2 & 0 \\
+    \restart{}           & 1.0000 & 2.5900 & 3 & 2 \\
+    \textbf{\method{}}   & \textbf{0.9999} & \textbf{2.2843} & \textbf{2} & \textbf{1} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Table~\ref{tab:serving} reports the disjoint serving test. For all 676 arrivals
+during \nfe{}2 or \nfe{}3, \method{} is within 0.10 of full restart, redoes
+one fewer evaluation, and saves 11.93\% mean late-arrival latency. For all 348
+\nfe{}1 arrivals, direct binding and \method{} are the same trajectory, with
+zero restore, discard, or redone evaluations.
+
+Inference uses the eight independent base images, not the 64 derived
+variant/direction cells. Averaging the actual 676 late-arrival rows within this
+hierarchy, \method{} minus \direct{} response is 0.9091 mean and 0.9304 median
+across bases (cluster-bootstrap 95\% CI $[0.8598,0.9541]$); all 8/8 base-image
+effects are positive. Full-restart minus \method{} latency saving is
+0.3118\,s mean and 0.3137\,s median (95\% CI $[0.3055,0.3175]$), again positive
+for 8/8 bases. The corresponding exact one-sided Wilcoxon value is
+$p=0.0039$ for each effect.
+
+Mouse-yaw trajectory quality is broadly stable but not uniform. Over the 64
+descriptive scene-variant/direction comparisons, future-SSIM has median 0.9223
+and p05 0.8397; 60/64 are at least 0.85. The frozen $\geq0.90$ requirement is
+a median-level safeguard, not a per-direction threshold. Temporal and
+finite/nonconstant decode safeguards pass 64/64; Appendix~\ref{app:quality}
+discloses the full tail, including the unfavorable 0.7184 minimum.
+
+\paragraph{State and runtime.}
+The compact exact checkpoint is 339,360 bytes ($1{,}913\times$ smaller; 1,432
+bytes above the logical minimum), with 1.456/0.878\,ms save/restore. All 80
+replays pass exact state/scheduler/RNG audits (peak 8.908\,GiB).
+
+\subsection{Keyboard: shared boundary, failed fidelity}
+
+Frozen action-appropriate calibration corrects the initial mouse-yaw score and
+finds the \emph{same} boundary: $R(1)=0.9957$, $R(2)=0.1240$. Across 24
+contexts, rollback reaches median response 1.0188 and is near restart for all
+512 late arrivals, but future-SSIM is 0.6726, below the frozen 0.90 median gate
+(temporal 48/48). Shared commitment and direction do not imply action-general
+fidelity.
+
+\section{Discussion and limitations}
+\label{sec:discussion}
+
+Matrix-Game mouse-yaw supports compact exact rollback with near-restart
+response and lower latency. minWM supports mechanism replication only;
+\texttt{a/d} remains failed and keyboard precludes action-general fidelity.
+
+\paragraph{Deployment scope.}
+Full efficacy is limited to Matrix-Game mouse-yaw; minWM tests commitment, not
+rollback/latency. Arrivals are stratified, not production-sampled; latency is
+about 2.28\,s; and the boundary is calibrated, not predicted online. No
+task-level physical-control objective or real robot is evaluated.
+
+\section{Conclusion}
+
+\method{} turns a measured action-recoverability boundary into exact suffix
+replay, yielding near-restart mouse-yaw response with safeguards and lower
+Matrix-Game latency. minWM mechanism replication and the negative results
+delimit this claim.
+
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\input{appendix}
+
+\input{checklist}
+
+\end{document}

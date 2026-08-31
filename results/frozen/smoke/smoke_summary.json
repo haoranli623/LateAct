@@ -1,0 +1,159 @@
+{
+  "curves": {
+    "0000": {
+      "left_to_right": {
+        "dense_oracle_gap": -110.25180286169052,
+        "evaluator_valid": true,
+        "median_oracle_track_count": 587.0,
+        "monotone_tolerance_0_10": true,
+        "new_action_fraction_s0_to_s3": [
+          1.0,
+          0.9680285293625381,
+          0.17927069274600654,
+          -0.0
+        ],
+        "new_run": "oracle_mouse_right",
+        "old_run": "oracle_mouse_left",
+        "oracle_gap": -112.56937789916992,
+        "oracle_latents_distinct": true,
+        "run_names_s0_to_s3": [
+          "oracle_mouse_right",
+          "lr_s1",
+          "lr_s2",
+          "oracle_mouse_left"
+        ],
+        "scores_s0_to_s3": [
+          -52.687015533447266,
+          -49.0880069732666,
+          39.701972007751465,
+          59.882362365722656
+        ]
+      },
+      "right_to_left": {
+        "dense_oracle_gap": 110.25180286169052,
+        "evaluator_valid": true,
+        "median_oracle_track_count": 587.0,
+        "monotone_tolerance_0_10": true,
+        "new_action_fraction_s0_to_s3": [
+          1.0,
+          0.9809818482505245,
+          0.2890239637983669,
+          0.0
+        ],
+        "new_run": "oracle_mouse_left",
+        "old_run": "oracle_mouse_right",
+        "oracle_gap": 112.56937789916992,
+        "oracle_latents_distinct": true,
+        "run_names_s0_to_s3": [
+          "oracle_mouse_left",
+          "rl_s1",
+          "rl_s2",
+          "oracle_mouse_right"
+        ],
+        "scores_s0_to_s3": [
+          59.882362365722656,
+          57.74150085449219,
+          -20.15176773071289,
+          -52.687015533447266
+        ]
+      }
+    },
+    "0001": {
+      "left_to_right": {
+        "dense_oracle_gap": -97.23682843754068,
+        "evaluator_valid": true,
+        "median_oracle_track_count": 295.0,
+        "monotone_tolerance_0_10": true,
+        "new_action_fraction_s0_to_s3": [
+          1.0,
+          0.9961164733897027,
+          0.1775366141552712,
+          -0.0
+        ],
+        "new_run": "oracle_mouse_right",
+        "old_run": "oracle_mouse_left",
+        "oracle_gap": -109.29030323028564,
+        "oracle_latents_distinct": true,
+        "run_names_s0_to_s3": [
+          "oracle_mouse_right",
+          "lr_s1",
+          "lr_s2",
+          "oracle_mouse_left"
+        ],
+        "scores_s0_to_s3": [
+          -52.42841815948486,
+          -52.00398635864258,
+          37.45885467529297,
+          56.86188507080078
+        ]
+      },
+      "right_to_left": {
+        "dense_oracle_gap": 97.23682843754068,
+        "evaluator_valid": true,
+        "median_oracle_track_count": 295.0,
+        "monotone_tolerance_0_10": true,
+        "new_action_fraction_s0_to_s3": [
+          1.0,
+          0.9998514474653045,
+          0.43782863943304173,
+          0.0
+        ],
+        "new_run": "oracle_mouse_left",
+        "old_run": "oracle_mouse_right",
+        "oracle_gap": 109.29030323028564,
+        "oracle_latents_distinct": true,
+        "run_names_s0_to_s3": [
+          "oracle_mouse_left",
+          "rl_s1",
+          "rl_s2",
+          "oracle_mouse_right"
+        ],
+        "scores_s0_to_s3": [
+          56.86188507080078,
+          56.84564971923828,
+          -4.577993392944336,
+          -52.42841815948486
+        ]
+      }
+    }
+  },
+  "direction_scene_count": 4,
+  "engineering": {
+    "all_historical_cache_checks_passed": true,
+    "all_noise_hashes_match": true,
+    "all_oracle_latents_distinct": true,
+    "only_mouse_condition_differs": true,
+    "same_action_controls_exact": true
+  },
+  "engineering_pass": true,
+  "monotone_direction_count": 4,
+  "paired_effect": {
+    "bootstrap_mean_95_percent_ci": [
+      0.6187065651783299,
+      0.8036688479254814
+    ],
+    "p1_minus_p2_mean": 0.7153295970838458,
+    "p1_minus_p2_median": 0.7403578605343446,
+    "wilcoxon_greater_p": 0.0625
+  },
+  "phase": "smoke",
+  "recommendation": "PROCEED_TO_FROZEN_GATE0",
+  "runtime": {
+    "cache_bytes_at_fork": {
+      "cross": 47370240,
+      "keyboard": 737760,
+      "mouse": 648806880,
+      "total": 1670124960,
+      "visual": 973210080
+    },
+    "generation_seconds_mean_per_unique_run": 1.2194403343833984,
+    "generation_seconds_total": 24.388806687667966,
+    "gpu_devices": [
+      "NVIDIA GeForce RTX 3090"
+    ],
+    "peak_allocated_bytes": 10065501184
+  },
+  "same_action_lk_motion_floor": 0.0,
+  "scene_count": 2,
+  "valid_direction_count": 4
+}
