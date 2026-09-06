@@ -1,0 +1,44 @@
+{
+  "scientific_source": {
+    "branch": "recovery/wmpai-2026-submission",
+    "commit": "e44c535f83e2929405090ce29257b41e6c067f45"
+  },
+  "late_action_normalized_response": {
+    "statistic": "median across 16 validated Gate 1 mouse-yaw scene-direction pairs",
+    "direct_late_bind_exact": 0.21823602063469516,
+    "minimal_rollback_exact": 0.997053723726691,
+    "display": "0.218 → 0.997",
+    "source_artifact": "recovery/wmpai-2026-submission:results/frozen/gate1/gate1_summary.json",
+    "source_fields": [
+      "response.direct.median",
+      "response.minimal_rollback.median"
+    ],
+    "source_report": "recovery/wmpai-2026-submission:GATE1_REPORT.md"
+  },
+  "mean_latency_reduction_vs_full_restart": {
+    "statistic": "mean saved fraction across 676 valid fresh asynchronous late-arrival cases in Gate 2 primary mouse-yaw evaluation",
+    "exact_fraction": 0.11928583948989827,
+    "display": "11.93%",
+    "source_artifact": "recovery/wmpai-2026-submission:results/frozen/gate2/primary/mouse_summary.json",
+    "source_field": "late_arrivals.mean_latency_saved_fraction",
+    "source_report": "recovery/wmpai-2026-submission:GATE2_REPORT.md"
+  },
+  "matched_asynchronous_arrivals": {
+    "statistic": "paired Gate 2 primary Matrix-Game mouse-yaw arrival cases",
+    "exact_count": 1024,
+    "late_arrivals": 676,
+    "early_arrivals": 348,
+    "display": "1,024",
+    "source_artifact": "recovery/wmpai-2026-submission:results/frozen/gate2/primary/mouse_summary.json",
+    "source_field": "arrival_case_count",
+    "source_report": "recovery/wmpai-2026-submission:GATE2_REPORT.md"
+  },
+  "final_exact_rollback_checkpoint": {
+    "statistic": "exact optimized device-resident checkpoint state in Gate 2 primary",
+    "exact_bytes": 339360,
+    "display": "339,360 B (~339 KB)",
+    "source_artifact": "recovery/wmpai-2026-submission:results/frozen/gate2/primary/mouse_summary.json",
+    "source_field": "checkpoint.gate2_optimized_exact_bytes.total",
+    "source_report": "recovery/wmpai-2026-submission:GATE2_REPORT.md"
+  }
+}
