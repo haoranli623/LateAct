@@ -61,8 +61,3 @@ python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000/`.
-
-## Review status
-
-The workshop submission and its recovery snapshot remain private during review.
-No public paper or repository URL is provided on this branch.
